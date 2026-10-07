@@ -1,0 +1,19 @@
+if(NOT DEFINED DEPLOY_ROOT)
+    message(FATAL_ERROR "DEPLOY_ROOT was not provided")
+endif()
+
+file(TO_CMAKE_PATH "${DEPLOY_ROOT}" DEPLOY_ROOT_NORMALIZED)
+
+if(NOT EXISTS "${DEPLOY_ROOT_NORMALIZED}")
+    return()
+endif()
+
+file(GLOB ECONOMIA_COMPILER_RUNTIME_INSTALLERS
+    "${DEPLOY_ROOT_NORMALIZED}/vc_redist*.exe"
+    "${DEPLOY_ROOT_NORMALIZED}/vcredist*.exe"
+)
+
+if(ECONOMIA_COMPILER_RUNTIME_INSTALLERS)
+    file(REMOVE ${ECONOMIA_COMPILER_RUNTIME_INSTALLERS})
+    message(STATUS "Removed compiler runtime installer from deploy root: ${DEPLOY_ROOT_NORMALIZED}")
+endif()

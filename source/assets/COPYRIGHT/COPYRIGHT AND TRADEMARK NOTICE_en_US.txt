@@ -1,0 +1,30 @@
+COPYRIGHT AND TRADEMARK NOTICE — Economia APP
+Version 2026.9.30.0, September 30, 2026
+======================================
+
+Copyright (C) 2025–2026 Fernando Nillsson Cidade. All rights reserved.
+
+The software "Economia APP" and all associated documentation — including source code, graphical user interface, texts, manuals, visual assets (icons, logos) and other resources provided with the project — are the intellectual property of Fernando Nillsson Cidade, unless otherwise indicated for third‑party components.
+
+Trademarks
+- "Economia APP" is a trademark owned by Fernando Nillsson Cidade.
+- Unauthorized use of the name, logo, or any distinctive element of the project is prohibited, except with express written permission from the owner.
+
+Permissions and restrictions
+- Use of the Software is permitted for personal, educational, and professional purposes in accordance with the terms of the included license (assets/EULA/EULA_pt_BR - Economia.txt).
+- Redistribution of the executable or modified source code must comply with the license restrictions indicated in the EULA; in particular, it is not permitted to claim authorship of others' work or to remove copyright notices without authorization.
+- For reuse of parts of the code in other projects, retain the original copyright notices and attribution and follow the applicable license terms.
+
+Third‑party components
+- Third‑party libraries and tools used by the project (for example PySide6) remain subject to their own licenses. See assets/NOTICES/NOTICE_pt_BR.txt and the full license texts included in the package for details and attributions.
+- When packaging (e.g., PyInstaller), verify redistribution obligations stipulated in the licenses of bundled components.
+
+Requests for permission / commercial use
+- For requests for commercial licensing, differentiated redistribution authorization, or use of the trademark, contact the author (see information in the repository README).
+
+Contact
+- Author: Fernando Nillsson Cidade
+- Repository / issues / contributions: see the README in the project repository (contact information and contribution instructions).
+
+Final remark
+- This notice complements the license documents and technical notices included in the package (assets/EULA, assets/NOTICES). Check those files before redistributing or modifying the software.

@@ -1,0 +1,81 @@
+Projeto: Economia APP - Calculadora Financeira
+Versão: 2026.9.30.0
+Autores: Fernando Nillsson Cidade
+
+Descrição resumida:
+Economia APP é uma ferramenta de apoio ao estudo de Economia de Engenharia (disciplina TT007) que automatiza cálculos financeiros frequentes — juros simples e compostos, anuidades, gradientes, equivalência de taxas, amortização (SAC, Price, SAM), análise de investimentos (VPL / VAUE) e depreciação — e apresenta passos detalhados e histórico dos resultados.
+
+Descrição detalhada:
+O aplicativo foi desenvolvido para reduzir o tempo gasto em rechecagens manuais e minimizar erros de cálculo, fornecendo:
+- Interface em abas por tópicos (Juros, Anuidades, Gradientes, Conversão de Taxas, Amortização, Investimentos, Depreciação).
+- Saída com passos detalhados para facilitar a compreensão e revisão.
+- Histórico editável dos cálculos para registro e comparação.
+- Geração de tabelas de amortização e exportação para PDF.
+- Suporte a diferentes regimes e métodos (postecipada/antecipada, simples/composto, SAC/Price/SAM, linear/soma dos dígitos).
+
+Principais funcionalidades:
+- Cálculos de juros simples e compostos (montante P↔F com exibição de passos).
+- Anuidades: cálculo de prestação (A) e valor presente (P) para séries postecipada/antecipada.
+- Gradientes: aritméticos e geométricos com fórmulas aplicadas e passos.
+- Conversão de taxas efetivas entre diferentes períodos (equivalência).
+- Amortização: geração e visualização de tabelas (SAC, Price, SAM) com exportação em PDF.
+- Análise de Investimentos: VPL e VAUE com detalhamento dos passos de cálculo.
+- Depreciação: método linear e soma dos dígitos.
+- Histórico de cálculos com opções de edição/remoção/exportação.
+- Suporte a tradução (pt_BR / en_US).
+
+Instalação e distribuição (Windows):
+1. Instalar Python 3.10+ (recomendado).
+2. Em um terminal (PowerShell ou cmd), criar e ativar ambiente virtual:
+   - python -m venv venv
+   - venv\Scripts\activate
+3. Instalar dependências:
+   - pip install PySide6
+   (Se houver requirements.txt: pip install -r requirements.txt)
+4. Executar:
+   - python main.py
+
+Empacotamento (opcional):
+- Para criar executável, usar PyInstaller ou ferramenta similar. Verificar inclusão dos diretórios assets e language/translations e arquivos EULA/ABOUT.
+
+Armazenamento de dados e privacidade:
+- Configurações e arquivos persistentes são gravados localmente no diretório do usuário:
+  %LOCALAPPDATA%\Economia_APP
+- Arquivos podem incluir configurações de idioma, histórico e arquivos auxiliares (ex.: trial_info.json se TrialManager estiver habilitado).
+- Logs gerados pela aplicação ficam disponíveis por meio do módulo utils.LogManager (ver código em utils/LogManager.py).
+- O aplicativo não transmite automaticamente dados para terceiros. Qualquer envio de dados para diagnóstico ou crash report será feito apenas mediante ação do usuário (não automatizado por padrão).
+
+Requisitos do sistema:
+- Windows 10/11 (ou similar) com Python 3.10+
+- PySide6 instalado
+- Espaço mínimo: poucos MBs (dependendo de assets)
+- Acesso de escrita em %LOCALAPPDATA% para salvar configurações e logs
+
+Como usar (rápido):
+1. Abra o aplicativo: python main.py (ou executável).
+2. Navegue pelas abas (Juros, Anuidades, Gradientes, Conversão de Taxas, Amortização, Investimentos, Depreciação).
+3. Preencha os campos numéricos (use ponto ou vírgula; o app aceita vírgula e converte).
+4. Clique em "Calcular" ou "Gerar Tabela de Amortização".
+5. Visualize o histórico à direita; edite, copie ou exporte conforme necessário.
+6. Para exportar tabelas em PDF utilize a opção de exportação na interface ou no menu Arquivos → Exportar.
+
+Soluções de problemas comuns:
+- Erro "PySide6 not found": execute pip install PySide6 no ambiente ativo.
+- Problemas ao abrir PDF exportado: verifique se o caminho de salvamento é acessível e se o filename termina com .pdf.
+- Campos em branco ou inválidos: preencher todos os campos obrigatórios; números decimais aceitam vírgula como separador.
+- Permissão de escrita negada: garantir acesso ao %LOCALAPPDATA% ou executar com permissão adequada.
+- Traduções (.qm) não aparecem: compilar .ts com pyside6-lrelease (script language/trans_02_compileTranslations.py) e garantir presença dos .qm em language/translations.
+
+Contatos e suporte:
+- Autor: Fernando Nillsson Cidade
+- Suporte e contribuições: abrir issue ou pull request no repositório do projeto (ver README/ repositório Git). Para contato direto, ver informações no repositório (README/CONTACT).
+
+Licença e avisos:
+- Termos de licença e avisos estão disponíveis nos arquivos EULA e NOTICE na pasta assets/EULA e assets/NOTICES (carregados por source/ui/ui_20_opcoes_sobre.py).
+- Consulte os arquivos de licença incluídos (EULA_pt_BR, EULA_en_US) antes da distribuição.
+- O aplicativo é fornecido "no estado em que se encontra"; o autor não se responsabiliza por decisões financeiras tomadas com base nas saídas do programa — usar como ferramenta de apoio e verificar resultados.
+
+Notas finais:
+- Economia APP foi concebido como ferramenta de estudo e apoio didático para estudantes de Engenharia Civil e profissionais que precisam validar cálculos econômicos com agilidade.
+- Contribuições, sugestões de melhoria e relatórios de erro são bem-vindos para fortalecer a utilidade da ferramenta na comunidade acadêmica.
+- Para desenvolvedores: consulte o código-fonte em source/ e os módulos utils/ para entender onde persistência, tradução, logging e exportação estão implementados.

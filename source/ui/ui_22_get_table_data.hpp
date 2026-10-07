@@ -1,0 +1,4 @@
+#ifndef UI_22_GET_TABLE_DATA_HPP
+#define UI_22_GET_TABLE_DATA_HPP
+
+#endif // UI_22_GET_TABLE_DATA_HPP

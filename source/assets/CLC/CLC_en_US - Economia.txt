@@ -1,0 +1,93 @@
+COMMERCIAL LICENSE AGREEMENT — ECONOMIA APP
+Version: 2026.9.30.0
+Date: September 30, 2026
+
+This Commercial License Agreement ("Agreement") is entered into by:
+
+LICENSOR: Fernando Nillsson Cidade, hereinafter "LICENSOR".
+LICENSEE: the natural or legal person who acquires the commercial license for the software "Economia APP", hereinafter "LICENSEE".
+
+PREAMBLE
+This Agreement supplements the terms of the End User License Agreement (EULA) included in the package (assets/EULA/EULA_pt_BR - Economia.txt) and governs the commercial license modalities, support, updates and liabilities related to the Economia APP software — a financial calculator intended to support studies in Engineering Economics (TT007) with features for interest, annuities, gradients, amortization (SAC/Price/SAM), rate equivalence, investment analysis (VPL/VAUE), depreciation, history and export (PDF).
+
+1. SUBJECT
+1.1 Grant of a license to use the Economia APP software according to the chosen commercial modality.
+1.2 The LICENSEE receives the right to use the provided executable and documentation; source code distribution occurs only if specifically contracted.
+
+2. LICENSING MODALITIES
+2.1 Individual License
+  a) Installation on up to 2 (two) devices owned by the same LICENSEE.
+  b) Updates and fixes for 1 (one) year from the date of purchase (when applicable).
+  c) Basic technical support (ticket / e-mail) for 1 (one) year.
+2.2 Small Business License
+  a) Installation on up to 10 (ten) workstations within the same organization.
+  b) Updates for 1 (one) year.
+  c) Priority support by e-mail and phone for 1 (one) year.
+  d) Basic customization (textual branding and icons) subject to technical evaluation.
+2.3 Enterprise License
+  a) Unlimited installation as per commercial agreement.
+  b) Updates for 2 (two) years.
+  c) Premium support (SLA) including remote support and prioritized fixes.
+  d) Integration, training and customization options subject to a commercial addendum.
+
+3. PAYMENT AND BILLING
+3.1 Prices, terms and payment methods (boleto, card, bank transfer, PIX) will be specified in the commercial proposal.
+3.2 Late payments: default interest of 1% per month and a penalty of 2% on the amount due, plus collection costs.
+3.3 Non-payment may result in suspension of support until regularization.
+
+4. TERM AND RENEWAL
+4.1 This Agreement is effective for the period specified in the purchased modality.
+4.2 Renewal of support/updates is subject to payment of the current fee; continued use of the software is not conditioned on renewal, unless otherwise provided in the specific contract.
+
+5. SUPPORT, DELIVERY AND UPDATES
+5.1 The LICENSOR delivers the installer/executable and documentation. The LICENSEE is responsible for local installations.
+5.2 Support covers guidance on installing the executable, using documented features and fixing defects that impair expected operation.
+5.3 Corrective and evolutionary updates will be made available according to the version policy and the contracted modality.
+
+6. DATA STORAGE AND PRIVACY
+6.1 User data (history, settings, possible trial_info.json) are stored locally in %LOCALAPPDATA%\Economia_APP, unless otherwise expressly agreed.
+6.2 The software does not send telemetry by default. Any diagnostic submission depends on explicit user authorization.
+6.3 The processing of personal data will comply with applicable law (LGPD) and the Privacy Policy included in the package.
+
+7. THIRD-PARTY COMPONENTS
+7.1 Economia APP uses third-party libraries (e.g., PySide6). Those components retain their own licenses; copies of license texts and notices are available in assets/NOTICES and assets/EULA.
+7.2 When packaging (PyInstaller), obligations for redistribution of LGPL/third-party components must be observed; instructions are included in NOTICE_pt_BR.txt.
+
+8. LIMITATIONS OF LIABILITY
+8.1 The software is provided "as is". The LICENSOR does not warrant financial or engineering results obtained solely from the software outputs.
+8.2 To the maximum extent permitted by law, the LICENSOR will not be liable for indirect damages, lost profits or consequences arising from the use of the software.
+8.3 Total liability, where admitted, will be limited to the amount actually paid by the LICENSEE or R$ 5.00, whichever is greater.
+
+9. CONFIDENTIALITY
+9.1 The parties agree to keep confidential technical and commercial information exchanged under this Agreement for a period of 5 (five) years, unless otherwise provided.
+
+10. TERMINATION
+10.1 This Agreement may be terminated for breach of clauses, financial default or by mutual agreement.
+10.2 In case of termination due to LICENSEE's fault, amounts paid will not be refunded, except by separate agreement.
+
+11. TRANSFER AND RESTRICTIONS
+11.1 The LICENSEE may not sublicense, resell or redistribute the executable without express authorization from the LICENSOR, except as permitted by the purchased modality.
+11.2 Modifications that remove copyright notices, trademarks or license notices are prohibited.
+
+12. ACCESSIBILITY AND STORE DISTRIBUTION
+12.1 Inclusion in digital stores (e.g., Microsoft Store) may require additional accessibility documentation; such documents (when applicable) accompany the distribution.
+12.2 Declarations of compliance with platform requirements do not alter the responsibilities set forth in this Agreement, unless agreed in writing otherwise.
+
+13. APPLICABLE LAW AND JURISDICTION
+13.1 This Agreement shall be governed by the laws of the Federative Republic of Brazil.
+13.2 The courts of the District of São José dos Pinhais, State of Paraná, Brazil, are chosen to resolve disputes, unless otherwise required by law.
+
+14. GENERAL PROVISIONS
+14.1 This Agreement complements the EULA and the Privacy Policy provided with the software; the integrated terms form the complete agreement between the parties.
+14.2 Requests for commercial licenses, customization, integration or use of the "Economia APP" brand must be formalized in writing and may require a contractual addendum.
+
+Contact for commercial inquiries, support and requests:
+- Author / LICENSOR: Fernando Nillsson Cidade
+- Repository, issues and contact information: consult the README in the project repository.
+
+Electronically signed:
+_____________________________________
+Fernando Nillsson Cidade — LICENSOR
+
+_____________________________________
+LICENSEE (name and signature)

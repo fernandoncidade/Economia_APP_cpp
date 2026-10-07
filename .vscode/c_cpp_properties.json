@@ -1,0 +1,71 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "Qt6 MinGW Economia_APP",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "mergeConfigurations": true,
+      "compilerPath": "C:/Qt/Tools/mingw1310_64/bin/g++.exe",
+      "intelliSenseMode": "windows-gcc-x64",
+      "cppStandard": "c++17",
+      "cStandard": "c17",
+      "includePath": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/source",
+        "${workspaceFolder}/source/ui",
+        "${workspaceFolder}/source/services",
+        "${workspaceFolder}/source/utils",
+        "${workspaceFolder}/source/language",
+        "${workspaceFolder}/mocks",
+        "C:/Qt/6.11.1/mingw_64/include",
+        "C:/Qt/6.11.1/mingw_64/include/QtCore",
+        "C:/Qt/6.11.1/mingw_64/include/QtGui",
+        "C:/Qt/6.11.1/mingw_64/include/QtWidgets",
+        "C:/Qt/6.11.1/mingw_64/include/QtPrintSupport",
+        "C:/Qt/6.11.1/mingw_64/mkspecs/win32-g++"
+      ],
+      "defines": [
+        "APP_ECONOMIA",
+        "UNICODE",
+        "_UNICODE",
+        "QT_CORE_LIB",
+        "QT_GUI_LIB",
+        "QT_WIDGETS_LIB",
+        "QT_PRINTSUPPORT_LIB"
+      ]
+    },
+    {
+      "name": "Qt6 MSVC Economia_APP",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "mergeConfigurations": true,
+      "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe",
+      "intelliSenseMode": "windows-msvc-x64",
+      "cppStandard": "c++17",
+      "cStandard": "c17",
+      "includePath": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/source",
+        "${workspaceFolder}/source/ui",
+        "${workspaceFolder}/source/services",
+        "${workspaceFolder}/source/utils",
+        "${workspaceFolder}/source/language",
+        "${workspaceFolder}/mocks",
+        "C:/Qt/6.11.1/msvc2022_64/include",
+        "C:/Qt/6.11.1/msvc2022_64/include/QtCore",
+        "C:/Qt/6.11.1/msvc2022_64/include/QtGui",
+        "C:/Qt/6.11.1/msvc2022_64/include/QtWidgets",
+        "C:/Qt/6.11.1/msvc2022_64/include/QtPrintSupport",
+        "C:/Qt/6.11.1/msvc2022_64/mkspecs/win32-msvc"
+      ],
+      "defines": [
+        "APP_ECONOMIA",
+        "UNICODE",
+        "_UNICODE",
+        "QT_CORE_LIB",
+        "QT_GUI_LIB",
+        "QT_WIDGETS_LIB",
+        "QT_PRINTSUPPORT_LIB"
+      ]
+    }
+  ]
+}

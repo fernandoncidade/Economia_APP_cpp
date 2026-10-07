@@ -1,0 +1,29 @@
+if(NOT DEFINED SOURCE_DIR OR "${SOURCE_DIR}" STREQUAL "")
+    message(FATAL_ERROR "SOURCE_DIR was not provided")
+endif()
+
+if(NOT DEFINED DEST_DIR OR "${DEST_DIR}" STREQUAL "")
+    message(FATAL_ERROR "DEST_DIR was not provided")
+endif()
+
+file(TO_CMAKE_PATH "${SOURCE_DIR}" SOURCE_DIR_NORMALIZED)
+file(TO_CMAKE_PATH "${DEST_DIR}" DEST_DIR_NORMALIZED)
+
+if(NOT IS_DIRECTORY "${SOURCE_DIR_NORMALIZED}")
+    message(FATAL_ERROR "Translation source directory does not exist: ${SOURCE_DIR_NORMALIZED}")
+endif()
+
+file(GLOB QM_FILES LIST_DIRECTORIES FALSE "${SOURCE_DIR_NORMALIZED}/*.qm")
+if(NOT QM_FILES)
+    message(FATAL_ERROR "No compiled .qm translations were found in: ${SOURCE_DIR_NORMALIZED}")
+endif()
+
+# Recreate the package directory if CLEAN_DESTINATION is enabled
+if(DEFINED CLEAN_DESTINATION AND CLEAN_DESTINATION AND EXISTS "${DEST_DIR_NORMALIZED}")
+    file(REMOVE_RECURSE "${DEST_DIR_NORMALIZED}")
+endif()
+file(MAKE_DIRECTORY "${DEST_DIR_NORMALIZED}")
+file(COPY ${QM_FILES} DESTINATION "${DEST_DIR_NORMALIZED}")
+
+list(LENGTH QM_FILES QM_FILE_COUNT)
+message(STATUS "Copied ${QM_FILE_COUNT} compiled translation(s): ${SOURCE_DIR_NORMALIZED} -> ${DEST_DIR_NORMALIZED}")

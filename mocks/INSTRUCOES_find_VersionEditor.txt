@@ -1,0 +1,103 @@
+GUIA PARA COMPILAR E EXECUTAR O find_VersionEditor.cpp
+
+1. OBJETIVO
+
+Este utilitário é responsável por inspecionar, validar e atualizar de forma centralizada e sincronizada as versões e datas técnicas de lançamento de todos os documentos contratuais, termos de licença comercial (CLC), políticas de privacidade, avisos de copyright, licença de usuário final (EULA), notas de versão (RELEASE NOTES), tela Sobre e documentações (README.md, MANUAL.md, OBSERVACAO.md) do aplicativo Economia_APP.
+
+Pode ser executado com interface gráfica (GUI) interativa ou em modo de linha de comando/verificação automatizada via flag `--check`.
+
+No VS Code, pode ser executado pela tarefa:
+
+Terminal > Executar a Tarefa... > Qt6: find_VersionEditor (MinGW)
+
+
+2. ARQUIVOS USADOS
+
+- mocks\find_VersionEditor.cpp
+- mocks\find_VersionEditor.hpp
+- mocks\CMakeLists.txt
+- mocks\launch_detached_gui.cmake
+- .vscode\tasks.json
+
+
+3. DIRETÓRIOS DE SAÍDA
+
+As compilações dos utilitários de mocks são geradas separadamente da aplicação principal nos caminhos:
+
+MinGW:
+C:\Users\ferna\APLICATIVOS\CPP\Economia_APP_cpp\build\build_mocks_mingw
+
+MSVC-Ninja:
+C:\Users\ferna\APLICATIVOS\CPP\Economia_APP_cpp\build\build_mocks_msvc_ninja
+
+O executável gerado é:
+build\build_mocks_mingw\find_VersionEditor.exe (MinGW)
+build\build_mocks_msvc_ninja\find_VersionEditor.exe (ou Release\find_VersionEditor.exe em MSVC)
+
+O deploy automatizado via windeployqt copia as DLLs e plugins necessários do Qt para essa mesma pasta, além das bibliotecas de runtime do MinGW (libgcc_s_seh-1.dll, libstdc++-6.dll, libwinpthread-1.dll) e plugins de plataforma (platforms/qwindows.dll).
+
+
+4. PRÉ-REQUISITOS
+
+Ambiente MinGW 64-bit:
+- Qt 6: C:\Qt\6.11.1\mingw_64
+- MinGW: C:\Qt\Tools\mingw1310_64
+- Ferramentas: windeployqt.exe, g++.exe, ninja.exe
+
+Ambiente MSVC 64-bit:
+- Qt 6: C:\Qt\6.11.1\msvc2022_64
+- Visual Studio / Build Tools MSVC (v143/v18)
+- Ferramentas: windeployqt.exe, cl.exe, ninja.exe
+
+
+5. COMO USAR NO VS CODE
+
+1. Abra o VS Code na raiz do repositório Economia_APP_cpp.
+2. Abra o menu Terminal > Executar a Tarefa...
+3. Selecione a tarefa "Qt6: find_VersionEditor (MinGW)" ou "Qt6: Compilar e Executar Mocks (MinGW)".
+
+A tarefa realiza em sequência:
+- Carrega as variáveis de ambiente necessárias (QTDIR, PATH);
+- Configura o preset CMake `mocks-mingw-release`;
+- Compila o alvo `find_VersionEditorDeploy` com paralelismo completo;
+- Executa o deploy automatizado de dependências Qt e runtimes do compilador;
+- Inicia o utilitário desacoplado via `launch_detached_gui.cmake`.
+
+
+6. COMANDOS MANUAIS EQUIVALENTES
+
+Para compilar e implantar via linha de comando:
+
+MinGW:
+  cmake --preset mocks-mingw-release
+  cmake --build --preset mocks-mingw-release --target find_VersionEditorDeploy --parallel
+
+MSVC:
+  cmake --preset mocks-msvc-release
+  cmake --build --preset mocks-msvc-release --target find_VersionEditorDeploy --parallel
+
+Para rodar a verificação automatizada de integridade (CLI):
+  build\build_mocks_mingw\find_VersionEditor.exe --check
+
+
+7. ARQUIVOS GERADOS
+
+As pastas build\build_mocks_mingw e build\build_mocks_msvc_ninja são totalmente regeneráveis e contêm:
+- find_VersionEditor.exe
+- CompileTranslationsGUI.exe
+- CompileTranslationsTerminal.exe
+- DLLs do runtime Qt (Qt6Core.dll, Qt6Gui.dll, Qt6Widgets.dll, Qt6PrintSupport.dll)
+- Plugins Qt (platforms\qwindows.dll, styles, imageformats)
+- DLLs do compilador MinGW (libgcc_s_seh-1.dll, libstdc++-6.dll, libwinpthread-1.dll)
+
+
+8. GRUPOS DE ARQUIVOS MONITORADOS
+
+- Sobre (ABOUT): Documentos de Sobre do Economia_APP (pt_BR, en_US), histórico de versões e caixa de diálogo Sobre.
+- CLC: Termos de Contrato de Licença Comercial do Economia_APP.
+- Direitos Autorais: Avisos de Copyright e Marca Registrada.
+- EULA: Licenças de Usuário Final do software.
+- Notices: Avisos legais e de terceiros em português e inglês.
+- Política de Privacidade: Políticas de privacidade do Economia_APP.
+- Release Notes: Histórico e notas de lançamento (pt_BR e en_US).
+- Miscelânia: README.md, MANUAL.md e OBSERVACAO.md.

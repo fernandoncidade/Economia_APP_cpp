@@ -1,0 +1,44 @@
+Version 2026.9.30.0, September 30, 2026
+
+Third-Party Software Licenses and Attributions Notice — Economia APP
+
+This document lists the main third-party libraries and tools used in the Economia APP project and provides references to their licenses. The purpose is to meet distribution requirements and provide useful information to users and integrators. The following list has been adapted specifically for Economia APP; for additional dependencies consult requirements.txt (when present) and the full license texts included in the distribution package.
+
+Main dependencies (used in the project)
+- PySide6 (Qt for Python) — Graphical interface (widgets, dialogs, printing via QPrinter, .qm translation files)
+  - License: GNU Lesser General Public License (LGPL) v3 or as per the PySide6 version bundled
+  - Repository / documentation: https://github.com/qt/pyside / https://doc.qt.io/qtforpython/
+  - Note: translations (.ts → .qm) can be generated with pyside6-lrelease (see script in language/).
+
+Packaging tools (optional)
+- PyInstaller — optionally used to create Windows executables from the source code
+  - Website: https://www.pyinstaller.org/
+  - Check the PyInstaller license used in your build process.
+
+Notes on other components
+- The project may use additional libraries in the development environment (for example packaging utilities, testing or file handling tools). Those dependencies and their licenses, when present, are listed in requirements.txt and/or in the installer.
+- If different versions of LGPL libraries (PySide6) are included in the executable, instructions for replacement or obtaining the relevant source code will be made available upon request in accordance with LGPL obligations.
+
+Obtaining full license texts
+- Full texts of third-party licenses and the component list are included in the distribution package (folders assets/EULA and assets/NOTICES or LICENSES/LICENCES.txt when applicable).
+- Useful links:
+  - LGPL v3: https://www.gnu.org/licenses/lgpl-3.0.html.en
+  - PySide (Qt for Python): https://github.com/qt/pyside
+
+Statement on data transmission and privacy
+- The default Economia APP executable does not send automatic telemetry to external servers.
+- User data (history, exported files, settings) remains under the user's control and is stored locally at:
+  %LOCALAPPDATA%\Economia_APP
+- For details on personal data processing, consult the Privacy Policy included in the distribution package.
+
+Procedures for distribution / replacing components
+- If the application is packaged as an executable (PyInstaller or similar), ensure inclusion of the assets/ folder, language/translations/ and EULA/NOTICES files according to the packager's instructions.
+- To replace dynamic libraries (DLLs) distributed with the installer/executable (for example PySide6), replace the corresponding binaries in the executable folder with compatible versions and adapt the build documentation as needed.
+
+Contact for license or source code requests
+- For requests for a copy of LGPL source code used in the executable, clarifications about licenses or compliance instructions, use the channels indicated in the project repository (README / issues) or contact:
+  - Author: Fernando Nillsson Cidade
+
+Final notes
+- This document has been adapted to reflect the dependencies and compliance requirements of Economia APP. If new components are added, license documentation must be updated in the distribution package.
+- Keep backups of your data before updating the application or replacing libraries in the executable.

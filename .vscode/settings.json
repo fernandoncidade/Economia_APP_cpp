@@ -1,0 +1,58 @@
+{
+  "cmake.useCMakePresets": "always",
+  "cmake.configurePreset": "host-qt6-mingw-release",
+  "cmake.buildPreset": "host-qt6-mingw-release",
+  "cmake.configureOnOpen": false,
+  "qt-core.qtInstallationRoot": "C:/Qt",
+  "qt-core.additionalQtPaths": [
+    "C:/Qt/6.11.1/mingw_64/bin/qtpaths.exe",
+    "C:/Qt/6.11.1/msvc2022_64/bin/qtpaths.exe"
+  ],
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "C_Cpp.default.cStandard": "c17",
+  "C_Cpp.default.cppStandard": "c++17",
+  "terminal.integrated.env.windows": {
+    "QTDIR": "C:\\Qt\\6.11.1\\mingw_64",
+    "QT_PLUGIN_PATH": "C:\\Qt\\6.11.1\\mingw_64\\plugins",
+    "PATH": "C:\\Qt\\6.11.1\\mingw_64\\bin;C:\\Qt\\Tools\\mingw1310_64\\bin;${env:PATH}"
+  },
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/build": false,
+    "**/out": true,
+    "**/*.o": true,
+    "**/*.obj": true,
+    "**/*.exe": true,
+    "**/*.dll": true
+  },
+  "search.exclude": {
+    "**/build": true,
+    "**/out": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/build/**": true,
+    "**/out/**": true
+  },
+  "cSpell.words": [
+    "Economia",
+    "Amortização",
+    "Anuidade",
+    "Gradiente",
+    "PRICE",
+    "SAC",
+    "SAM",
+    "CAUE",
+    "VAUE",
+    "VPL",
+    "TMA",
+    "TIR",
+    "Hamburguês"
+  ]
+}

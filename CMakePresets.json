@@ -1,0 +1,166 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "qt6-mingw-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_COMPILER": "C:/Qt/Tools/mingw1310_64/bin/g++.exe",
+        "CMAKE_AR": "C:/Qt/Tools/mingw1310_64/bin/gcc-ar.exe",
+        "CMAKE_RANLIB": "C:/Qt/Tools/mingw1310_64/bin/gcc-ranlib.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/Qt/Tools/Ninja/ninja.exe",
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.1/mingw_64/lib/cmake",
+        "QT_DIR": "C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6",
+        "Qt6_DIR": "C:/Qt/6.11.1/mingw_64/lib/cmake/Qt6",
+        "ECONOMIA_BUILD_TOOLCHAIN_SUFFIX": "mingw"
+      },
+      "environment": {
+        "QTDIR": "C:/Qt/6.11.1/mingw_64",
+        "PATH": "C:/Qt/Tools/Ninja;C:/Qt/6.11.1/mingw_64/bin;C:/Qt/Tools/mingw1310_64/bin;$penv{PATH}"
+      }
+    },
+    {
+      "name": "qt6-msvc-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_COMPILER": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe",
+        "CMAKE_RC_COMPILER": "C:/Program Files (x86)/Windows Kits/10/bin/10.0.28000.0/x64/rc.exe",
+        "CMAKE_MT": "C:/Program Files (x86)/Windows Kits/10/bin/10.0.28000.0/x64/mt.exe",
+        "CMAKE_MAKE_PROGRAM": "C:/Qt/Tools/Ninja/ninja.exe",
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.1/msvc2022_64/lib/cmake",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL",
+        "QT_DIR": "C:/Qt/6.11.1/msvc2022_64/lib/cmake/Qt6",
+        "Qt6_DIR": "C:/Qt/6.11.1/msvc2022_64/lib/cmake/Qt6",
+        "ECONOMIA_BUILD_TOOLCHAIN_SUFFIX": "msvc"
+      },
+      "environment": {
+        "QTDIR": "C:/Qt/6.11.1/msvc2022_64",
+        "NINJA_STATUS": "[%p] ",
+        "VSINSTALLDIR": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/",
+        "VCINSTALLDIR": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/",
+        "VCToolsInstallDir": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/",
+        "WindowsSdkDir": "C:/Program Files (x86)/Windows Kits/10/",
+        "WindowsSDKVersion": "10.0.28000.0/",
+        "INCLUDE": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/include;C:/Program Files (x86)/Windows Kits/10/Include/10.0.28000.0/ucrt;C:/Program Files (x86)/Windows Kits/10/Include/10.0.28000.0/um;C:/Program Files (x86)/Windows Kits/10/Include/10.0.28000.0/shared;C:/Program Files (x86)/Windows Kits/10/Include/10.0.28000.0/winrt;C:/Program Files (x86)/Windows Kits/10/Include/10.0.28000.0/cppwinrt;$penv{INCLUDE}",
+        "LIB": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/lib/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.28000.0/ucrt/x64;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.28000.0/um/x64;$penv{LIB}",
+        "LIBPATH": "C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/lib/x64;C:/Program Files (x86)/Windows Kits/10/UnionMetadata/10.0.28000.0;C:/Program Files (x86)/Windows Kits/10/References/10.0.28000.0;$penv{LIBPATH}",
+        "PATH": "C:/Qt/Tools/Ninja;C:/Qt/6.11.1/msvc2022_64/bin;C:/Program Files (x86)/Microsoft Visual Studio/18/BuildTools/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64;C:/Program Files (x86)/Windows Kits/10/bin/10.0.28000.0/x64;$penv{PATH}"
+      }
+    },
+    {
+      "name": "host-qt6-mingw-release",
+      "displayName": "Economia_APP Qt 6.11.1 MinGW Release",
+      "inherits": "qt6-mingw-base",
+      "binaryDir": "${sourceDir}/build/build_Economia_APP_mingw",
+      "cacheVariables": {
+        "ECONOMIA_BUILD_HOST_APP": "ON",
+        "ECONOMIA_BUILD_MOCKS": "OFF",
+        "ECONOMIA_EXPORT_DIR": "D:/MISCELANEAS/VSCode/Economia_APP/Economia_APP_cpp/Economia_APP_cpp_mingw"
+      }
+    },
+    {
+      "name": "host-qt6-msvc-release",
+      "displayName": "Economia_APP Qt 6.11.1 MSVC Ninja Release",
+      "inherits": "qt6-msvc-base",
+      "binaryDir": "${sourceDir}/build/build_Economia_APP_msvc_ninja",
+      "cacheVariables": {
+        "ECONOMIA_BUILD_HOST_APP": "ON",
+        "ECONOMIA_BUILD_MOCKS": "OFF",
+        "ECONOMIA_EXPORT_DIR": "D:/MISCELANEAS/VSCode/Economia_APP/Economia_APP_cpp/Economia_APP_cpp_msvc"
+      }
+    },
+    {
+      "name": "mocks-mingw-release",
+      "displayName": "Mocks Qt 6.11.1 MinGW Release",
+      "inherits": "qt6-mingw-base",
+      "binaryDir": "${sourceDir}/build/build_mocks_mingw",
+      "cacheVariables": {
+        "ECONOMIA_BUILD_HOST_APP": "OFF",
+        "ECONOMIA_BUILD_MOCKS": "ON",
+        "MOCKS_EXPORT_DIR": "D:/MISCELANEAS/VSCode/Economia_APP/Mocks/mocks_mingw"
+      }
+    },
+    {
+      "name": "mocks-msvc-release",
+      "displayName": "Mocks Qt 6.11.1 MSVC Ninja Release",
+      "inherits": "qt6-msvc-base",
+      "binaryDir": "${sourceDir}/build/build_mocks_msvc_ninja",
+      "cacheVariables": {
+        "ECONOMIA_BUILD_HOST_APP": "OFF",
+        "ECONOMIA_BUILD_MOCKS": "ON",
+        "MOCKS_EXPORT_DIR": "D:/MISCELANEAS/VSCode/Economia_APP/Mocks/mocks_msvc"
+      }
+    },
+    {
+      "name": "host-qt6",
+      "displayName": "Economia_APP Qt 6.11.1 MinGW Release (alias)",
+      "inherits": "host-qt6-mingw-release"
+    },
+    {
+      "name": "mocks",
+      "displayName": "Mocks Qt 6.11.1 MinGW Release (alias)",
+      "inherits": "mocks-mingw-release"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host-qt6-mingw-release",
+      "displayName": "Build Economia_APP MinGW Release",
+      "configurePreset": "host-qt6-mingw-release",
+      "targets": [
+        "Economia_APPDeploy"
+      ]
+    },
+    {
+      "name": "host-qt6-msvc-release",
+      "displayName": "Build Economia_APP MSVC Ninja Release",
+      "configurePreset": "host-qt6-msvc-release",
+      "targets": [
+        "Economia_APPDeploy"
+      ]
+    },
+    {
+      "name": "mocks-mingw-release",
+      "displayName": "Build Mocks MinGW Release",
+      "configurePreset": "mocks-mingw-release",
+      "targets": [
+        "MocksDeploy"
+      ]
+    },
+    {
+      "name": "mocks-msvc-release",
+      "displayName": "Build Mocks MSVC Ninja Release",
+      "configurePreset": "mocks-msvc-release",
+      "targets": [
+        "MocksDeploy"
+      ]
+    },
+    {
+      "name": "host-qt6",
+      "displayName": "Build Economia_APP MinGW Release (alias)",
+      "configurePreset": "host-qt6",
+      "targets": [
+        "Economia_APPDeploy"
+      ]
+    },
+    {
+      "name": "mocks",
+      "displayName": "Build Mocks MinGW Release (alias)",
+      "configurePreset": "mocks",
+      "targets": [
+        "MocksDeploy"
+      ]
+    }
+  ]
+}

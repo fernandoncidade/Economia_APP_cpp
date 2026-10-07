@@ -1,0 +1,44 @@
+Versão 2026.9.30.0, 30 de setembro de 2026
+
+Aviso de Licenças e Atribuições de Software de Terceiros — Economia APP
+
+Este documento lista as principais bibliotecas e ferramentas de terceiros utilizadas no projeto Economia APP e fornece referências às suas licenças. O objetivo é cumprir requisitos de distribuição e oferecer informações úteis a usuários e integradores. A lista a seguir foi adaptada especificamente para o Economia APP; para dependências adicionais consulte requirements.txt (quando presente) e os textos completos de licença incluídos no pacote de distribuição.
+
+Dependências principais (uso no projeto)
+- PySide6 (Qt for Python) — Interface gráfica (widgets, dialogs, impressão via QPrinter, tradução .qm)
+  - Licença: GNU Lesser General Public License (LGPL) v3 ou conforme versão do PySide6 empacotada
+  - Repositório / documentação: https://github.com/qt/pyside / https://doc.qt.io/qtforpython/
+  - Observação: traduções (.ts → .qm) podem ser geradas com pyside6-lrelease (conforme script em language/).
+
+Ferramentas de empacotamento (opcionais)
+- PyInstaller — usada opcionalmente para gerar executáveis Windows a partir do código-fonte
+  - Site: https://www.pyinstaller.org/
+  - Consulte a licença do PyInstaller utilizada no processo de build.
+
+Observações sobre outros componentes
+- O projeto pode utilizar bibliotecas adicionais em ambiente de desenvolvimento (por exemplo utilitários de packaging, testes ou manipulação de arquivos). Essas dependências e suas licenças, quando presentes, são listadas em requirements.txt e/ou no instalador.
+- Caso versões distintas de bibliotecas LGPL (PySide6) sejam incluídas no executável, instruções para substituição ou obtenção do código-fonte relevante estarão disponíveis mediante solicitação conforme as obrigações de LGPL.
+
+Obtenção dos textos de licença completos
+- Os textos completos das licenças de terceiros e lista de componentes estão incluídos no pacote de distribuição (pasta assets/EULA e assets/NOTICES ou arquivo LICENSES/LICESES.txt quando aplicável).
+- Links úteis:
+  - LGPL v3: https://www.gnu.org/licenses/lgpl-3.0.html.en
+  - PySide (Qt for Python): https://github.com/qt/pyside
+
+Declaração sobre transmissão de dados e privacidade
+- O executável padrão do Economia APP não envia telemetria automática a servidores externos.
+- Dados do usuário (histórico, arquivos exportados, configurações) permanecem sob controle do usuário e são armazenados localmente em:
+  %LOCALAPPDATA%\Economia_APP
+- Para detalhes sobre tratamento de dados pessoais, consulte a Política de Privacidade incluída no pacote de distribuição.
+
+Procedimentos para distribuição / substituição de componentes
+- Se o aplicativo for empacotado em executável (PyInstaller ou similar), garanta a inclusão das pastas assets/, language/translations/ e arquivos EULA/NOTICES conforme instruções do empacotador.
+- Para substituir bibliotecas dinâmicas (DLLs) distribuídas com o instalador/executável (por exemplo PySide6), substitua os binários correspondentes na pasta do executável por versões compatíveis e adapte a documentação de build conforme necessário.
+
+Contato para pedidos de licença ou código-fonte
+- Para solicitação de cópia de código-fonte de componentes LGPL usados no executável, esclarecimentos sobre licenças ou instruções de conformidade, utilize os canais indicados no repositório do projeto (README / issues) ou contate:
+  - Autor: Fernando Nillsson Cidade
+
+Notas finais
+- Este documento foi adaptado para refletir as dependências e requisitos de conformidade do Economia APP. Caso novos componentes sejam adicionados, a documentação de licenças deve ser atualizada no pacote de distribuição.
+- Mantenha backups dos seus dados antes de atualizar o aplicativo ou substituir bibliotecas do executável.

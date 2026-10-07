@@ -1,0 +1,372 @@
+name: Update Version in README
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versão a aplicar no README.md (ex: v2026.9.30.0 ou 2026.9.30.0). Se vazio, busca nos commits ou no projeto."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract version
+        id: extract_version
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
+          EVENT_PATH: ${{ github.event_path }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+
+          def extract_calver(text):
+              if not text or not isinstance(text, str):
+                  return None
+              # 1) Prefixo 'v' explícito com ano de 4 dígitos (ex.: v2026.9.30.0)
+              m = re.search(r"v[1-9]\d{3}\.\d{1,2}\.\d{1,2}\.\d+", text)
+              if m:
+                  return m.group(0)
+              # 2) Formato numérico puro sem 'v' com ano de 4 dígitos (ex.: 2026.9.30.0)
+              m = re.search(r"[1-9]\d{3}\.\d{1,2}\.\d{1,2}\.\d+", text)
+              if m:
+                  return f"v{m.group(0)}"
+              return None
+
+          version = None
+
+          # 1) Input manual de workflow_dispatch
+          input_ver = os.environ.get("INPUT_VERSION", "").strip().strip('"\'')
+          if input_ver:
+              print(f"Manual input version: {input_ver}")
+              version = extract_calver(input_ver)
+
+          # 2) Payload do evento GitHub (push)
+          event_path = os.environ.get("EVENT_PATH", "").strip()
+          if not version and event_path and Path(event_path).is_file():
+              try:
+                  with open(event_path, "r", encoding="utf-8") as f:
+                      event_data = json.load(f)
+
+                  # 2.1) head_commit: primeiro do título (linha 1), depois do corpo
+                  head_commit = event_data.get("head_commit") or {}
+                  head_msg = head_commit.get("message", "")
+                  if head_msg:
+                      lines = [line.strip() for line in head_msg.splitlines() if line.strip()]
+                      if lines:
+                          version = extract_calver(lines[0])
+                          if version:
+                              print(f"Found version in head_commit title: {version}")
+                      if not version:
+                          version = extract_calver(head_msg)
+                          if version:
+                              print(f"Found version in head_commit body: {version}")
+
+                  # 2.2) array de commits (mais recentes primeiro)
+                  if not version:
+                      commits = event_data.get("commits") or []
+                      for commit in reversed(commits):
+                          msg = commit.get("message", "")
+                          if not msg:
+                              continue
+                          lines = [line.strip() for line in msg.splitlines() if line.strip()]
+                          if lines:
+                              version = extract_calver(lines[0])
+                              if version:
+                                  print(f"Found version in commit title: {version}")
+                                  break
+                          version = extract_calver(msg)
+                          if version:
+                              print(f"Found version in commit body: {version}")
+                              break
+              except Exception as e:
+                  print(f"Notice: error reading event payload: {e}")
+
+          # 3) Fallback: git log recente
+          if not version:
+              try:
+                  title_proc = subprocess.run(
+                      ["git", "log", "-1", "--pretty=%s"],
+                      capture_output=True, text=True, encoding="utf-8"
+                  )
+                  if title_proc.returncode == 0:
+                      version = extract_calver(title_proc.stdout)
+                      if version:
+                          print(f"Found version in git log -1 title: {version}")
+
+                  if not version:
+                      body_proc = subprocess.run(
+                          ["git", "log", "-20", "--pretty=%B"],
+                          capture_output=True, text=True, encoding="utf-8"
+                      )
+                      if body_proc.returncode == 0:
+                          for line in body_proc.stdout.splitlines():
+                              candidate = extract_calver(line)
+                              if candidate:
+                                  version = candidate
+                                  print(f"Found version in recent git log: {version}")
+                                  break
+              except Exception as e:
+                  print(f"Notice: git log search failed: {e}")
+
+          # 4) Fallback: arquivos do projeto
+          iss_path = Path("repo/Economia_APP.iss")
+          if not version and iss_path.is_file():
+              iss_text = iss_path.read_text(encoding="utf-8", errors="ignore")
+              m = re.search(r'#define\s+MyAppVersion\s+"([1-9]\d{3}\.\d+\.\d+\.\d+)"', iss_text)
+              if m:
+                  version = f"v{m.group(1)}"
+                  print(f"Found version in repo/Economia_APP.iss: {version}")
+
+          cpp_path = Path("source/ui/ui_28_exibir_sobre.cpp")
+          if not version and cpp_path.is_file():
+              cpp_text = cpp_path.read_text(encoding="utf-8", errors="ignore")
+              m = re.search(r'<p><b>%1:</b>\s*([1-9]\d{3}\.\d+\.\d+\.\d+)</p>', cpp_text)
+              if m:
+                  version = f"v{m.group(1)}"
+                  print(f"Found version in source/ui/ui_28_exibir_sobre.cpp: {version}")
+
+          # Gravar no $GITHUB_OUTPUT
+          gh_output = os.environ.get("GITHUB_OUTPUT")
+          if version:
+              if not version.startswith("v"):
+                  version = f"v{version}"
+              print(f"Final selected version: {version}")
+              if gh_output:
+                  with open(gh_output, "a", encoding="utf-8") as out:
+                      out.write(f"version={version}\n")
+                      out.write("has_version=true\n")
+          else:
+              print("No version pattern found")
+              if gh_output:
+                  with open(gh_output, "a", encoding="utf-8") as out:
+                      out.write("has_version=false\n")
+          PY
+
+      - name: Debug - Show current README versions
+        if: steps.extract_version.outputs.has_version == 'true'
+        run: |
+          echo "=== Current versions in README.md ==="
+          grep -n -E 'v[1-9][0-9]{3}\.[0-9]+\.[0-9]+\.[0-9]+' README.md || echo "No versions found"
+          grep -n -E 'Data técnica desta revisão|Technical revision date' README.md || echo "No revision dates found"
+          echo "====================================="
+
+      - name: Update README.md
+        if: steps.extract_version.outputs.has_version == 'true'
+        env:
+          VERSION: ${{ steps.extract_version.outputs.version }}
+        run: |
+          set -euo pipefail
+          echo "Updating README.md with version $VERSION"
+
+          cp README.md README.md.bak
+
+          python3 - <<'PY'
+          import os
+          import re
+          from datetime import date
+          from pathlib import Path
+
+          version = os.environ.get("VERSION", "").strip()
+          match = re.fullmatch(r"v?(\d{4})\.(\d{1,2})\.(\d{1,2})\.(\d+)", version)
+          if not match:
+              raise SystemExit(f"Invalid version format: {version}")
+
+          year = int(match.group(1))
+          month = int(match.group(2))
+          day = int(match.group(3))
+          build = int(match.group(4))
+          raw_version = f"{year}.{month}.{day}.{build}"
+          version_with_v = f"v{raw_version}"
+
+          try:
+              revision_date = date(year, month, day)
+          except ValueError:
+              revision_date = None
+
+          pt_months = {
+              1: "janeiro",
+              2: "fevereiro",
+              3: "março",
+              4: "abril",
+              5: "maio",
+              6: "junho",
+              7: "julho",
+              8: "agosto",
+              9: "setembro",
+              10: "outubro",
+              11: "novembro",
+              12: "dezembro",
+          }
+          en_months = {
+              1: "January",
+              2: "February",
+              3: "March",
+              4: "April",
+              5: "May",
+              6: "June",
+              7: "July",
+              8: "August",
+              9: "September",
+              10: "October",
+              11: "November",
+              12: "December",
+          }
+
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+
+          # 1) Versões prefixadas com 'v' exclusivas da versão atual (Observação, Versão, Note, Version)
+          # Atualiza pontualmente cada uma das seções da versão atual (count=1),
+          # preservando intactas quaisquer menções a versões anteriores no histórico.
+          text, pt_obs_count = re.subn(
+              r"(> \*\*Observa[çc][ãa]o:\*\*.*?vers[ãa]o oficial \*\*)v?\d{4}\.\d{1,2}\.\d{1,2}\.\d+(\*\*)",
+              rf"\g<1>{version_with_v}\g<2>",
+              text,
+              count=1,
+          )
+          text, pt_ver_count = re.subn(
+              r"(^Vers[ãa]o:\s*)v?\d{4}\.\d{1,2}\.\d{1,2}\.\d+(<br>)",
+              rf"\g<1>{version_with_v}\g<2>",
+              text,
+              count=1,
+              flags=re.MULTILINE,
+          )
+          text, en_note_count = re.subn(
+              r"(> \*\*Note:\*\*.*?official \*\*)v?\d{4}\.\d{1,2}\.\d{1,2}\.\d+(\*\* release)",
+              rf"\g<1>{version_with_v}\g<2>",
+              text,
+              count=1,
+          )
+          text, en_ver_count = re.subn(
+              r"(^Version:\s*)v?\d{4}\.\d{1,2}\.\d{1,2}\.\d+(<br>)",
+              rf"\g<1>{version_with_v}\g<2>",
+              text,
+              count=1,
+              flags=re.MULTILINE,
+          )
+          v_count = pt_obs_count + pt_ver_count + en_note_count + en_ver_count
+
+          # 2) Linha institucional em Português: "Esta versão oficial **...**" (apenas primeira ocorrência)
+          text, pt_release_count = re.subn(
+              r"(Esta vers[ãa]o oficial \*\*)[v\d\.]+(\*\*)",
+              rf"\g<1>{raw_version}\g<2>",
+              text,
+              count=1,
+          )
+
+          # 3) Linha institucional em Inglês: "This official release **...**" (apenas primeira ocorrência)
+          text, en_release_count = re.subn(
+              r"(This official release \*\*)[v\d\.]+(\*\*)",
+              rf"\g<1>{raw_version}\g<2>",
+              text,
+              count=1,
+          )
+
+          # 4) Título de destaques técnicos em Português (apenas a versão atual no topo; não altera versões antigas)
+          text, pt_highlights_count = re.subn(
+              r"(## Destaques t[ée]cnicos da vers[ãa]o\s+)[v\d\.]+",
+              rf"\g<1>{raw_version}",
+              text,
+              count=1,
+          )
+
+          # 5) Título de destaques técnicos em Inglês (apenas a versão atual no topo; não altera versões antigas)
+          text, en_highlights_count = re.subn(
+              r"(## Technical highlights in version\s+)[v\d\.]+",
+              rf"\g<1>{raw_version}",
+              text,
+              count=1,
+          )
+
+          # 6) Data técnica da revisão em Português
+          pt_date_count = 0
+          if revision_date:
+              pt_date_str = f"{revision_date.day} de {pt_months[revision_date.month]} de {revision_date.year}"
+              text, pt_date_count = re.subn(
+                  r"Data t[ée]cnica desta revis[ãa]o:\s*.*?<br>",
+                  f"Data técnica desta revisão: {pt_date_str}<br>",
+                  text,
+                  count=1,
+              )
+
+          # 7) Data técnica da revisão em Inglês
+          en_date_count = 0
+          if revision_date:
+              en_date_str = f"{en_months[revision_date.month]} {revision_date.day}, {revision_date.year}"
+              text, en_date_count = re.subn(
+                  r"Technical revision date:\s*.*?<br>",
+                  f"Technical revision date: {en_date_str}<br>",
+                  text,
+                  count=1,
+              )
+
+          if v_count == 0:
+              raise SystemExit("No v-prefixed version occurrences were updated in README.md")
+          if revision_date and pt_date_count == 0:
+              raise SystemExit("Portuguese technical revision date was not updated")
+          if revision_date and en_date_count == 0:
+              raise SystemExit("English technical revision date was not updated")
+
+          with readme.open("w", encoding="utf-8", newline="\n") as file:
+              file.write(text)
+
+          print(f"Updated {v_count} v-prefixed version occurrence(s)")
+          print(f"Updated {pt_release_count} Portuguese official release line(s)")
+          print(f"Updated {en_release_count} English official release line(s)")
+          print(f"Updated {pt_highlights_count} Portuguese technical highlights header(s)")
+          print(f"Updated {en_highlights_count} English technical highlights header(s)")
+          print(f"Updated {pt_date_count} Portuguese technical revision date line(s)")
+          print(f"Updated {en_date_count} English technical revision date line(s)")
+          PY
+
+          echo "=== Changes made ==="
+          diff -u README.md.bak README.md || true
+          echo "===================="
+
+          rm README.md.bak
+          echo "README.md successfully updated with version $VERSION"
+
+      - name: Check for changes
+        if: steps.extract_version.outputs.has_version == 'true'
+        id: check_changes
+        run: |
+          if git diff --quiet README.md; then
+            echo "No changes detected in README.md"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changes detected in README.md:"
+            git diff README.md
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push changes
+        if: steps.extract_version.outputs.has_version == 'true' && steps.check_changes.outputs.has_changes == 'true'
+        env:
+          VERSION: ${{ steps.extract_version.outputs.version }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "chore: update version to $VERSION in README.md [skip ci]"
+          git pull --rebase origin main || git pull --rebase
+          git push origin main || git push

@@ -1,0 +1,551 @@
+NOTAS DE LANÇAMENTO: Versão 2026.9.30.0
+Data: 30 de setembro de 2026
+
+RESUMO DO LANÇAMENTO
+Esta versão representa um marco fundamental na história do Economia APP, consolidando a refatoração completa e integral do aplicativo original para uma nova geração desktop de alta velocidade, estabilidade superior e precisão matemática absoluta. Além de recriar com 100% de fidelidade todas as funcionalidades, fórmulas e ferramentas financeiras, esta versão introduz um Manual do Usuário interativo integrado, corrige e aprimora todas as abas de cálculo, reformula a tipografia de equações e frações, aperfeiçoa o sistema de histórico e exportação em PDF, e entrega uma tradução bilíngue dinâmica e contínua em tempo real.
+
+DESTAQUES DAS NOVAS FUNCIONALIDADES E MELHORIAS
+
+1. Refatoração Integral e Desempenho
+- Nova Geração do Aplicativo: Toda a estrutura do produto foi reconstruída do zero em uma arquitetura de altíssimo desempenho, proporcionando inicialização instantânea, respostas imediatas nos cálculos e interface altamente fluida.
+- Execução Direta e Sem Complicações: O aplicativo agora é totalmente autossuficiente para qualquer computador Windows, iniciando sem necessidade de instalações adicionais ou mensagens de componentes ausentes.
+- Identidade Visual Oficial: Ícones de alta resolução foram integrados a todas as janelas e ferramentas do sistema para uma aparência profissional e moderna.
+
+2. Novo Manual do Usuário Integrado e Interativo
+- Acesso Imediato: Disponível diretamente na barra de menus em "Opções", selecionando "Manual" (localizado logo abaixo de "Sobre"), ou pressionando o atalho de teclado Ctrl+Shift+M.
+- Leitura Confortável em Janela Dedicada: O manual abre em uma janela própria e independente, permitindo ao usuário consultar instruções e tutoriais passo a passo enquanto continua operando as ferramentas de cálculo normalmente.
+- Sumário Inteligente com Sincronização em Dois Sentidos: O painel lateral apresenta a lista dos 17 capítulos detalhados. Ao clicar em qualquer capítulo, a visualização salta diretamente para o tópico escolhido. Conforme o usuário rola o texto livremente, o sumário seleciona automaticamente o capítulo que está sendo lido na tela.
+- Pesquisa de Texto em Tempo Real: Basta digitar qualquer palavra ou expressão no campo de busca para que todos os termos encontrados sejam destacados em amarelo no texto, com a ocorrência em foco indicada em cor laranja. Um contador exibe o total de resultados encontrados (ex.: "1 de 5") e botões dedicados permitem navegar facilmente entre os resultados anteriores e seguintes.
+- Tradução Instantânea do Manual: Totalmente disponível em Português e Inglês. Ao trocar o idioma do aplicativo, a janela do manual é traduzida no mesmo segundo, mantendo a leitura contínua sem necessidade de fechar a janela.
+- Janela Única Inteligente: Caso o manual já esteja aberto ou minimizado, acionar o menu ou atalho restaura a janela e a traz imediatamente para o primeiro plano, evitando janelas duplicadas.
+
+3. Apresentação Visual Didática e Tipografia Matemática de Alta Precisão
+- Exibição Didática de Equações: Todas as expressões matemáticas, frações, expoentes e raízes foram revisadas e aprimoradas para uma visualização estética, clara e agradável, facilitando o acompanhamento de cada passo do cálculo.
+- Notações Corretas de Expoentes e Índices: Correção de todos os índices sobrescritos e subscritos em todas as abas do programa (como potências de prazos, taxas equivalentes, números de períodos e variáveis compostas), eliminando formatações inadequadas ou símbolos ilegíveis.
+- Renderização Adaptativa de Raízes: As equações que envolvem raízes (como o cálculo de taxas internas de retorno modificadas) agora são desenhadas de forma nativa e limpa, adaptando-se perfeitamente aos temas Claro e Escuro do Windows 11 sem cortar caracteres e sem depender de imagens estáticas.
+
+4. Correções e Melhorias em Todas as Abas de Cálculo
+
+- Aba "Juros Simples e Compostos":
+  - O quadro de respostas agora ocupa o espaço ideal na tela e ajusta automaticamente sua altura. Ao realizar cálculos subsequentes, as respostas anteriores são preservadas e o espaço disponível é dividido proporcionalmente entre todos os quadros.
+  - Ao alternar o idioma do aplicativo, os cálculos e respostas já existentes na tela não são mais apagados; eles permanecem visíveis e são traduzidos dinamicamente no mesmo instante.
+  - Precisão máxima no comparativo entre juros simples e compostos, indicando de forma exata o ponto de indiferença e cruzamento entre as curvas de rendimento.
+
+- Aba "Anuidades / Séries Uniformes":
+  - Correção completa dos motores de cálculo que anteriormente impediam a execução de determinadas operações de anuidade.
+  - Cálculo exato para pagamentos e recebimentos uniformes nos regimes postecipado (fim de período) e antecipado (início de período), apurando valor presente, valor futuro e valor de cada parcela com demonstração didática das fórmulas.
+
+- Aba "Gradiente":
+  - Resolução dos erros operacionais na realização dos cálculos de fluxos variáveis.
+  - Correção na lista de modos de cálculo e eliminação de falhas que duplicavam letras nos textos da interface após trocas consecutivas de idioma.
+  - Suporte completo e estável a séries com gradientes aritméticos (acréscimos ou decréscimos em valores constantes) e gradientes geométricos (variações percentuais contínuas), além de parcelas pontuais e séries perpétuas.
+
+- Aba "Amortização":
+  - Ajuste do título da aba para "Amortização" e tradução dinâmica de todos os cabeçalhos das colunas das tabelas ao alternar o idioma.
+  - Geração completa e confiável de cronogramas periódicos para os cinco sistemas de financiamento: SAC (amortizações constantes), Price (prestações fixas), SAM (sistema misto), Americano (juros periódicos e quitação final) e Hamburguês (juros antecipados).
+  - Tratamento aprimorado de prazos de carência (com ou sem capitalização de juros) e dedução imediata de pagamentos de entrada.
+
+- Aba "Análise de Investimentos":
+  - Tradução dinâmica completa de todos os textos, termos e rótulos de resultados na tela.
+  - Cálculo robusto de Valor Presente Líquido (VPL), Valor Anual Uniforme Equivalente (VAUE), Taxa Interna de Retorno (TIR) e Payback simples e descontado, oferecendo um panorama claro sobre a viabilidade econômica do projeto.
+
+- Aba "Depreciação":
+  - Refatoração completa para contemplar todos os métodos de depreciação de bens e equipamentos: Método Linear (cotas constantes), Método da Soma dos Dígitos dos Anos (método de Cole, com opções de ordem crescente e decrescente) e Método do Saldo Declinante (depreciação acelerada por taxa percentual constante).
+  - Tradução imediata de todos os campos de entrada, opções suspensas e relatórios de resultados.
+
+- Aba "Taxa Efetiva / TIR / Taxa Global":
+  - Rótulo da aba atualizado para "Taxa Efetiva / TIR / Taxa Global", refletindo com precisão seu escopo completo.
+  - Correção e aprimoramento na fórmula da Taxa Interna de Retorno Modificada (TIRm), permitindo definir taxas distintas para captação de recursos e reinvestimento de lucros, com desenho limpo e proporcional das raízes da equação.
+  - Conversão de taxas nominais para efetivas, cálculo sob o regime de cobrança antecipada (Sistema Alemão) e apuração de taxas globais.
+
+- Aba "Retorno Mínimo (TMA)":
+  - Rótulo da aba atualizado para "Retorno Mínimo (TMA)".
+  - Correção integral na escrita das fórmulas matemáticas e nos índices subscritos de taxas periódicas e anuais.
+  - Tradução dinâmica dos índices das variáveis matemáticas (por exemplo, alternando adequadamente entre termos em português e inglês) e tradução de todos os campos de entrada, como o número de períodos.
+
+- Aba "Equação de Fisher":
+  - Tradução dinâmica implementada para todos os textos de entrada de dados, rótulos e passos demonstrativos de resultado.
+  - Cálculo exato da relação entre taxas nominais, taxas reais e taxa de inflação, permitindo apurar o ganho real de poder de compra em qualquer investimento ou financiamento.
+
+- Aba "VPL com Tributos":
+  - Tradução de todos os campos da interface e do painel de respostas.
+  - Análise aprofundada de projetos considerando incidência de impostos sobre o lucro, dedutibilidade fiscal da depreciação contábil e dedução de juros em operações com financiamento associado.
+
+- Aba "CAUE" (Custo Anual Uniforme Equivalente):
+  - Eliminação de sobreposições visuais (resolvido o problema que gerava uma tabela secundária sobre o painel de entrada de dados).
+  - Tradução completa dos campos de inserção, botões de ação e tabelas analíticas.
+  - Apuração detalhada da vida econômica ideal de máquinas e equipamentos através do confronto entre custos operacionais crescentes e valores residuais decrescentes, destacando o ano de menor custo anual.
+
+5. Painel de Histórico e Edição Centralizada
+- Registro Automático: Todos os cálculos concluídos são inseridos automaticamente no painel inferior de histórico, organizados de forma clara e legível.
+- Edição de Anotações: É possível editar notas diretamente dentro das entradas do histórico, permitindo que o usuário acrescente comentários, premissas ou observações personalizadas aos seus cálculos.
+- Gerenciamento Prático: Opções dedicadas para excluir itens selecionados ou limpar todo o histórico com um único comando.
+
+6. Exportação de Relatórios em PDF
+- Qualidade Profissional de Impressão: O recurso de exportação para PDF gera relatórios nítidos com cabeçalhos padronizados, paginação organizada, tabelas com bordas harmoniosas e fontes com alinhamento perfeito.
+- Exportação Flexível: Suporte para exportar apenas o cálculo ou tabela da aba atualmente aberta, ou consolidar todas as seções e tabelas em um único documento PDF completo.
+
+7. Personalização, Acessibilidade e Idiomas
+- Ajuste Instantâneo de Letras e Tipografia: O usuário pode ajustar a qualquer momento o tipo e o tamanho das fontes da tela para obter o máximo conforto de leitura em monitores de qualquer resolução.
+- Sistema Multilíngue Completo: Alternância fluida e imediata entre Português do Brasil e Inglês em 100% da interface do programa (menus, abas, botões, tabelas, caixas de diálogo, passos de cálculo e manual integrado) sem necessidade de reiniciar o programa.
+
+______________________________
+
+
+NOTAS DE LANÇAMENTO — Economia APP
+Versão: 0.0.6.0
+Data: 31 de março de 2026
+Autor: Fernando Nillsson Cidade
+
+---
+
+Resumo do lançamento
+Atualização de manutenção com foco em integração do histórico com tabelas, melhorias na exportação (PDF/HTML), refinamentos na configuração de fontes e estabilização de várias rotinas de cálculo financeiro (CAUE, VPL com impostos e amortizações). Correções de usabilidade e robustez em widgets, validações e logging.
+
+Principais mudanças
+
+- Sobre / About
+  - Diálogo "Sobre" (ui_28_exibir_sobre + ui_29_opcoes_sobre) agora carrega e exibe textos adicionais: Histórico do APP, Notas de Release, Políticas de Privacidade e textos de licença. Conteúdo exibido em abas e com links externos para sites de licença.
+
+- HistoryContainer
+  - Conversão para HTML aprimorada preservando subscritos (to_html_subscripts) e aplicando estilo via FontManager.get_html_style() para exportações consistentes.
+  - Suporte a widgets extras anexados a entradas do histórico (ex.: QTableWidget com resultados) — extra_widget em append().
+  - Melhor gerenciamento de tamanho das entradas com timer de sincronização (_sync_entry_sizes) e limite mínimo/altura fixa para evitar sobreposição.
+  - Suporte a edição inline (commit/cancel) e refresh de fontes (refresh_all_fonts) para atualizações dinâmicas.
+
+- Configuração de Fontes (FontConfigDialog)
+  - Diálogo de configuração de fontes com pré‑visualização em tempo real, persistência via FontManager e botão Padrão.
+  - Aplicação de fontes atualizadas a widgets de resultado e a itens de tabelas (tentativa de chamar refresh_all_fonts quando disponível, fallback para setFont).
+  - Observa alterações de paleta (tema) e atualiza pré‑visualização automaticamente.
+
+- Exportação PDF / HTML
+  - export_to_pdf aceita múltiplos tipos de widget (toPlainText, document(), str) e incorpora CSS de FontManager para manter aparência.
+  - Melhor tratamento de pré formatado: classes e CSS (pre.calc) para preservar quebras e permitir quebra de linha automática.
+  - amort_table_to_html gera HTML estilizado da QTableWidget (bordas, wrapping, cabeçalhos) e é usado por export_amortization_pdf para montar documento completo (cálculos + tabela).
+
+- Menu principal / exportações
+  - Ações Exportar Atual / Exportar Todos mais robustas: normalização de nomes de abas para mapeamento tolerante e fallback que monta PDF com todas as seções disponíveis.
+  - Export_all junta seções (texto) e, quando presente, anexa tabela de amortização exportada como HTML.
+  - Integração com gerenciador de tradução para atualização dos checks de idioma via sinal idioma_alterado.
+
+- Abas e geradores de amortização
+  - UI de Amortização: splitter com modos de visualização (empilhadas / lado a lado) e ajuste automático de tamanhos.
+  - Implementados geradores e integrados com a tabela:
+    - Price (ui_17_generate_price_table)
+    - SAC (ui_15_generate_sac_table)
+    - SAM (ui_16_generate_sam_table) — média entre SAC e Price
+    - Americano (ui_19_generate_american_table)
+    - Hamburguês (ui_18_generate_hamburgues_table) — suporte a carência e opção de capitalizar juros na carência
+  - set_amort_table_row padroniza formatação (2 casas decimais) e usa valor absoluto no saldo para evitar sinalização incorreta.
+  - get_table_data helper para extrair dados da tabela de amortização para exportação ou cálculos.
+
+- CAUE — Vida Econômica
+  - Nova aba CAUE (ui_14_create_caue_tab) com geração de tabela de entrada (ui_20_generate_caue_input_table) e cálculo detalhado (sv_13_calculate_caue).
+  - Saída em HistoryContainer com passos de cálculo e tabela de resultados incorporada.
+  - Preenchimento adicional do atributo caue_output_table (quando presente) para compatibilidade com exportadores.
+
+- VPL com Impostos, Depreciação e Financiamento
+  - Nova aba e serviço (ui_13_create_vpl_tax_tab + sv_12_calculate_vpl_with_taxes) com:
+    - Cálculo de depreciação linear e sua dedutibilidade.
+    - Geração de tabela de amortização pelo sistema SAC quando financiamento ativo.
+    - Fluxo de caixa com ajuste por impostos (IRPJ + CSLL), tratamento de venda antecipada e cálculo do VPL com passos detalhados.
+
+- Helpers e validações
+  - get_float_from_line_edit normaliza entrada (vírgula/ponto) e permite default; validações centralizadas reduzem duplicação.
+  - Uso consistente de QDoubleValidator e QIntValidator em campos numéricos.
+  - Substituição de comparações por texto em QComboBox por currentIndex() onde aplicável para melhorar i18n/robustez.
+
+- Geral / Correções de bugs
+  - Melhor logging (LogManager) e captura de exceções em pontos críticos para facilitar diagnóstico.
+  - Pequenas correções de UX: botões de exportar vinculados às fontes corretas, foco pós-edição, altura fixa para tabelas embutidas no histórico.
+  - Ajustes no FontManager/HistoryContainer e exportadores para harmonizar aparência entre UI e PDFs.
+  - Ajustes em controles de carência (visibilidade/habilitação) e validações específicas (ex.: carência < n).
+
+Observações técnicas / pendências
+- Algumas funções ainda contêm trechos a completar (pontos com TODOs ou blocos parcialmente implementados em sv_06, sv_08, sv_03 etc.). Recomenda‑se revisar e finalizar esses trechos.
+- Necessidade de testes unitários automatizados para funções financeiras críticas (TIR, fatores, amortizações, CAUE).
+- Revisar traduções (.ts/.qm) se textos novos precisarem suportar i18n.
+- Verificar consistência final de exportação PDF em diferentes sistemas (especialmente inclusão de fontes no bundle do instalador).
+
+Como usar as novas funções (resumo rápido)
+1. Sobre: abra Configuração → Sobre para visualizar histórico, notas de release e licenças.
+2. Amortização: gere tabelas (Price/SAC/SAM/Americano/Hamburguês), ajuste modo de visualização e use Exportar PDF.
+3. CAUE: gere a tabela de entrada, preencha VR_n / Com_n e clique em Calcular para obter CAUE e tabela de resultados no histórico.
+4. VPL com impostos: preencha investimento, lucro anual, vida útil e impostos; marque financiamento para obter tabela SAC e fluxo detalhado.
+
+Changelog técnico (curto)
+- ui: nova aba CAUE, melhorias em abas de amortização, menu e diálogo Sobre.
+- services: sv_12 (VPL com impostos) implementado; sv_13 (CAUE) implementado; melhorias em sv_05 (amortização) e helpers.
+- utils: HistoryContainer/FontManager/Export para HTML/PDF refinados.
+- testes/Documentação: recomendar adição de testes automatizados e revisão de traduções.
+
+
+______________________________
+
+
+NOTAS DE LANÇAMENTO — Economia APP
+Versão: 0.0.5.0
+Data: 28 de fevereiro de 2026
+Autor: Fernando Nillsson Cidade
+
+---
+
+Resumo do lançamento  
+Release de manutenção e melhorias funcionais com foco em robustez, correções de UI e refinamento dos serviços financeiros. Destaque para: comparações de juros, novos modos e casos especiais em gradientes e TIR, correções em abas de conversão de taxas, e aprimoramentos nas gerações de tabelas de amortização (Americano e Hamburguês).
+
+Principais mudanças
+
+- Aba Juros (source/ui/ui_03_create_interest_tab.py + services/sv_01_calculate_interest.py)
+  - Inclusão do modo "Comparar JS vs JC" com apresentação passo a passo e verificação do resultado.
+  - Cálculos e texto formatado (expoentes, subscritos e moedas) via utils/TextFormat.
+  - Uso consistente de QDoubleValidator nos campos da aba e aplicação de fonte monospace no HistoryContainer para melhor alinhamento.
+  - Melhoria no fluxo de edição/commit de histórico (botão Editar → Salvar Edição).
+
+- Gradientes (source/ui/ui_05_create_gradient_tab.py + services/sv_03_calculate_gradient.py)
+  - Suporte ampliado a modos: Calcular P, Calcular X_k (geométrico), Renda Perpétua e cálculo de G_k (gradiente aritmético).
+  - Separação e tratamento específico para gradiente aritmético e geométrico (incluindo caso especial i == g).
+  - Saídas didáticas: formatação de frações, sobrescrito/subscrito, passos de cálculo e verificação.
+  - Correção de lógica de seleção: uso de currentIndex() em ComboBox para compatibilidade com i18n.
+  - Validações com QDoubleValidator e fonte fixa no HistoryContainer.
+
+- Conversão de Taxas / Taxa Efetiva / TIR (source/ui/ui_06_create_rates_tab.py, source/ui/ui_22_create_effective_rate_tab.py + services/sv_08_calculate_effective_rate.py)
+  - Nova aba unificada de Taxa Efetiva / TIR / Taxa Global com modos múltiplos (efetiva, TIR, global, antecipada, TIRm, TMA vs rentabilidade, juros reais).
+  - Implementação de TIR por Newton-Raphson com função auxiliar e caso especial documentado para 2 períodos.
+  - Cálculo de taxa efetiva a partir de taxa nominal com passos e conversões por período.
+  - Cálculo da Taxa Global levando em conta inflação acumulada.
+  - Sistema de Cobrança Antecipada (sistema alemão) com duas formas de verificação e comparação entre métodos.
+  - Correções de bugs na aba de conversão de taxas (ex.: chamadas incorretas a setText() sem argumento foram revisadas e fluxos de limpeza ajustados).
+
+- Amortização (source/ui/ui_23_generate_american_table.py, source/ui/ui_24_generate_hamburgues_table.py)
+  - Implementado gerador de tabela para Sistema Americano (juros durante os períodos intermediários; amortização total no último período).
+  - Implementado gerador para Sistema Hamburguês com suporte a carência e opção de capitalizar juros durante a carência.
+  - As funções populam a tabela via set_amort_table_row e retornam dados consolidados para exportação.
+
+- Fisher / TMA real/nominal (source/ui/ui_26_create_fisher_tab.py)
+  - UI com alternância entre cálculo de TMA nominal a partir da real e vice-versa.
+  - Cálculos e apresentação em passos, com validação de campos e botão de cálculo contextual (texto muda conforme modo).
+
+- Retorno Mínimo (TMA) (source/ui/ui_25_create_minimum_return_tab.py)
+  - Aba dedicada ao cálculo de retorno mínimo baseado em TMA anual e períodos por ano.
+  - Saídas formatadas e integradas ao HistoryContainer.
+
+- Melhorias gerais e correções
+  - Aplicação consistente de QDoubleValidator em campos numéricos para reduzir erros de entrada.
+  - Uso de fonte monospace (QFontDatabase.FixedFont) no HistoryContainer para melhor alinhamento de passos e tabelas.
+  - Subscritos/sobrescritos e formatação numérica centralizados em utils/TextFormat.py (format_currency, format_fraction, to_subscript, to_superscript).
+  - Padronização das mensagens de erro e logging via utils/LogManager.
+  - Correções em lógica de visibilidade/limpeza de campos (clear inputs/outputs) para evitar comportamentos inesperados.
+  - Pequenos ajustes de UX: labels dinâmicos, botões de exportação vinculados ao histórico correto e foco pós-edição.
+
+Como usar as novas funções (resumo)
+1. Aba Juros: escolha "Comparar JS vs JC" para visualizar passo a passo e verificação; use "Calcular" para gerar entrada no histórico.
+2. Gradientes: selecione o modo desejado (P, X_k, Renda Perpétua, G_k) e preencha os campos visíveis; calcule para obter passos detalhados.
+3. Taxas/TIR: escolha o modo na aba unificada (Taxa Efetiva, TIR, Taxa Global, etc.) e preencha os campos; TIR geral usa Newton-Raphson, caso n=2 tratado separadamente.
+4. Amortização: gere tabelas Americano ou Hamburguês (preencher carência e marcar capitalização se aplicável); exporte via menu ou botão Exportar.
+
+Observações técnicas / pendências
+- Recomenda-se revisar e adicionar testes unitários para funções financeiras críticas (TIR, fórmulas de gradiente, geradores de tabela) — há TODOs pendentes.
+- Revisar mensagens e traduções (.ts) se necessário; uso de indices em QComboBox minimiza problemas com textos traduzidos.
+- Continuar uniformizando exportação para PDF (integração com FontManager.get_html_style já aplicada em outras áreas do projeto).
+
+
+______________________________
+
+
+NOTAS DE LANÇAMENTO — Economia APP  
+Versão: 0.0.4.0  
+Data: 31 de janeiro de 2026  
+Autor: Fernando Nillsson Cidade
+
+---
+
+Resumo do lançamento  
+Atualização de manutenção e novas melhorias funcionais e de robustez nas camadas UI e services. Foco em: exportação (PDF), histórico (HistoryContainer), abas de amortização/investimento/gradientes, tratamento de fontes e internacionalização. Correções de bugs e validações complementares.
+
+O que mudou (principais pontos)
+
+- HistoryContainer (source/ui/ui_17_history_container.py)
+  - Novo método de conversão para HTML que aplica o estilo de fontes via FontManager (get_html_style).
+  - Melhor gerenciamento de tamanho das entradas (_sync_entry_sizes) com ajuste dinâmico ao redimensionamento do viewport.
+  - Suporte a edição inline com commit/cancel, seleção por checkbox e remoção robusta (ajuste de índices de edição).
+  - Atualização de tema via changeEvent e _update_theme, aplicando polish nos widgets.
+  - Melhoria na exportação: toPlainText() centraliza extração de texto para exportação.
+
+- FontManager / Configuração de fontes
+  - Integração do estilo HTML de fontes no export_to_pdf e na conversão de entradas do histórico (uso de FontManager.get_html_style()) para garantir consistência visual entre UI e PDFs.
+  - Ação no menu para abrir diálogo de configuração de fontes (ui_16_menu_bar.py → Configurar Fontes). Após alteração, Widgets com método refresh_all_fonts são atualizados.
+
+- Exportação PDF (source/ui/ui_15_export_pdf.py)
+  - export_to_pdf agora tenta obter texto de múltiplos tipos de widget (toPlainText, document(), str) e incorpora CSS de fontes via FontManager.
+  - Melhor geração de HTML para exportação (pre formatado, escape do conteúdo).
+  - export_amortization_pdf monta documento combinando cálculos e tabela de amortização (usa amort_table_to_html).
+  - amort_table_to_html: exporta QTableWidget para HTML com estilo (bordas, fonte, h1/h2).
+
+- Menu principal (source/ui/ui_16_menu_bar.py)
+  - Ações de exportar atual / exportar todos centralizadas; mapeamento por aba e lógica especial para Amortização e Conversão de Taxas.
+  - Integração com Gerenciador de Tradução: atualização dos checks de idioma e conexão com sinal idioma_alterado.
+  - Abertura do diálogo de configuração de fontes e atualização de widgets resultantes.
+  - Export_all monta HTML combinado de todas as seções e anexa tabela de amortização se presente.
+
+- Abas de Amortização ui_07_create_amortization_tab.py + geradores)
+  - Suporte ampliado a sistemas: Price, SAC, SAM, Americano e Hamburguês (com carência).
+  - Novos campos: carência e checkbox para capitalizar juros durante carência.
+  - Validação: carência não pode ser maior ou igual ao prazo total (mensagem e preenchimento da tabela com erro).
+  - geração de tabelas separadas: generate_price_table, generate_sac_table, generate_sam_table, generate_american_table, generate_hamburgues_table — lógicas implementadas e exportáveis.
+  - Export_amortization_pdf dedicado para gerar PDF com cálculos e tabela.
+
+- Aba de Gradientes ui_05_create_gradient_tab.py + service sv_03)
+  - Suporte a modos: calcular P, calcular X_k (apenas geométrico) e Renda Perpétua.
+  - Separação entre gradiente aritmético e geométrico.
+  - Service sv_03_calculate_gradient: formatação consistente de moeda, representação de frações, sobrescrito/subscrito para fórmulas, tratamento de igualdade i == g e normalizações. Resultado é enviado ao HistoryContainer.
+
+- Aba de Investimentos ui_08_create_investment_tab.py + service sv_06)
+  - UI: múltiplos tipos de análise (VPL/VAUE uniforme, VPL detalhado, Payback descontado, Sensibilidade).
+  - Campos dinâmicos e labels que alternam conforme tipo selecionado.
+  - Serviços implementados (sv_06): funções auxiliares para VPL/VAUE uniforme, VPL detalhado, Payback descontado, análise de sensibilidade — com passos de cálculo e formatação. (Nota: alguns trechos no arquivo estavam esboçados, mas utilitários principais já implementados.)
+  - Formatação e representação textual detalhada para append no HistoryContainer.
+
+- Taxa Efetiva / TIR / Taxa Global ui_25_create_effective_rate_tab.py + sv_08)
+  - UI com modos: taxa efetiva, TIR e taxa global.
+  - sv_08_calculate_effective_rate: cálculo da taxa efetiva por conversão de períodos, implementação de TIR com método Newton-Raphson (método _calculate_tir_newton) e caso especial para 2 períodos, cálculo da taxa global com inflação acumulada.
+  - Saídas formatadas, uso de sobrescrito/subscrito e padronização de moeda.
+
+- Fisher / TMA real/nominal ui_29_create_fisher_tab.py + sv_10)
+  - UI com opção de calcular TMA nominal a partir da real e vice-versa.
+  - Cálculos de Fisher implementados com passos e formatação; validações de campos obrigatórios.
+
+- Retorno Mínimo (TMA) ui_28_create_minimum_return_tab.py + sv_09)
+  - UI e cálculo de conversão da TMA anual para período e cálculo do retorno mínimo (juros mínimos) por período.
+  - Saída detalhada em HistoryContainer.
+
+- Melhorias gerais e correções
+  - Uso consistente de QDoubleValidator nos campos numéricos em várias abas.
+  - Correções para utilizar índices de QComboBox em vez de comparar texto (mais robusto para internacionalização).
+  - Normalização da formatação monetária (troca de separadores para estilo brasileiro) encapsulada em helpers locais.
+  - Log detalhado e tratamento de exceções com LogManager para facilitar diagnóstico.
+  - Uso de fonte monospace (QFontDatabase.FixedFont) nas instâncias de HistoryContainer para alinhamento visual de tabelas/texto.
+  - Responsividade: setSizePolicy e ajuste de comportamento ao redimensionar.
+  - Padronização na construção de strings explicativas (divisores, títulos e seções) para legibilidade nos históricos e PDFs.
+
+Como usar as novas funções
+
+1. Abrir Configuração → Configurar Fontes para ajustar família/tamanho/estilos. Confirmar para atualizar histórico e exportes.
+2. Aba Amortização:
+   - Selecionar sistema (Price/SAC/SAM/Americano/Hamburguês).
+   - Se usar Hamburguês, preencher Carência e marcar se for capitalizar juros.
+   - Gerar tabela e usar "Exportar PDF" para salvar tabela + cálculos.
+3. Aba Gradientes / Taxa Efetiva / Investimentos / Fisher / Retorno Mínimo:
+   - Escolher modo de cálculo no ComboBox; preencher campos visíveis.
+   - Clicar Calcular para adicionar passo-a-passo no histórico (HistoryContainer).
+   - Selecionar entradas no histórico para editar/excluir/exportar.
+4. Menu Arquivos:
+   - Exportar Atual / Exportar Todos: gera PDF com conteúdo das seções visíveis; Amortização é tratada separadamente para incluir tabela.
+
+Observações técnicas / migração
+- Caso tenha exportações automatizadas que dependam de texto puro, revisar uso de FontManager.get_html_style() (agora usado por exportadores).
+- Traduções devem permanecer compatíveis (uso de índices evita problemas por alteração de texto traduzido).
+- Recomenda-se testar cenários com carência >= prazo (agora validados) e revisar logs em %LOCALAPPDATA%\Economia_APP em caso de erro.
+
+Correções e melhorias notáveis
+- Corrigido uso de comparação por texto em ComboBox → agora usa currentIndex() (melhora i18n e robustez).
+- Validação de carência no Sistema Hamburguês.
+- Exportação de tabelas (HTML) e PDF com estilo de fontes consistente.
+- Implementação de TIR por Newton-Raphson para casos gerais e caso especial documentado para 2 períodos.
+- HistoryContainer mais resiliente (redimensionamento, tema, edição, exportação).
+
+---
+
+Pequenas pendências (para próximos releases)
+- Revisar pontos esboçados no sv_06 (trechos com TODOs/linhas vazias) para completar validações e mensagens locais.
+- Adicionar testes unitários automatizados para funções financeiras críticas (TIR, fatores, amortizações).
+- Complementar documentação de API interna e exemplos de entrada/saída para geração automatizada de PDFs.
+
+
+______________________________
+
+
+NOTAS DE LANÇAMENTO — Economia APP
+Versão: 0.0.3.0
+Data: 22 de outubro de 2025
+Autor: Fernando Nillsson Cidade
+
+---
+
+Resumo do lançamento
+Lançamento de manutenção e melhorias focado em experiência do usuário, configurabilidade de fontes e correção de bugs críticos. Implementação de FontManager, diálogo de configuração de fontes e integração com HistoryContainer e menu principal.
+
+O Que Mudou
+
+**Configuração de Fontes (NOVO)**
+- Agora você pode personalizar o tipo, tamanho e estilo das letras nos resultados dos cálculos.
+- Acesse: **Configuração → Configurar Fontes**
+- Escolha entre:
+  - **Família da Fonte**: selecione de várias opções de fontes do seu computador (recomendado: Courier New para melhor legibilidade).
+  - **Tamanho**: ajuste entre 8pt e 24pt conforme sua preferência de leitura.
+  - **Estilos**: aplique negrito, itálico ou sublinhado individualmente.
+- **Prévia em Tempo Real**: veja como ficará antes de confirmar.
+- **Botão Padrão**: volta para as configurações originais com um clique.
+
+**Histórico Melhorado**
+- O histórico agora exibe os cálculos com as fontes configuradas automaticamente.
+- Ao trocar a configuração de fontes, o histórico se atualiza imediatamente.
+- Edição mais intuitiva: clique no checkbox de uma entrada para marcá-la e depois use o botão "Editar".
+
+**Menu Principal Aprimorado**
+- Novo item: **Configuração → Configurar Fontes** (acesso rápido).
+- Melhor organização dos menus de idioma e exportação.
+
+Como Usar as Novas Funções
+
+1. **Configurar suas Fontes Preferidas:**
+   - Vá em **Configuração → Configurar Fontes**
+   - Ajuste família, tamanho e estilos conforme desejado
+   - Clique **OK** para salvar
+   - Os resultados dos cálculos se atualizam automaticamente
+
+2. **Restaurar Fontes Padrão:**
+   - Abra **Configuração → Configurar Fontes**
+   - Clique no botão **Padrão**
+   - Clique **OK**
+
+3. **Editar Histórico com Novas Fontes:**
+   - Selecione uma entrada no histórico
+   - Clique **Editar**
+   - As fontes configuradas serão aplicadas
+   - Confirme ou cancele a edição
+
+Correções e Melhorias
+
+- **Melhor Renderização de Texto**: resultados e tabelas agora usam monospace (fonte de largura fixa) para alinhamento perfeito.
+- **Suporte a Tema**: as cores do texto e fundo se adaptam ao tema do Windows (claro/escuro).
+- **Performance**: carregamento mais rápido do histórico com muitas entradas.
+- **Estabilidade**: correção de erros na atualização de temas e redimensionamento de janelas.
+
+
+______________________________
+
+
+NOTAS DE LANÇAMENTO — Economia APP
+Data: 21 de outubro de 2025
+Versão: 0.0.2.0
+
+---
+
+Novidades Principais
+
+* Interface renovada: abas separadas para cada tipo de cálculo financeiro.
+* Idiomas: agora disponível em Português (Brasil) e Inglês (Estados Unidos).
+
+  * Mude o idioma pelo menu Configuração → Idiomas.
+  * A escolha é salva automaticamente para a próxima vez.
+* Exportar em PDF: salve resultados e tabelas de amortização com um clique.
+* Histórico de cálculos: visualize, edite e exporte todos os resultados anteriores.
+* Novo menu: acesso rápido para exportar, trocar idioma e abrir o diálogo "Sobre".
+* Janela "Sobre" aprimorada: mostra versão, autores, licenças e política de privacidade.
+* Maior estabilidade: erros são tratados automaticamente e registrados em log.
+
+Como Usar
+
+1. Escolha uma aba (por exemplo: Juros, Anuidades, Amortização, etc.).
+2. Preencha os campos com os valores solicitados.
+3. Clique em Calcular.
+4. O resultado aparece no painel à direita, com explicações passo a passo.
+5. Use os botões:
+
+   * Limpar: apaga os campos ou resultados.
+   * Editar: permite alterar um resultado salvo.
+   * Excluir: remove entradas selecionadas.
+   * Exportar PDF: gera um arquivo PDF com o cálculo.
+6. Na aba de Amortização, é exibida também uma tabela completa.
+
+Outras Funções Importantes
+
+* Trocar idioma:
+  Acesse Configuração → Idiomas → Português / English.
+* Exportar cálculos:
+  Vá em Arquivos → Exportar Atual ou Arquivos → Exportar Todos.
+* Ver informações do app:
+  Vá em Opções → Sobre.
+
+Privacidade e Segurança
+
+* Nenhum dado é enviado pela internet.
+* Os arquivos de histórico e configuração são salvos somente no computador do usuário, em:
+  %LOCALAPPDATA%\Economia_APP
+
+
+______________________________
+
+
+NOTAS DE LANÇAMENTO — Economia APP
+Versão: 0.0.1.0
+Data: 19 de outubro de 2025
+Autor: Fernando Nillsson Cidade
+
+---
+
+Resumo do lançamento
+- Versão inicial alfa/experimental do Economia APP, ferramenta de apoio ao estudo de Economia de Engenharia (TT007). Automatiza cálculos de juros, anuidades, gradientes, equivalência de taxas, amortização (SAC, Price, SAM), análise de investimentos (VPL/VAUE) e depreciação. Inclui histórico, exportação de tabelas em PDF e suporte a traduções pt_BR / en_US.
+
+Principais funcionalidades incluídas
+- Módulos de cálculo: juros simples/compostos, anuidades, gradientes, amortização (SAC/Price/SAM), investimentos (VPL/VAUE) e depreciação.
+- Geração de tabelas de amortização com visualização e opção de exportar para PDF.
+- Histórico editável dos cálculos.
+- Interface em abas por tópicos (implementada em PySide6).
+- Suporte básico à internacionalização (arquivos .ts incluídos em language/translations).
+
+Arquivos e recursos incluídos neste pacote
+- Código: pasta source/
+- Utilitários: pasta utils/ (logging, caminhos e helpers)
+- Assets: assets/ (ABOUT, EULA, NOTICES, COPYRIGHT, CLC, RELEASE)
+- Traduções: language/translations/*.ts (pt_BR, en_US)
+- Documentação mínima: assets/ABOUT/*.txt, assets/EULA/*.txt, assets/NOTICES/*.txt, assets/COPYRIGHT/*.txt, assets/CLC/*.txt
+
+Instalação (Windows — desenvolvimento)
+1. Instale Python 3.10+.
+2. No terminal (PowerShell ou cmd):
+   - python -m venv venv
+   - venv\Scripts\activate
+   - pip install PySide6
+3. Executar em desenvolvimento:
+   - python main.py
+
+Empacotamento para distribuição (dicas)
+- Recomenda-se PyInstaller para gerar executável Windows. Verificar inclusão dos diretórios assets/ e language/translations/ no spec:
+  - adicionE assets/ e language/translations/ em datas do .spec
+- Certifique-se de incluir arquivos de licença (assets/EULA, assets/NOTICES, assets/COPYRIGHT, assets/CLC).
+- Se incluir binários PySide6 no bundle, documente procedimentos de conformidade LGPL conforme NOTICE_pt_BR.txt.
+
+Compilação de traduções
+- Gerar .qm a partir de .ts com pyside6-lrelease (ou lrelease):
+  - pyside6-lrelease language/translations/economia_pt_BR.ts -qm language/translations/economia_pt_BR.qm
+- Coloque os .qm gerados em language/translations/ antes de empacotar.
+
+Local de armazenamento de dados
+- Configurações, histórico e arquivos gerados são salvos em:
+  %LOCALAPPDATA%\Economia_APP
+
+Notas técnicas e dependências
+- Dependência principal: PySide6 (LGPL v3 conforme versão).
+- Verifique requirements.txt (se presente) para dependências adicionais.
+- Logging: utils/LogManager.py (arquivos de log em %LOCALAPPDATA%\Economia_APP).
+- Testes e validação: versão inicial — testes manuais; recomenda-se adicionar testes automatizados para cálculos em próximos lançamentos.
+
+Problemas conhecidos (versão inicial)
+- Recursos parcialmente implementados em UI (alguns arquivos da pasta source/ui contêm stubs a completar).
+- Traduções requerem compilação (.qm) antes do empacotamento.
+- Validação de entradas numéricas aceita vírgula/ponto; revisar tratamento para casos limites (ex.: campos vazios, zeros, valores negativos onde inválidos).
+
+Roadmap / próximos passos
+- Completar e testar todos os módulos UI e serviços (arquivos com stubs em source/ui e source/services).
+- Adicionar testes unitários para cálculos financeiros.
+- Melhorar exportação PDF e layout das tabelas.
+- Automatizar processo de build e geração de instalador Windows.
+- Implementar telemetria opt-in para diagnóstico (apenas com consentimento explícito).
+
+Suporte e contato
+- Autor: Fernando Nillsson Cidade
+- Bugs, issues e contribuições: abrir issue / pull request no repositório do projeto (ver README).
+
+Notas de conformidade legal
+- Consulte assets/EULA/EULA_pt_BR - Economia.txt, assets/NOTICES/NOTICE_pt_BR.txt, assets/COPYRIGHT/AVISO DE COPYRIGHT E MARCA REGISTRA_pt_BR.txt e assets/CLC/CLC_pt_BR - Economia.txt para termos de uso, licenciamento comercial e atribuições de terceiros.

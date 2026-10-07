@@ -1,0 +1,20 @@
+History and Rationale for Development
+
+The Economia APP was born out of the practical need of a Civil Engineering student to consolidate, accelerate, and validate the calculations from Engineering Economics classes (TT007). Faced with repetitive, time-consuming exercises prone to manual calculation errors, an assistant was developed to automate the most common procedures — ranging from simple and compound interest to amortization (SAC, Price, SAM), annuities, gradients, rate conversions, investment analysis (NPV/EUAW), and depreciation.
+
+Motivation
+- Make studying more efficient: reduce the time spent recalculating examples to check answers.
+- Increase confidence in results: display detailed steps to facilitate understanding and verification.
+- Create practical support material for students and professionals dealing with engineering economic decisions.
+
+What the application addresses
+- Eliminates unnecessary repetition when checking exercises.
+- Automatically generates amortization tables, with the option to export to PDF.
+- Maintains an editable history of calculations for future review.
+- Supports multiple methods and regimes (simple/compound, end-period/beginning-period, straight-line/sum-of-the-years-digits, etc.), reflecting topics from the TT007 curriculum.
+
+Impact on learning
+Economia APP does not replace the student's critical thinking; it speeds up verification, allows step-by-step analysis, and focuses effort on interpreting results and understanding concepts. By reducing the cost of verification, it enables students to try more problem variations and consolidate the material more quickly.
+
+Invitation
+This project was conceived as a study and teaching aid. Use it to check your exercises, explore scenarios, and save valuable time. Feedback, bug reports, and improvement suggestions are welcome to make the tool even more useful to the academic community.

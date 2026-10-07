@@ -1,0 +1,93 @@
+CONTRATO DE LICENCIAMENTO COMERCIAL — ECONOMIA APP
+Versão: 2026.9.30.0
+Data: 30 de setembro de 2026
+
+Este Contrato de Licenciamento Comercial ("Contrato") é celebrado entre:
+
+LICENCIADOR: Fernando Nillsson Cidade, doravante "LICENCIADOR".
+LICENCIADO: a pessoa física ou jurídica que adquire a licença comercial do software "Economia APP", doravante "LICENCIADO".
+
+PREÂMBULO
+O presente Contrato complementa os termos da Licença de Uso de Usuário Final (EULA) inclusa no pacote (assets/EULA/EULA_pt_BR - Economia.txt) e regula as modalidades comerciais de licença, suporte, atualizações e responsabilidades relativas ao software Economia APP — uma calculadora financeira destinada a apoiar estudos de Economia de Engenharia (TT007) com funcionalidades de juros, anuidades, gradientes, amortização (SAC/Price/SAM), equivalência de taxas, análise de investimentos (VPL/VAUE), depreciação, histórico e exportação (PDF).
+
+1. OBJETO
+1.1 Concessão de licença de uso do software Economia APP conforme a modalidade comercial escolhida.
+1.2 O LICENCIADO recebe o direito de uso do executável e documentação fornecidos; a distribuição de código-fonte só ocorre se contratada especificamente.
+
+2. MODALIDADES DE LICENCIAMENTO
+2.1 Licença Individual
+  a) Instalação em até 2 (dois) dispositivos de propriedade do mesmo LICENCIADO.
+  b) Atualizações e correções por 1 (um) ano a partir da data de aquisição (quando aplicáveis).
+  c) Suporte técnico básico (ticket / e-mail) por 1 (um) ano.
+2.2 Licença Small Business
+  a) Instalação em até 10 (dez) estações dentro da mesma organização.
+  b) Atualizações por 1 (um) ano.
+  c) Suporte prioritário por e-mail e telefone por 1 (um) ano.
+  d) Personalização básica (branding textual e ícones) mediante avaliação técnica.
+2.3 Licença Enterprise
+  a) Instalação ilimitada conforme acordo comercial.
+  b) Atualizações por 2 (dois) anos.
+  c) Suporte premium (SLA) incluindo suporte remoto e prioridades de correção.
+  d) Opções de integração, treinamento e customização mediante anexo comercial.
+
+3. PAGAMENTO E FATURAMENTO
+3.1 Valores, prazos e formas de pagamento (boleto, cartão, transferência, PIX) serão especificados na proposta comercial.
+3.2 Pagamentos em atraso: juros de mora de 1% ao mês e multa de 2% sobre o valor devido, além de custos de cobrança.
+3.3 Não pagamento pode acarretar suspensão de suporte até regularização.
+
+4. PRAZO E RENOVAÇÃO
+4.1 O Contrato vigora pelo período especificado na modalidade adquirida.
+4.2 Renovação de suporte/atualizações mediante pagamento do valor vigente; uso contínuo do software não é condicionado à renovação, salvo disposição em contrário no contrato específico.
+
+5. SUPORTE, ENTREGA E ATUALIZAÇÕES
+5.1 O LICENCIADOR entrega o instalador/executável e documentação. O LICENCIADO é responsável por instalações locais.
+5.2 O suporte cobre orientação de instalação do executável, uso das funcionalidades documentadas e correção de defeitos que prejudiquem a operação esperada.
+5.3 Atualizações corretivas e evolutivas serão disponibilizadas conforme política de versão e modalidade contratada.
+
+6. ARMAZENAMENTO DE DADOS E PRIVACIDADE
+6.1 Dados do usuário (histórico, configurações, possible trial_info.json) são armazenados localmente em %LOCALAPPDATA%\Economia_APP, salvo acordo expresso diverso.
+6.2 O software padrão não envia telemetria automaticamente. Qualquer envio de diagnóstico depende de autorização explícita do usuário.
+6.3 Tratamento de dados pessoais seguirá a legislação aplicável (LGPD) e a Política de Privacidade incluída no pacote.
+
+7. COMPONENTES DE TERCEIROS
+7.1 O Economia APP utiliza bibliotecas de terceiros (ex.: PySide6). Esses componentes mantêm suas licenças próprias; cópias dos textos de licença e avisos estão disponíveis em assets/NOTICES e assets/EULA.
+7.2 Em empacotamento (PyInstaller), obrigações de redistribuição de componentes LGPL/terceiros devem ser observadas; instruções constam em NOTICE_pt_BR.txt.
+
+8. LIMITAÇÕES DE RESPONSABILIDADE
+8.1 O software é fornecido "no estado em que se encontra". O LICENCIADOR não garante resultados financeiros ou de engenharia obtidos unicamente com base nas saídas do software.
+8.2 Na medida máxima permitida por lei, o LICENCIADOR não será responsável por danos indiretos, lucros cessantes ou consequências decorrentes do uso do software.
+8.3 A responsabilidade total, quando admitida, será limitada ao valor efetivamente pago pelo LICENCIADO ou a R$ 5,00, o que for maior.
+
+9. CONFIDENCIALIDADE
+9.1 As partes obrigam-se a manter sigilo sobre informações técnicas e comerciais confidenciais trocadas em razão deste Contrato pelo prazo de 5 (cinco) anos, salvo disposição em contrário.
+
+10. RESCISÃO
+10.1 Este Contrato poderá ser rescindido por violação de cláusulas, inadimplemento financeiro ou por mútuo acordo.
+10.2 Em caso de rescisão por culpa do LICENCIADO, valores pagos não serão reembolsados, salvo acordo diverso.
+
+11. TRANSFERÊNCIA E RESTRIÇÕES
+11.1 O LICENCIADO não poderá sublicenciar, revender ou redistribuir o executável sem autorização expressa do LICENCIADOR, exceto conforme permitido na modalidade adquirida.
+11.2 Alterações que removam avisos de copyright, marcas ou licenças são proibidas.
+
+12. ACESSIBILIDADE E DISTRIBUIÇÃO EM LOJAS
+12.1 A inclusão em lojas digitais (ex.: Microsoft Store) pode requerer documentação adicional de acessibilidade; tais documentos (quando aplicáveis) acompanham a distribuição.
+12.2 Declarações de conformidade com requisitos de plataformas não alteram responsabilidades previstas neste Contrato, salvo acordo escrito em contrário.
+
+13. LEI APLICÁVEL E FORO
+13.1 Este Contrato será regido pelas leis da República Federativa do Brasil.
+13.2 Fica eleito o foro da Comarca de São José dos Pinhais, Estado do Paraná, Brasil, para dirimir controvérsias, salvo norma legal em contrário.
+
+14. DISPOSIÇÕES GERAIS
+14.1 Este Contrato complementa o EULA e a Política de Privacidade fornecidos com o software; os termos integrados formam o acordo completo entre as partes.
+14.2 Pedidos de licença comercial, personalização, integração ou uso da marca "Economia APP" devem ser formalizados por escrito e poderão exigir aditivo contratual.
+
+Contato para comercialização, suporte e solicitações:
+- Autor / LICENCIADOR: Fernando Nillsson Cidade
+- Repositório, issues e informações de contato: consultar README no repositório do projeto.
+
+Assinam eletronicamente:
+_____________________________________
+Fernando Nillsson Cidade — LICENCIADOR
+
+_____________________________________
+LICENCIADO (nome e assinatura)

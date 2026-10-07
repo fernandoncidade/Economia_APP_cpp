@@ -1,0 +1,30 @@
+AVISO DE COPYRIGHT E MARCA REGISTRADA — Economia APP
+Versão 2026.9.30.0, 30 de setembro de 2026
+======================================
+
+Copyright (C) 2025–2026 Fernando Nillsson Cidade. Todos os direitos reservados.
+
+O software "Economia APP" e toda a documentação associada — incluindo código‑fonte, interface gráfica, textos, manuais, ativos visuais (ícones, logos) e demais recursos fornecidos com o projeto — são propriedade intelectual de Fernando Nillsson Cidade, salvo indicação em contrário para componentes de terceiros.
+
+Marcas
+- "Economia APP" é marca de titularidade de Fernando Nillsson Cidade.
+- O uso não autorizado do nome, logotipo ou de qualquer elemento distintivo do projeto é proibido, salvo permissão expressa por escrito do titular.
+
+Permissões e restrições
+- É permitida a utilização do Software para fins pessoais, educacionais e profissionais conforme os termos da licença incluída (assets/EULA/EULA_pt_BR - Economia.txt).
+- A redistribuição do executável ou do código‑fonte alterado deve observar as restrições de licença indicadas no EULA; em particular, não é permitido reclamar autoria alheia nem remover avisos de copyright sem autorização.
+- Para reutilização de partes do código em outros projetos, mantenha os avisos de copyright e atribuição originais e siga os termos de licença aplicáveis.
+
+Componentes de terceiros
+- Bibliotecas e ferramentas de terceiros usadas pelo projeto (por exemplo PySide6) permanecem sujeitas às suas próprias licenças. Consulte assets/NOTICES/NOTICE_pt_BR.txt e os textos de licença completos incluídos no pacote para detalhes e atribuições.
+- Em caso de empacotamento (ex.: PyInstaller), verifique obrigações de redistribuição previstas nas licenças dos componentes bundalhados.
+
+Solicitações de permissão / uso comercial
+- Para pedidos de licença comercial, autorização de redistribuição diferenciada ou uso da marca, contate o autor (ver informações no README do repositório).
+
+Contato
+- Autor: Fernando Nillsson Cidade
+- Repositório / issues / contribuições: ver README no repositório do projeto (informações de contato e instruções de contribuição).
+
+Observação final
+- Este aviso complementa os documentos de licença e avisos técnicos incluídos no pacote (assets/EULA, assets/NOTICES). Verifique esses arquivos antes de redistribuir ou modificar o software.

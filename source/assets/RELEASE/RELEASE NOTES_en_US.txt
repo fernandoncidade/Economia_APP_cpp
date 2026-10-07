@@ -1,0 +1,551 @@
+RELEASE NOTES: Version 2026.9.30.0
+Date: September 30, 2026
+
+RELEASE SUMMARY
+This release marks a major milestone in the evolution of Economia APP, delivering a complete and faithful rewrite of the original software into a modern, high-performance desktop application designed for superior speed, exceptional stability, and absolute mathematical precision. In addition to flawlessly reproducing 100% of all calculations, formulas, and financial tools from the original product, this version introduces a comprehensive built-in interactive User Manual, overhauls formula typography and fractional rendering, refines all calculation tabs, enhances calculation history management and PDF export, and ensures continuous dynamic bilingual translation in real time.
+
+HIGHLIGHTS OF NEW FEATURES AND IMPROVEMENTS
+
+1. Full Refactoring and Performance
+- Next-Generation Application: The entire software architecture was rebuilt from the ground up for maximum desktop performance, providing instant startup, immediate calculation response times, and a fluid user interface.
+- Direct, Hassle-Free Execution: The application is now fully self-contained for any Windows PC, launching smoothly on double-click without requiring third-party runtime installs or triggering missing component errors.
+- Official High-Resolution Branding: Polished application icons have been integrated across all executable tools and windows for a clean and professional appearance.
+
+2. New Built-in Interactive User Manual
+- Instant Access: Directly available in the main menu under "Options" by selecting "Manual" (located right below "About"), or by pressing the keyboard shortcut Ctrl+Shift+M.
+- Comfortable Reading in a Dedicated Window: The manual opens in an independent, non-modal window, allowing users to consult step-by-step instructions and practical walkthroughs without interrupting their active calculations.
+- Smart Two-Way Synchronized Table of Contents: A sidebar lists all 17 comprehensive chapters. Clicking any chapter immediately jumps to that topic. As the user freely scrolls through the document, the sidebar automatically highlights the chapter currently being read.
+- Real-Time Text Search: Simply type any keyword or phrase in the top search field to highlight all matching occurrences throughout the text in yellow, with the active match highlighted in orange. An occurrence counter displays current progress (e.g., "1 of 5"), and dedicated buttons make it easy to cycle through previous and next matches.
+- Instant Manual Translation: Fully available in both English and Portuguese. When the application language is switched, the open manual updates immediately without requiring the user to close or reopen the window.
+- Smart Single-Instance Window: If the manual is already open or minimized, clicking the menu option or pressing the shortcut automatically restores the window and brings it to the foreground, preventing cluttered duplicate windows.
+
+3. Clear Mathematical Presentation and High-Precision Formula Typography
+- Didactic Equation Display: All mathematical expressions, fractions, exponents, and roots were redesigned for optimal clarity, legibility, and aesthetics, making it straightforward to follow and verify every resolution step.
+- Proper Superscript and Subscript Notation: Corrected mathematical notation across all application tabs (including compounding terms, equivalent rates, period lengths, and composite variables), eliminating awkward formatting and garbled characters.
+- Adaptive Root Rendering: Mathematical expressions involving square or nth roots (such as the Modified Internal Rate of Return) are now drawn cleanly and natively, adapting seamlessly to Windows 11 Light and Dark themes without clipped text and without converting formulas into static images.
+
+4. Corrections and Improvements Across All Calculation Tabs
+
+- "Simple and Compound Interest" Tab:
+  - The answer card now occupies the full available layout height and dynamically resizes. When subsequent calculations are performed, prior answers are preserved and layout space is divided proportionally between all calculation cards.
+  - When switching languages, existing results on screen are no longer wiped out; they remain visible and are translated dynamically in place.
+  - Maximum precision in comparative analysis between simple and compound interest, clearly pinpointing the crossover indifference point between both yield curves.
+
+- "Annuities / Uniform Series" Tab:
+  - Complete resolution of calculation engine errors that previously prevented certain annuity operations from completing.
+  - Accurate computation for uniform payments in both ordinary (end of period) and due (beginning of period) regimes, determining present value, future value, and periodic payments with step-by-step formula demonstrations.
+
+- "Gradient Series" Tab:
+  - Fixed operational issues that caused calculation errors on cash flows with gradients.
+  - Corrected dropdown calculation modes and eliminated interface text duplication glitches (such as repeated characters after successive language switches).
+  - Robust support for arithmetic gradients (constant increments or decrements) and geometric gradients (percentage rate changes), as well as perpetual series and single-period values.
+
+- "Amortization" Tab:
+  - Renamed tab to "Amortization" and enabled dynamic translation for all table column headers upon language switching.
+  - Comprehensive schedule generation for all five financing systems: SAC (constant amortization), Price (fixed payments), SAM (mixed system), American (periodic interest with lump-sum final principal payment), and Hamburg (upfront interest).
+  - Enhanced handling of grace periods (with or without interest capitalization) and immediate credit for down payments.
+
+- "Investment Analysis" Tab:
+  - Full dynamic translation of all on-screen results, labels, and text descriptions.
+  - Robust calculations for Net Present Value (NPV), Equivalent Uniform Annual Value (EUAV), Internal Rate of Return (IRR), and simple and discounted payback periods, providing a clear assessment of project financial feasibility.
+
+- "Depreciation" Tab:
+  - Complete refactoring to support all standard asset depreciation methods: Straight-Line (constant quotas), Sum-of-the-Years'-Digits (Cole method, in both accelerated and decelerated orders), and Declining Balance (constant percentage rate applied to book value).
+  - Immediate translation for all input parameters, dropdown selections, and output schedules.
+
+- "Effective Rate / IRR / Global Rate" Tab:
+  - Updated tab label to "Effective Rate / IRR / Global Rate" to accurately reflect its full analytical scope.
+  - Corrected and enhanced the Modified Internal Rate of Return (MIRR) formula, allowing distinct rates for financing and reinvestment, with clean, proportional root drawing.
+  - Conversion from nominal to effective compounding rates, German upfront interest calculations, and comprehensive rate evaluations.
+
+- "Minimum Return (MARR)" Tab:
+  - Renamed tab to "Minimum Return (MARR)".
+  - Comprehensive correction of mathematical formulas and subscripts for periodic and annual rates.
+  - Dynamic translation of mathematical variable indices (switching appropriately between English and Portuguese terms) and translation of all data input labels, such as the period count.
+
+- "Fisher Equation" Tab:
+  - Implemented dynamic translation for all input fields, labels, tooltips, and calculation steps.
+  - Exact calculation of the relationship between nominal rates, real rates, and inflation, establishing true purchasing power adjustments.
+
+- "NPV with Taxes" Tab:
+  - Full translation across all input fields, options, and response cards.
+  - In-depth feasibility analysis incorporating corporate income tax rates, tax deductibility of accounting depreciation, and interest deductions on financed capital.
+
+- "EAC" (Equivalent Annual Cost / CAUE) Tab:
+  - Eliminated visual overlapping bugs (preventing duplicate result tables from rendering over the input panel).
+  - Full bilingual translation for input tables, buttons, and summary charts.
+  - Accurate identification of optimal asset economic life by balancing rising operating costs against falling salvage values, highlighting the minimum annual cost year.
+
+5. History Panel and Centralized Note Editing
+- Automatic Logging: Every completed calculation is logged automatically in the lower history panel, structured cleanly for convenient review.
+- Inline Note Editing: Users can edit annotations directly within history entries to record assumptions, observations, or project details alongside calculations.
+- Practical Management: Dedicated controls allow removing individual selected items or wiping the entire session history with a single click.
+
+6. Professional PDF Report Generation
+- Crisp Print Quality: High-resolution PDF export creates clean reports with formal headers, structured page numbering, aligned tables, and standardized typography.
+- Flexible Export Modes: Export the currently active tab or consolidate all calculation steps and amortization schedules into a single comprehensive PDF document.
+
+7. Personalization, Accessibility, and Language
+- Live Font Sizing and Typography: Customize interface font styles and point sizes at any time for maximum reading comfort on monitors of any scale or resolution.
+- Full Bilingual Experience: Seamless, immediate switching between US English and Brazilian Portuguese across 100% of the software interface (menus, tabs, buttons, tables, dialogs, step-by-step calculations, and the built-in manual) without requiring an application restart.
+
+______________________________
+
+
+NOTES FOR RELEASE — Economia APP
+Version: 0.0.6.0
+Date: March 31, 2026
+Author: Fernando Nillsson Cidade
+
+---
+
+Release summary
+Maintenance update focused on integrating history entries with tables, improvements to export (PDF/HTML), refinements in font configuration and stabilization of several financial calculation routines (CAUE, NPV with taxes and amortizations). Usability fixes and increased robustness in widgets, validations and logging.
+
+Main changes
+
+- About
+  - The "About" dialog (ui_28_exibir_sobre + ui_29_opcoes_sobre) now loads and displays additional texts: App History, Release Notes, Privacy Policies and license texts. Content is shown in tabs and includes external links to license sites.
+
+- HistoryContainer
+  - Improved HTML conversion preserving subscripts (to_html_subscripts) and applying styles via FontManager.get_html_style() for consistent exports.
+  - Support for extra widgets attached to history entries (e.g., QTableWidget with results) — extra_widget in append().
+  - Better entry size management with a synchronization timer (_sync_entry_sizes) and minimum/fixed height limits to prevent overlap.
+  - Support for inline editing (commit/cancel) and font refresh (refresh_all_fonts) for dynamic updates.
+
+- Font Configuration (FontConfigDialog)
+  - Font configuration dialog with live preview, persistence via FontManager and a Default button.
+  - Application of updated fonts to result widgets and table items (tries refresh_all_fonts when available, falls back to setFont).
+  - Observes palette (theme) changes and updates the preview automatically.
+
+- PDF / HTML Export
+  - export_to_pdf accepts multiple widget types (toPlainText, document(), str) and incorporates FontManager CSS to preserve appearance.
+  - Better handling of preformatted content: CSS/classes (pre.calc) preserve line breaks and allow automatic wrapping.
+  - amort_table_to_html generates styled HTML from QTableWidget (borders, wrapping, headers) and is used by export_amortization_pdf to assemble the complete document (calculations + table).
+
+- Main menu / exports
+  - Export Current / Export All actions made more robust: normalization of tab names for tolerant mapping and a fallback that builds a PDF with all available sections.
+  - export_all concatenates sections (text) and, when present, appends the amortization table exported as HTML.
+  - Integration with the translation manager to update language checks via the idioma_alterado signal.
+
+- Amortization tabs and generators
+  - Amortization UI: splitter with view modes (stacked / side-by-side) and automatic size adjustment.
+  - Implemented generators integrated with the table:
+    - Price (ui_17_generate_price_table)
+    - SAC (ui_15_generate_sac_table)
+    - SAM (ui_16_generate_sam_table) — average between SAC and Price
+    - American (ui_19_generate_american_table)
+    - Hamburgues (ui_18_generate_hamburgues_table) — supports grace period and option to capitalize interest during grace
+  - set_amort_table_row standardizes formatting (2 decimals) and uses absolute value for the balance to avoid incorrect sign display.
+  - get_table_data helper to extract amortization table data for export or calculations.
+
+- CAUE — Economic Life
+  - New CAUE tab (ui_14_create_caue_tab) with input table generation (ui_20_generate_caue_input_table) and detailed calculation (sv_13_calculate_caue).
+  - Output appended to HistoryContainer with calculation steps and embedded results table.
+  - Additional filling of the caue_output_table attribute (when present) for compatibility with exporters.
+
+- NPV with Taxes, Depreciation and Financing
+  - New tab and service (ui_13_create_vpl_tax_tab + sv_12_calculate_vpl_with_taxes) with:
+    - Linear depreciation calculation and its deductibility.
+    - Generation of an amortization table using the SAC system when financing is enabled.
+    - Cash flow adjusted for taxes (IRPJ + CSLL), handling of early sale and detailed NPV calculation steps.
+
+- Helpers and validations
+  - get_float_from_line_edit normalizes input (comma/point) and supports a default; centralized validations reduce duplication.
+  - Consistent use of QDoubleValidator and QIntValidator on numeric fields.
+  - Replaced text comparisons in QComboBox with currentIndex() where applicable to improve i18n/robustness.
+
+- General / Bug fixes
+  - Improved logging (LogManager) and exception capture at critical points to ease diagnosis.
+  - Small UX fixes: export buttons bound to correct font settings, focus after editing, fixed height for tables embedded in history.
+  - Adjustments in FontManager/HistoryContainer and exporters to harmonize appearance between UI and PDFs.
+  - Adjustments to grace-period controls (visibility/enabled state) and specific validations (e.g., grace < n).
+
+Technical notes / pending items
+- Some functions still contain incomplete sections (TODOs or partially implemented blocks in sv_06, sv_08, sv_03, etc.). Review and finalize those parts is recommended.
+- Need for automated unit tests for critical financial functions (IRR, factors, amortizations, CAUE).
+- Review translations (.ts/.qm) if new texts require i18n support.
+- Verify final consistency of PDF export across different systems (especially inclusion of fonts in the installer bundle).
+
+How to use the new features (quick summary)
+1. About: open Settings → About to view app history, release notes and licenses.
+2. Amortization: generate tables (Price/SAC/SAM/American/Hamburgues), set view mode and use Export to PDF.
+3. CAUE: generate the input table, fill VR_n / Com_n and click Calculate to obtain CAUE and a results table in history.
+4. NPV with taxes: fill investment, annual profit, useful life and taxes; check financing to obtain an SAC table and detailed cash flow.
+
+Short technical changelog
+- ui: new CAUE tab, improvements in amortization tabs, menu and About dialog.
+- services: sv_12 (NPV with taxes) implemented; sv_13 (CAUE) implemented; improvements in sv_05 (amortization) and helpers.
+- utils: HistoryContainer/FontManager/Export for HTML/PDF refined.
+- tests/Documentation: recommend adding automated tests and reviewing translations.
+
+
+______________________________
+
+
+RELEASE NOTES — Economia APP
+Version: 0.0.5.0
+Date: February 28, 2026
+Author: Fernando Nillsson Cidade
+
+---
+
+Release summary  
+Maintenance release with functional improvements focused on robustness, UI fixes and refinement of financial services. Highlights: interest comparisons, new modes and special cases in gradients and IRR, fixes in rate conversion tabs, and enhancements to amortization table generation (American and Hamburgues systems).
+
+Main changes
+
+- Interest Tab (source/ui/ui_03_create_interest_tab.py + services/sv_01_calculate_interest.py)
+  - Added "Compare Simple vs Compound Interest" mode with step-by-step presentation and result verification.
+  - Calculations and formatted text (superscripts, subscripts and currencies) via utils/TextFormat.
+  - Consistent use of QDoubleValidator on tab fields and application of monospace font in HistoryContainer for better alignment.
+  - Improved history edit/commit flow (Edit → Save Edit button).
+
+- Gradients (source/ui/ui_05_create_gradient_tab.py + services/sv_03_calculate_gradient.py)
+  - Extended support for modes: Calculate P, Calculate k-th term (X_k, geometric), Perpetuity and calculation of G_k (arithmetic gradient).
+  - Separate handling for arithmetic and geometric gradients (including special case i == g).
+  - Didactic outputs: fraction formatting, superscript/subscript, calculation steps and checks.
+  - Selection logic fix: use of currentIndex() on ComboBox for i18n compatibility.
+  - Validations with QDoubleValidator and fixed font in HistoryContainer.
+
+- Rate Conversion / Effective Rate / IRR (source/ui/ui_06_create_rates_tab.py, source/ui/ui_22_create_effective_rate_tab.py + services/sv_08_calculate_effective_rate.py)
+  - New unified tab for Effective Rate / IRR / Global Rate with multiple modes (effective, IRR, global, advance/antecipated, modified IRR, TMA vs return, real interest).
+  - IRR implemented via Newton–Raphson with helper function and a documented special case for 2 periods.
+  - Effective rate calculation from nominal rate with step-by-step period conversions.
+  - Global Rate calculation accounting for accumulated inflation.
+  - Advance charging system (German system) with two verification methods and comparison between approaches.
+  - Bug fixes in rate conversion tab (e.g., corrected improper setText() calls without arguments and adjusted clearing flows).
+
+- Amortization (source/ui/ui_23_generate_american_table.py, source/ui/ui_24_generate_hamburgues_table.py)
+  - Implemented generator for American system (interest-only in intermediate periods; full principal amortization in final period).
+  - Implemented generator for Hamburgues system with support for grace period and option to capitalize interest during grace.
+  - Functions populate the table via set_amort_table_row and return consolidated data for export.
+
+- Fisher / Real / Nominal TMA (source/ui/ui_26_create_fisher_tab.py)
+  - UI with toggle between calculating nominal TMA from real TMA and vice versa.
+  - Calculations shown step-by-step, with field validations and contextual calculate button (text changes with mode).
+
+- Minimum Return (TMA) (source/ui/ui_25_create_minimum_return_tab.py)
+  - Tab dedicated to calculating minimum return based on annual TMA and periods per year.
+  - Formatted outputs integrated into HistoryContainer.
+
+- General improvements and fixes
+  - Consistent application of QDoubleValidator on numeric fields to reduce input errors.
+  - Use of monospace font (QFontDatabase.FixedFont) in HistoryContainer for improved alignment of steps and tables.
+  - Subscript/superscript and numeric formatting centralized in utils/TextFormat.py (format_currency, format_fraction, to_subscript, to_superscript).
+  - Standardized error messages and logging via utils/LogManager.
+  - Fixes in visibility/clear logic for inputs/outputs to avoid unexpected behaviors.
+  - Small UX adjustments: dynamic labels, export buttons bound to the correct history and focus after editing.
+
+How to use the new features (summary)
+1. Interest Tab: choose "Compare Simple vs Compound Interest" to see step-by-step work and verification; use "Calculate" to add an entry to history.
+2. Gradients: select desired mode (P, X_k, Perpetuity, G_k) and fill visible fields; calculate to obtain detailed steps.
+3. Rates/IRR: select a mode in the unified tab (Effective Rate, IRR, Global Rate, etc.) and fill fields; general IRR uses Newton–Raphson, n=2 treated as a special case.
+4. Amortization: generate American or Hamburgues tables (fill grace period and tick capitalization if applicable); export via menu or Export button.
+
+Technical notes / pending items
+- It is recommended to review and add unit tests for critical financial functions (IRR, gradient formulas, table generators) — TODOs remain.
+- Review messages and translations (.ts) if needed; using indices in QComboBox minimizes issues with translated texts.
+- Continue standardizing PDF export (integration with FontManager.get_html_style already applied in other project areas).
+
+
+______________________________
+
+
+RELEASE NOTES — Economia APP  
+Version: 0.0.4.0  
+Date: January 31, 2026  
+Author: Fernando Nillsson Cidade
+
+---
+
+Release summary  
+Maintenance update with functional and robustness improvements across UI and services. Focus areas: PDF export, HistoryContainer, amortization/investment/gradient tabs, font handling and internationalization. Bug fixes and additional validations.
+
+What changed (highlights)
+
+- HistoryContainer (source/ui/ui_17_history_container.py)
+  - New HTML conversion method that applies font styling via FontManager (get_html_style).
+  - Improved entry size management (_sync_entry_sizes) with dynamic adjustment on viewport resize.
+  - Support for inline editing with commit/cancel, selection via checkboxes and robust removal (adjusts editing indices).
+  - Theme updates handled via changeEvent and _update_theme, polishing widget appearance.
+  - Export improvements: toPlainText() centralizes text extraction for export.
+
+- FontManager / Font configuration
+  - HTML font style integrated into export_to_pdf and history entry conversion (uses FontManager.get_html_style()) to ensure visual consistency between UI and PDFs.
+  - Menu action to open font configuration dialog (ui_16_menu_bar.py → Configure Fonts). After changes, widgets with refresh_all_fonts are updated.
+
+- PDF Export (source/ui/ui_15_export_pdf.py)
+  - export_to_pdf now attempts to obtain text from multiple widget types (toPlainText, document(), str) and includes font CSS via FontManager.
+  - Better HTML generation for export (preformatted, content escaping).
+  - export_amortization_pdf builds a document combining calculations and the amortization table (uses amort_table_to_html).
+  - amort_table_to_html: exports QTableWidget to HTML with styling (borders, font, h1/h2).
+
+- Main menu (source/ui/ui_16_menu_bar.py)
+  - Export current / export all actions centralized; tab mapping and special logic for Amortization and Rate Conversion.
+  - Integration with Translation Manager: language checks updated and connected to idioma_alterado signal.
+  - Opens font configuration dialog and updates resulting widgets.
+  - export_all builds combined HTML of all sections and appends amortization table if present.
+
+- Amortization tabs (ui_07_create_amortization_tab.py + generators)
+  - Expanded support for systems: Price, SAC, SAM, American and “Hamburgues” (with grace period).
+  - New fields: grace period and checkbox to capitalize interest during grace.
+  - Validation: grace period cannot be greater than or equal to total term (shows message and fills table with error).
+  - Separate table generators: generate_price_table, generate_sac_table, generate_sam_table, generate_american_table, generate_hamburgues_table — implemented and exportable.
+  - Dedicated export_amortization_pdf to generate PDF with calculations and table.
+
+- Gradient tab (ui_05_create_gradient_tab.py + service sv_03)
+  - Supported modes: calculate P, calculate k-th term (X_k, geometric only) and Perpetuity.
+  - Separation between arithmetic and geometric gradients.
+  - Service sv_03_calculate_gradient: consistent currency formatting, fraction rendering, superscript/subscript for formulas, handling i == g cases and normalizations. Results are sent to HistoryContainer.
+
+- Investment tab (ui_08_create_investment_tab.py + service sv_06)
+  - UI: multiple analysis types (NPV/VAUE uniform, detailed NPV, discounted payback, sensitivity).
+  - Dynamic fields and labels that change according to selected type.
+  - Implemented services (sv_06): helper functions for uniform NPV/VAUE, detailed NPV, discounted payback, sensitivity analysis — with step-by-step calculations and formatting. (Note: some parts in the file were sketches, but main utilities are implemented.)
+  - Detailed textual formatting for appending to HistoryContainer.
+
+- Effective Rate / IRR / Global Rate (ui_25_create_effective_rate_tab.py + sv_08)
+  - UI modes: effective rate, IRR, and global rate.
+  - sv_08_calculate_effective_rate: effective rate via period conversion, IRR implementation using Newton–Raphson (_calculate_tir_newton) with a documented special case for 2 periods, and global rate calculation with accumulated inflation.
+  - Formatted outputs, use of superscript/subscript and standardized currency formatting.
+
+- Fisher / real/nominal TMA (ui_29_create_fisher_tab.py + sv_10)
+  - UI option to compute nominal TMA from real and vice versa.
+  - Fisher calculations implemented with steps and formatting; required-field validations.
+
+- Minimum Return (TMA) (ui_28_create_minimum_return_tab.py + sv_09)
+  - UI and calculation converting annual TMA to period TMA and computing minimum return (minimum interest) per period.
+  - Detailed output in HistoryContainer.
+
+- General improvements and fixes
+  - Consistent use of QDoubleValidator on numeric fields across multiple tabs.
+  - Fixed comparisons: QComboBox indices used instead of comparing displayed text (more robust for i18n).
+  - Normalized currency formatting (swap separators to Brazilian style) encapsulated in local helpers.
+  - Detailed logging and exception handling with LogManager for easier diagnosis.
+  - Monospace font usage (QFontDatabase.FixedFont) in HistoryContainer instances for aligned tables/text.
+  - Responsiveness: setSizePolicy and behavior adjustments on resize.
+  - Standardized construction of explanatory strings (dividers, headers, sections) for readability in history entries and PDFs.
+
+How to use the new features
+
+1. Open Settings → Configure Fonts to adjust family/size/styles. Confirm to update history and exports.
+2. Amortization tab:
+   - Select system (Price/SAC/SAM/Americano/Hamburguês).
+   - If using Hamburgues, fill in Grace Period and check whether to capitalize interest.
+   - Generate table and use "Export PDF" to save table + calculations.
+3. Gradient / Effective Rate / Investment / Fisher / Minimum Return tabs:
+   - Choose calculation mode in the ComboBox; fill visible fields.
+   - Click Calculate to append step-by-step output to HistoryContainer.
+   - Select history entries to edit/delete/export.
+4. Files menu:
+   - Export Current / Export All: generates PDF with content from visible sections; Amortization is handled specially to include its table.
+
+Technical notes / migration
+- If you have automated exports that rely on plain text, review use of FontManager.get_html_style() (now used by exporters).
+- Translations should remain compatible (using indices prevents issues when translated text changes).
+- Test scenarios with grace period >= term (now validated) and check logs at %LOCALAPPDATA%\Economia_APP if errors occur.
+
+Notable fixes and improvements
+- Fixed QComboBox text comparisons → now using currentIndex() (improves i18n and robustness).
+- Validation for grace period in Hamburgues system.
+- HTML/PDF export of tables with consistent font styling.
+- IRR implemented via Newton–Raphson for general cases and documented special case for 2 periods.
+- HistoryContainer more resilient (resize, theme, editing, export).
+
+---
+
+Small pending items (for future releases)
+- Review sketched parts in sv_06 (TODOs/blank lines) to complete validations and localized messages.
+- Add automated unit tests for critical financial functions (IRR, factor calculations, amortizations).
+- Complement internal API documentation and examples of I/O for automated PDF generation.
+
+
+______________________________
+
+
+RELEASE NOTES — Economia APP
+Version: 0.0.3.0
+Date: October 22, 2025
+Author: Fernando Nillsson Cidade
+
+---
+
+Release summary
+Maintenance and improvements release focused on user experience, font configurability and critical bug fixes. Implementation of FontManager, font configuration dialog and integration with HistoryContainer and main menu.
+
+What Changed
+
+**Font Configuration (NEW)**
+- You can now customize font family, size and styles for calculation results.
+- Access: **Settings → Configure Fonts**
+- Choose from:
+  - **Font Family**: select from available fonts on your computer (recommended: Courier New for best readability).
+  - **Size**: set between 8pt and 24pt according to your reading preference.
+  - **Styles**: apply bold, italic or underline individually.
+- **Real-time Preview**: see how it will look before confirming.
+- **Default Button**: return to original settings with one click.
+
+**Improved History**
+- History now displays calculations using the configured fonts automatically.
+- When changing font settings, the history updates immediately.
+- More intuitive editing: click an entry's checkbox to select it, then use the "Edit" button.
+
+**Improved Main Menu**
+- New item: **Settings → Configure Fonts** (quick access).
+- Better organization of language and export menus.
+
+How to Use the New Features
+
+1. **Configure your Preferred Fonts:**
+   - Go to **Settings → Configure Fonts**
+   - Adjust family, size and styles as desired
+   - Click **OK** to save
+   - Calculation results update automatically
+
+2. **Restore Default Fonts:**
+   - Open **Settings → Configure Fonts**
+   - Click the **Default** button
+   - Click **OK**
+
+3. **Edit History with New Fonts:**
+   - Select an entry in history
+   - Click **Edit**
+   - Configured fonts will be applied
+   - Confirm or cancel the edit
+
+Fixes and Improvements
+
+- **Better Text Rendering**: results and tables now use monospace (fixed-width) font for perfect alignment.
+- **Theme Support**: text and background colors adapt to the Windows theme (light/dark).
+- **Performance**: faster loading of history with many entries.
+- **Stability**: fixed errors in theme updates and window resizing.
+
+
+______________________________
+
+
+RELEASE NOTES — Economia APP
+Date: October 21, 2025
+Version: 0.0.2.0
+
+---
+
+Main Highlights
+
+* Redesigned interface: separate tabs for each type of financial calculation.
+* Languages: now available in Portuguese (Brazil) and English (United States).
+
+  * Change the language via Settings → Languages.
+  * The choice is saved automatically for next time.
+* Export to PDF: save results and amortization tables with one click.
+* Calculation history: view, edit and export all previous results.
+* New menu: quick access to export, change language and open the "About" dialog.
+* Improved "About" window: shows version, authors, licenses and privacy policy.
+* Greater stability: errors are handled automatically and logged.
+
+How to Use
+
+1. Choose a tab (for example: Interest, Annuities, Amortization, etc.).
+2. Fill in the fields with the requested values.
+3. Click Calculate.
+4. The result appears in the right panel, with step-by-step explanations.
+5. Use the buttons:
+
+   * Clear: clears the fields or results.
+   * Edit: allows changing a saved result.
+   * Delete: removes selected entries.
+   * Export PDF: generates a PDF file with the calculation.
+6. In the Amortization tab, a full table is also displayed.
+
+Other Important Features
+
+* Change language:
+  Go to Settings → Languages → Portuguese / English.
+* Export calculations:
+  Go to Files → Export Current or Files → Export All.
+* View app info:
+  Go to Options → About.
+
+Privacy and Security
+
+* No data is sent over the internet.
+* History and configuration files are saved only on the user's computer at:
+  %LOCALAPPDATA%\Economia_APP
+
+
+______________________________
+
+
+RELEASE NOTES — Economia APP
+Version: 0.0.1.0
+Date: October 19, 2025
+Author: Fernando Nillsson Cidade
+
+---
+
+Release summary
+- Initial alpha/experimental release of Economia APP, a tool to support the study of Engineering Economics (TT007). Automates calculations of interest, annuities, gradients, rate equivalence, amortization (SAC, Price, SAM), investment analysis (VPL/VAUE) and depreciation. Includes history, export of tables to PDF and support for pt_BR / en_US translations.
+
+Key features included
+- Calculation modules: simple/compound interest, annuities, gradients, amortization (SAC/Price/SAM), investments (VPL/VAUE) and depreciation.
+- Generation of amortization tables with preview and option to export to PDF.
+- Editable calculation history.
+- Tabbed interface by topic (implemented in PySide6).
+- Basic internationalization support (.ts files included in language/translations).
+
+Files and resources included in this package
+- Code: source/ folder
+- Utilities: utils/ folder (logging, paths and helpers)
+- Assets: assets/ (ABOUT, EULA, NOTICES, COPYRIGHT, CLC, RELEASE)
+- Translations: language/translations/*.ts (pt_BR, en_US)
+- Minimal documentation: assets/ABOUT/*.txt, assets/EULA/*.txt, assets/NOTICES/*.txt, assets/COPYRIGHT/*.txt, assets/CLC/*.txt
+
+Installation (Windows — development)
+1. Install Python 3.10+.
+2. In the terminal (PowerShell or cmd):
+   - python -m venv venv
+   - venv\Scripts\activate
+   - pip install PySide6
+3. Run in development:
+   - python main.py
+
+Packaging for distribution (tips)
+- PyInstaller is recommended to create a Windows executable. Ensure inclusion of the assets/ and language/translations/ directories in the .spec:
+  - add assets/ and language/translations/ to the datas in the .spec
+- Make sure to include license files (assets/EULA, assets/NOTICES, assets/COPYRIGHT, assets/CLC).
+- If bundling PySide6 binaries, document LGPL compliance procedures according to NOTICE_pt_BR.txt.
+
+Compiling translations
+- Generate .qm from .ts with pyside6-lrelease (or lrelease):
+  - pyside6-lrelease language/translations/economia_pt_BR.ts -qm language/translations/economia_pt_BR.qm
+- Place the generated .qm files in language/translations/ before packaging.
+
+Data storage location
+- Settings, history and generated files are saved at:
+  %LOCALAPPDATA%\Economia_APP
+
+Technical notes and dependencies
+- Main dependency: PySide6 (LGPL v3 depending on version).
+- Check requirements.txt (if present) for additional dependencies.
+- Logging: utils/LogManager.py (log files at %LOCALAPPDATA%\Economia_APP).
+- Tests and validation: initial version — manual testing; adding automated tests for financial calculations is recommended for future releases.
+
+Known issues (initial release)
+- Partially implemented UI features (some files in source/ui contain stubs to complete).
+- Translations require compilation (.qm) before packaging.
+- Numeric input validation accepts comma/dot; review handling for edge cases (e.g., empty fields, zeros, negative values where invalid).
+
+Roadmap / next steps
+- Complete and test all UI modules and services (files with stubs in source/ui and source/services).
+- Add unit tests for financial calculations.
+- Improve PDF export and table layout.
+- Automate build process and installer generation for Windows.
+- Implement opt-in telemetry for diagnostics (only with explicit consent).
+
+Support and contact
+- Author: Fernando Nillsson Cidade
+- Bugs, issues and contributions: open an issue / pull request in the project repository (see README).
+
+Legal compliance notes
+- See assets/EULA/EULA_pt_BR - Economia.txt, assets/NOTICES/NOTICE_pt_BR.txt, assets/COPYRIGHT/AVISO DE COPYRIGHT E MARCA REGISTRA_pt_BR.txt and assets/CLC/CLC_pt_BR - Economia.txt for terms of use, commercial licensing and third-party attributions.
