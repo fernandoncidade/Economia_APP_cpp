@@ -50,7 +50,8 @@ struct UpdateContext {
 
 /// Retorna a lista de especificações de todos os arquivos monitorados e atualizados pelo
 /// VersionEditor, incluindo os documentos contratuais, de privacidade, avisos de copyright,
-/// documentações do aplicativo Economia_APP e as versões do README.md (notas de versão de release excluídas).
+/// telas Sobre (ui_27_SobreDialog.cpp e ui_28_exibir_sobre.cpp), documentações do aplicativo
+/// Economia_APP e as versões do README.md (notas de versão de release excluídas).
 const QList<FileSpec> &file_specs();
 QList<FileStatus> check_expected_lines(const QString &base_dir);
 QList<UpdateResult> apply_updates(const UpdateContext &context, const QString &base_dir);

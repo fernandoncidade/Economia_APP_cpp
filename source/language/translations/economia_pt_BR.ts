@@ -1013,5 +1013,21 @@
     <message><source>VP(Custos)</source><translation>VP(Custos)</translation></message>
     <message><source>VP(Revenda)</source><translation>VP(Revenda)</translation></message>
     <message><source>VRₙ (R$)</source><translation>VRₙ (R$)</translation></message>
-</context>
+    <!-- Gerenciamento de Sessão e Exportação -->
+    <message><source>Restaurar Sessão</source><translation>Restaurar Sessão</translation></message>
+    <message><source>Limpar Sessão</source><translation>Limpar Sessão</translation></message>
+    <message><source>Restaurar Sessão Anterior</source><translation>Restaurar Sessão Anterior</translation></message>
+    <message><source>Limpar Sessão Salva</source><translation>Limpar Sessão Salva</translation></message>
+    <message><source>Os resultados da sessão anterior foram carregados. Deseja manter estes resultados?</source><translation>Os resultados da sessão anterior foram carregados. Deseja manter estes resultados?</translation></message>
+    <message><source>Nenhuma sessão anterior encontrada para restaurar.</source><translation>Nenhuma sessão anterior encontrada para restaurar.</translation></message>
+    <message><source>Sessão anterior restaurada com sucesso.</source><translation>Sessão anterior restaurada com sucesso.</translation></message>
+    <message><source>Sessão salva limpa com sucesso.</source><translation>Sessão salva limpa com sucesso.</translation></message>
+    <message><source>Arquivos PDF (*.pdf)</source><translation>Arquivos PDF (*.pdf)</translation></message>
+    <message><source>Conversão de Taxas (Equivalência)</source><translation>Conversão de Taxas (Equivalência)</translation></message>
+    <message><source>Conversão de Taxas (Taxa Real / Aparente)</source><translation>Conversão de Taxas (Taxa Real / Aparente)</translation></message>
+    <message><source>Deseja realmente limpar a sessão salva e todos os resultados?</source><translation>Deseja realmente limpar a sessão salva e todos os resultados?</translation></message>
+    <message><source>Sim</source><translation>Sim</translation></message>
+    <message><source>Não</source><translation>Não</translation></message>
+    <message><source>Fechar</source><translation>Fechar</translation></message>
+  </context>
 </TS>

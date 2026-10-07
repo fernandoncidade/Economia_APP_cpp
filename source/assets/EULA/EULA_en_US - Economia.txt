@@ -1,5 +1,5 @@
 END USER LICENSE AGREEMENT - ECONOMIA APP
-Version 2026.9.30.0, September 30, 2026
+Version 2026.10.7.0, October 7, 2026
 
 Copyright (c) 2025 Fernando Nillsson Cidade. All rights reserved.
 

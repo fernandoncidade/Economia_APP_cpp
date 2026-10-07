@@ -59,14 +59,28 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("All functions can be triggered via mouse interaction or standard keyboard shortcuts.")
             },
             {
-                QStringLiteral("File → Export Current: exports the calculations from the active tab into a formatted PDF document."),
-                QStringLiteral("File → Export All: automatically compiles a comprehensive multi-page executive PDF report consolidating all computed tabs and active tables."),
-                QStringLiteral("Configuration → Languages: submenu providing 'Português (Brasil)' and 'English (United States)'. Selecting a language instantly re-translates all labels, buttons, menus, and open dialogs."),
+                QStringLiteral("File → Export Current: exports the calculations from the active tab into a formatted PDF document with automatic localized filenames and headers (e.g., amortization.pdf or amortizacao.pdf)."),
+                QStringLiteral("File → Export All: compiles a comprehensive multi-page executive PDF report consolidating all computed tabs into a single dossier (all_calculations.pdf or todos_os_calculos.pdf)."),
+                QStringLiteral("File → Restore Previous Session: reloads calculation memory and all tab inputs from the session file saved on disk."),
+                QStringLiteral("File → Clear Saved Session: opens a confirmation dialog titled 'Clear Session' with 'Yes' and 'No' buttons (or 'Sim' and 'Não' in Portuguese). Confirming 'Yes' immediately clears all calculation cards, outputs, and tables across all 12 modules and tabs (both live and restored), deletes the persistent session file from disk, and issues a success confirmation dialog ('Clear Session: Saved session cleared successfully.'). Choosing 'No' leaves all data untouched."),
+                QStringLiteral("Configuration → Languages: submenu providing 'Português (Brasil)' and 'English (United States)'. Selecting a language instantly re-translates all labels, command buttons ('Yes'/'No' vs 'Sim'/'Não'), menus, and auxiliary dialogs."),
                 QStringLiteral("Configuration → Font Configuration: opens FontConfigDialog to customize interface font family (e.g., Segoe UI, Roboto, Consolas) and point size."),
                 QStringLiteral("Options → About (Ctrl+Shift+A): displays the institutional dialog with minimize/maximize window controls, real-time search across all tabs with occurrence counter, Project History, Technical Details, Third-Party Licenses, Legal Notices, Privacy Policy, and Release Notes."),
                 QStringLiteral("Options → Manual (Ctrl+Shift+M): opens this interactive User Manual with bilingual support, structured table of contents, and real-time text search.")
             },
             {
+                {
+                    QStringLiteral("Step-by-Step: Session Management & Clearing"),
+                    {
+                        QStringLiteral("To reset the workspace or clear saved data across all tabs:")
+                    },
+                    {
+                        QStringLiteral("1. Open the menu File → Clear Saved Session."),
+                        QStringLiteral("2. In the 'Clear Session' confirmation dialog, click 'Yes' (or 'No' to cancel)."),
+                        QStringLiteral("3. Clicking 'Yes' purges all calculation cards, results, and tables across all 12 tabs and removes the session file from disk."),
+                        QStringLiteral("4. A confirmation dialog 'Clear Session: Saved session cleared successfully.' confirms completion.")
+                    }
+                },
                 {
                     QStringLiteral("Step-by-Step: Font Configuration"),
                     {
@@ -89,7 +103,7 @@ QList<ManualSection> get_manual_document()
                     {
                         QStringLiteral("1. Open the menu Configuration → Languages."),
                         QStringLiteral("2. Choose 'Português (Brasil)' or 'English (United States)'."),
-                        QStringLiteral("3. The entire interface, including tables and auxiliary dialogs, updates instantly while preserving all current user entries.")
+                        QStringLiteral("3. The entire interface, including dialog buttons ('Yes'/'No' or 'Sim'/'Não'), tables, and auxiliary dialogs, updates instantly while preserving all current user entries.")
                     }
                 }
             }
@@ -234,7 +248,8 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("Hamburg System: interest paid in advance at the beginning of each period over outstanding balance, with constant amortization."),
                 QStringLiteral("Grace Period Options: define non-amortization periods with optional interest capitalization into principal or periodic interest servicing."),
                 QStringLiteral("Direct Period k Lookup: query the outstanding balance, interest, and payment for any intermediate installment without scrolling."),
-                QStringLiteral("PDF Schedule Export: dedicated one-click export generating zebra-striped tables, column summaries, and formal headers.")
+                QStringLiteral("Dynamic In-Card Schedules in History: each calculation embeds its complete schedule table directly into its result card, allowing side-by-side comparison of loan options without layout compression or orphan preview widgets."),
+                QStringLiteral("Bilingual PDF Schedule Export: dedicated one-click export and File menu actions generating executive schedules with localized names (amortization.pdf or amortizacao.pdf).")
             },
             {
                 {
@@ -249,8 +264,9 @@ QList<ManualSection> get_manual_document()
                         QStringLiteral("4. If a grace period applies, enter the periods in 'Grace Period' and check 'Capitalize grace interest?' if accrued interest should be added to the principal balance."),
                         QStringLiteral("5. To inspect a single line, specify the index in 'Period k'."),
                         QStringLiteral("6. Click 'Calculate Amortization'."),
-                        QStringLiteral("7. Inspect the schedule displaying columns: Period, Payment, Interest, Amortization, and Outstanding Balance, along with bottom totals."),
-                        QStringLiteral("8. To save the schedule as an executive report, click 'Export PDF'.")
+                        QStringLiteral("7. The system appends a new result card in history with simulation metrics and the full embedded schedule table (Period, Payment, Interest, Amortization, Balance, and Totals)."),
+                        QStringLiteral("8. Use the smooth vertical scrollbar to navigate between multiple successive simulation cards."),
+                        QStringLiteral("9. To export the schedule as an executive report, click 'Export PDF' or choose File → Export Current.")
                     }
                 }
             }
@@ -475,23 +491,27 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("Every calculation tab in Economia_APP integrates an intelligent History Container (HistoryContainer), designed to ensure full auditability, inline editing, and preservation of calculation records throughout the session.")
             },
             {
+                QStringLiteral("Independent Calculation Cards: each calculation appends an independent card retaining its original dimensions, preventing layout compression or overlapping."),
+                QStringLiteral("Smooth Vertical Scrollbar: responsive vertical scrollbar allowing comfortable navigation across extensive simulation history."),
+                QStringLiteral("Checkbox Selection: individual checkbox on each card for focused inline editing, selective deletion, or targeted exports."),
                 QStringLiteral("Built-in Search Bar: real-time keyword and numeric search with visual highlighting and occurrence navigation."),
                 QStringLiteral("Inline Editing: clicking 'Edit Calculation' unlocks the selected record for manual annotations and corrections, confirmed via the same button."),
                 QStringLiteral("Selective Deletion: removes unwanted calculation entries via 'Delete Selection'."),
                 QStringLiteral("Structured Clearing: 'Clear Inputs' resets form controls, 'Clear Output' clears tab history, and 'Clear All' resets both simultaneously."),
+                QStringLiteral("Global Session Purge: File → Clear Saved Session prompts confirmation ('Yes'/'No') to purge all 12 tabs and remove the session file from disk."),
                 QStringLiteral("Quick Exporting: direct export to formatted plain text (.txt) or structured PDF documents (.pdf)."),
-                QStringLiteral("Session Persistence: calculation history remains preserved when switching between different tabs.")
+                QStringLiteral("Session Persistence: calculation history remains preserved when switching between different tabs and can be restored upon next launch.")
             },
             {
                 {
                     QStringLiteral("Productivity Tips"),
                     {
-                        QStringLiteral("Maximizing dock functionality:")
+                        QStringLiteral("Maximizing history functionality:")
                     },
                     {
-                        QStringLiteral("Adjust the proportion between form and output by dragging the splitter handle with the mouse."),
-                        QStringLiteral("Select any calculation block to inspect or edit its detailed derivation."),
-                        QStringLiteral("Use the search bar to locate specific numeric values across extensive multi-step sessions.")
+                        QStringLiteral("Scroll effortlessly using the mouse wheel or the vertical scrollbar to review recent or older simulation cards."),
+                        QStringLiteral("Check a card's box to perform selective inline edits or delete specific runs."),
+                        QStringLiteral("When switching languages, all cards in the history list re-translate dynamically in real time without altering numeric values or mathematical steps.")
                     }
                 }
             }
@@ -504,8 +524,8 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("The PDF engine leverages Qt6 PrintSupport (QPrinter and QPainter) to ensure balanced margins, sharp vector text, and clean tabular alignment.")
             },
             {
-                QStringLiteral("Active Tab Export: triggered via File → Export Current or by the tab's dedicated 'Export PDF' button."),
-                QStringLiteral("Consolidated Export: triggered via File → Export All, compiling all computed sections into a single multi-page report."),
+                QStringLiteral("Active Tab Export: triggered via File → Export Current or by the tab's dedicated 'Export PDF' button, generating localized names and headers automatically (e.g., amortization.pdf or amortizacao.pdf)."),
+                QStringLiteral("Consolidated Export: triggered via File → Export All, compiling all computed sections into a single multi-page report (all_calculations.pdf or todos_os_calculos.pdf)."),
                 QStringLiteral("Automatic Pagination: includes formal headers, 'Page X of Y' numbering, timestamping, and smart line/table break controls."),
                 QStringLiteral("MathRenderer Engine: typographic rendering of radical roots, superscripts, subscripts, and fractions."),
                 QStringLiteral("Typographic Customization: font changes propagate instantly to both the screen interface and the print engine.")
@@ -519,9 +539,8 @@ QList<ManualSection> get_manual_document()
                     {
                         QStringLiteral("1. Perform your calculations in the desired tab (or across multiple tabs for a consolidated report)."),
                         QStringLiteral("2. Click 'Export PDF' or choose File → Export Current / Export All."),
-                        QStringLiteral("3. In the save file dialog, pick a target folder and specify the file name."),
-                        QStringLiteral("4. Click 'Save'."),
-                        QStringLiteral("5. The software will generate the publication-grade PDF document.")
+                        QStringLiteral("3. In the save file dialog, the default suggested name will automatically reflect the active language. Choose a folder and click 'Save'."),
+                        QStringLiteral("4. The software will generate the publication-grade PDF document with crisp vector tables and formulas.")
                     }
                 }
             }

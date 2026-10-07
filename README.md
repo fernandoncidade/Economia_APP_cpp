@@ -10,15 +10,15 @@
 
 ## <a id="ptbr"></a>Português (BR)
 
-> **Observação:** Este repositório refere-se à versão oficial **v2026.9.30.0** do projeto **Economia_APP**. Apoie o projeto e adquira a versão para Windows por meio do link oficial: [Instalar via Microsoft Store](https://apps.microsoft.com/detail/9PLR0KD6KSJJ)
+> **Observação:** Este repositório refere-se à versão oficial **v2026.10.7.0** do projeto **Economia_APP**. Apoie o projeto e adquira a versão para Windows por meio do link oficial: [Instalar via Microsoft Store](https://apps.microsoft.com/detail/9PLR0KD6KSJJ)
 
 <details>
 <summary>Clique para expandir o README em português</summary>
 
 # Economia_APP — Calculadora Financeira e de Engenharia Econômica
 
-Versão: v2026.9.30.0<br>
-Data técnica desta revisão: 30 de setembro de 2026<br>
+Versão: v2026.10.7.0<br>
+Data técnica desta revisão: 7 de outubro de 2026<br>
 Autor: Fernando Nillsson Cidade<br>
 
 ## Resumo
@@ -27,7 +27,7 @@ O **Economia_APP** é uma avançada e abrangente aplicação desktop desenvolvid
 
 Desenvolvido nativamente em **C++17** com **Qt 6.11.1 Widgets**, o projeto é o resultado de uma refatoração integral, profunda e fiel do aplicativo original concebido em Python (PySide6). A nova arquitetura em C++ preserva 100% da identidade, convenções, nomenclaturas de arquivos, algoritmos matemáticos e lógica de interface do usuário, proporcionando um salto substancial em desempenho, inicialização instantânea, estabilidade contínua e consumo otimizado de recursos computacionais.
 
-Esta versão oficial **2026.9.30.0** consolida todo o ecossistema financeiro: introdução de um **Manual do Usuário Interativo Integrado** acessível diretamente pela interface (`Ctrl+Shift+M`) com busca em tempo real e sumário dinâmico bidirecional sincronizado; nova **Janela Sobre (`Ctrl+Shift+A`)** com botões nativos de maximizar e minimizar, mecanismo de busca textual em tempo real em todas as abas e retradução dinâmica; novo motor de **Renderização Matemática e Notações Didáticas** (`MathRenderer`) que apresenta frações, expoentes e raízes com elegância visual adaptativa aos temas Claro e Escuro do Windows 11; estabilização e precisão em todas as 13 modalidades de cálculo financeiro; gerenciamento de histórico de sessão com edição inline de notas; exportação gráfica vetorial para PDF; isolamento estrito de ambientes de compilação (**MinGW 64-bit** e **MSVC x64 Ninja**); e tradução dinâmica bilíngue instantânea em tempo de execução sem reiniciar o software.
+Esta versão oficial **2026.10.7.0** consolida todo o ecossistema financeiro: introdução de um **Manual do Usuário Interativo Integrado** acessível diretamente pela interface (`Ctrl+Shift+M`) com busca em tempo real e sumário dinâmico bidirecional sincronizado; nova **Janela Sobre (`Ctrl+Shift+A`)** com botões nativos de maximizar e minimizar, mecanismo de busca textual em tempo real em todas as abas e retradução dinâmica; novo motor de **Renderização Matemática e Notações Didáticas** (`MathRenderer`) que apresenta frações, expoentes e raízes com elegância visual adaptativa aos temas Claro e Escuro do Windows 11; estabilização e precisão em todas as 13 modalidades de cálculo financeiro; gerenciamento de histórico de sessão com edição inline de notas; exportação gráfica vetorial para PDF; isolamento estrito de ambientes de compilação (**MinGW 64-bit** e **MSVC x64 Ninja**); e tradução dinâmica bilíngue instantânea em tempo de execução sem reiniciar o software.
 
 ## Funcionalidades principais
 
@@ -60,8 +60,11 @@ Esta versão oficial **2026.9.30.0** consolida todo o ecossistema financeiro: in
 - **Avaliação Pontual no Período K**: determinação direta e matemática do saldo devedor, juros acumulados, amortização e prestação em um período $k$ arbitrário nos sistemas SAC e Price sem a necessidade de processar a tabela integral.
 - **VPL com Incidência Tributária e Financiamento**: estudo de viabilidade econômica considerando deduções fiscais de IRPJ e CSLL, benefício fiscal da depreciação contábil do ativo e dedução de juros quando associado a financiamento SAC.
 - **Custo Anual Uniforme Equivalente (CAUE) e Vida Econômica**: confronto analítico de alternativas de investimentos com vidas úteis desiguais e identificação do ciclo de substituição ideal de equipamentos baseado na tabela de custos operacionais e valores residuais decrescentes.
-- **Container de Histórico com Edição Inline**: painel dock retrátil inferior que armazena todos os cálculos executados na sessão, permitindo editar anotações livremente, excluir registros individuais, limpar o log ou exportar dados.
-- **Exportação para PDF de Alta Resolução**: geração de documentos vetoriais em PDF com formatação estruturada, bordas finas, alinhamento de cabeçalhos e inclusão das tabelas analíticas de amortização e CAUE.
+- **Histórico em Cartões Independentes com Rolagem Vertical**: em todas as 12 modalidades e 13 abas, cada cálculo gera um quadro independente preservando suas dimensões originais sem esmagamento ou concorrência de espaço vertical. Uma barra de rolagem suave permite navegar confortavelmente entre simulações acumuladas, com caixas de seleção individuais para edição inline de anotações ou exclusão pontual.
+- **Tabelas de Amortização Dinâmicas no Histórico**: cada cálculo na aba de Amortização embute seu cronograma analítico completo (SAC, Price, SAM, Americano e Hamburguês) diretamente no cartão de resultado no histórico, seguindo a arquitetura do CAUE e eliminando tabelas órfãs ou widgets compactados na interface.
+- **Gerenciamento e Limpeza Integral de Sessão**: funcionalidade `Arquivos > Limpar Sessão Salva` com janela de confirmação 'Limpar Sessão' ('Sim'/'Não'). Ao confirmar, purga instantaneamente todos os quadros, respostas e tabelas de todas as 12 abas (tanto cálculos ao vivo quanto restaurados), remove o arquivo no disco e emite aviso informativo de sucesso.
+- **Exportação para PDF Bilíngue de Alta Resolução**: geração de documentos vetoriais via `Arquivos > Exportar Atual` e `Exportar Todos`, adotando nomes de arquivo, cabeçalhos e títulos automaticamente no idioma ativo (ex.: `amortizacao.pdf` vs. `amortization.pdf`, `todos_os_calculos.pdf` vs. `all_calculations.pdf`), com quebra de página automática em tabelas extensas.
+- **Tradução Dinâmica de Caixas de Diálogo e Botões**: todas as janelas de diálogo (*Restaurar Sessão*, *Limpar Sessão*, avisos e mensagens) traduzem dinamicamente seus botões padrão em tempo real para **"Sim" / "Não"** em português e **"Yes" / "No"** em inglês.
 - **Configuração de Fontes e Escala Tipográfica**: diálogo dedicado para personalização da família tipográfica (monospace ou proporcional) e tamanho dos textos em pontos com pré-visualização em tempo real e persistência via `QSettings`.
 - **Internacionalização Dinâmica (i18n)**: suporte bilíngue nativo e completo em **Português do Brasil (`pt_BR`)** e **Inglês dos EUA (`en_US`)**, com alternância em tempo de execução sem reiniciar o programa.
 - **Privacidade Total e Operação 100% Offline**: o software não realiza coletas de dados, telemetria ou conexões com a nuvem; todas as informações e cálculos permanecem exclusivamente no computador local do usuário.
@@ -88,6 +91,23 @@ Esta versão oficial **2026.9.30.0** consolida todo o ecossistema financeiro: in
 | **Histórico e Exportação** | `ui_23_history_container`, `ui_25_export_pdf` | Painel dock inferior para edição inline, gestão de notas e emissão em PDF. |
 | **Tipografia e Notações** | `FontManager`, `MathRenderer`, `ui_24_font_config_dialog` | Configuração de fontes e renderização didática de equações matemáticas. |
 | **Internacionalização (i18n)** | `tr_01_gerenciadorTraducao`, `tr_02_compileTranslations` | Gestão de catálogos `.ts`/`.qm` e alternância imediata entre `pt_BR` e `en_US`. |
+
+## Destaques técnicos da versão 2026.10.7.0
+
+- **Visualização com Rolagem Vertical e Quadros Independentes em Todas as Abas**:
+  - Cada novo cálculo realizado em qualquer um dos 12 módulos analíticos gera um quadro individual independente com suas dimensões originais preservadas e sem compressão de layout;
+  - Navegação vertical fluida e organizada através de barra de rolagem (`QScrollArea`), permitindo comparar com clareza diversos cenários sem concorrência de espaço entre widgets.
+- **Módulo de Amortização com Tabelas Dinâmicas no Histórico**:
+  - Cronogramas analíticos completos de amortização (SAC, Price, SAM, Americano e Hamburguês) passam a ser gerados e associados diretamente a cada quadro no histórico de resultados, no mesmo padrão consolidado do módulo CAUE;
+  - Remoção de widgets compactados e sobrepostos da interface principal, garantindo visual limpo e profissional;
+  - Capacidade de reter e comparar cronogramas de diferentes simulações na mesma sessão.
+- **Gerenciamento e Limpeza Completa de Sessão**:
+  - Nova ação em `Arquivos > Limpar Sessão Salva` dotada de caixa de diálogo com opções dinâmicas "Sim" / "Não";
+  - Ao confirmar, limpa instantaneamente todos os quadros, respostas e tabelas geradas em todas as 12 abas analíticas (tanto de cálculos recém-executados quanto restaurados de sessão anterior), além de remover com segurança o arquivo de sessão salvo em disco e emitir confirmação informativa.
+- **Exportação Bilíngue Inteligente de Relatórios em PDF**:
+  - Ajuste dinâmico automático dos nomes de arquivos sugeridos e dos títulos em `Arquivos > Exportar Atual` e `Arquivos > Exportar Todos` de acordo com o idioma ativo (`pt_BR` gera nomes e termos em português, `en_US` gera em inglês, ex.: `amortizacao.pdf` vs. `amortization.pdf`).
+- **Localização Dinâmica de Caixas de Diálogo em Tempo de Execução**:
+  - Tradução em tempo real de botões padrão do Qt (`Sim` / `Não` em português, `Yes` / `No` em inglês) em todas as caixas de diálogo e perguntas de restauração/limpeza de sessão, assegurando total consistência com o idioma configurado.
 
 ## Destaques técnicos da versão 2026.9.30.0
 
@@ -231,15 +251,15 @@ Contato: `linceu_lighthouse@outlook.com`
 
 ## <a id="enus"></a>English (US)
 
-> **Note:** This repository refers to the official **v2026.9.30.0** release of the **Economia_APP** project. Support the project and get the Windows version through the official link: [Install via Microsoft Store](https://apps.microsoft.com/detail/9PLR0KD6KSJJ)
+> **Note:** This repository refers to the official **v2026.10.7.0** release of the **Economia_APP** project. Support the project and get the Windows version through the official link: [Install via Microsoft Store](https://apps.microsoft.com/detail/9PLR0KD6KSJJ)
 
 <details>
 <summary>Click to expand the README in English</summary>
 
 # Economia_APP — Financial and Engineering Economics Calculator
 
-Version: v2026.9.30.0<br>
-Technical revision date: September 30, 2026<br>
+Version: v2026.10.7.0<br>
+Technical revision date: October 7, 2026<br>
 Author: Fernando Nillsson Cidade<br>
 
 ## Summary
@@ -248,7 +268,7 @@ Author: Fernando Nillsson Cidade<br>
 
 Built natively in **C++17** using **Qt 6.11.1 Widgets**, this project represents a comprehensive, faithful, and integral rewrite of the original Python (PySide6) application. The C++ architecture preserves 100% of the original product's directory hierarchy, naming conventions, mathematical formulas, and GUI design, while achieving native execution speeds, instantaneous startup times, rock-solid stability, and minimal hardware overhead.
 
-This official release **2026.9.30.0** delivers a complete financial ecosystem: an **Integrated Interactive User Manual** accessible directly from the interface (`Ctrl+Shift+M`) with real-time text search and two-way synchronized table of contents; a new comprehensive **About Dialog (`Ctrl+Shift+A`)** featuring native maximize and minimize window controls, real-time search with match counter across all documentation tabs, and live dynamic retranslation; a specialized **Mathematical and Didactic Notation Renderer** (`MathRenderer`) presenting fractions, powers, and roots adapted to Windows 11 Light and Dark themes; stabilized numerical engines across all 13 financial calculation domains; an interactive session history dock with inline note editing; vector PDF report export; isolated build configurations (**MinGW 64-bit** and **MSVC x64 Ninja**); and seamless live bilingual localization without application restart.
+This official release **2026.10.7.0** delivers a complete financial ecosystem: an **Integrated Interactive User Manual** accessible directly from the interface (`Ctrl+Shift+M`) with real-time text search and two-way synchronized table of contents; a new comprehensive **About Dialog (`Ctrl+Shift+A`)** featuring native maximize and minimize window controls, real-time search with match counter across all documentation tabs, and live dynamic retranslation; a specialized **Mathematical and Didactic Notation Renderer** (`MathRenderer`) presenting fractions, powers, and roots adapted to Windows 11 Light and Dark themes; stabilized numerical engines across all 13 financial calculation domains; an interactive session history dock with inline note editing; vector PDF report export; isolated build configurations (**MinGW 64-bit** and **MSVC x64 Ninja**); and seamless live bilingual localization without application restart.
 
 ## Key features
 
@@ -282,9 +302,12 @@ This official release **2026.9.30.0** delivers a complete financial ecosystem: a
 - **NPV with Taxation and Debt Financing**: feasibility analysis accounting for corporate income tax rates, accounting depreciation tax shields, and tax-deductible interest on debt financing.
 - **Equivalent Annual Cost (EAC / CAUE) and Economic Life**: evaluates mutually exclusive alternatives with unequal lifespans, determining optimal asset replacement intervals by balancing rising maintenance costs against falling salvage values.
 - **History Container with Inline Note Editing**: collapsible bottom dock widget that captures every calculation completed in the session, allowing users to edit notes inline, delete selected records, clear history, or export results.
-- **High-Resolution Vector PDF Export**: native PDF generation with formal headers, crisp table borders, and formatted amortization and CAUE schedules.
+- **Independent Result Cards with Vertical Scroll Navigation**: every new calculation produces an independent card preserving its original dimensions without layout squeezing, structured within a smooth vertical scroll container across all 12 analytical modules.
+- **Loan Amortization with Dynamic In-Card Schedule Tables**: full amortization schedules (SAC, Price, SAM, American, and Hamburg) generated and associated directly with each calculation card in the history panel (matching the CAUE workflow), eliminating compact widget clutter and enabling multi-scenario comparisons.
+- **Complete Session Management & Session Purge Dialog**: "File > Clear Saved Session" feature with dynamic "Yes" / "No" confirmation dialog, purging all active in-memory results and tables across all tabs as well as removing the saved session file from disk.
+- **High-Resolution Bilingual Vector PDF Export**: native PDF generation with formal headers, crisp table borders, and formatted amortization and CAUE schedules, with file naming and headers automatically tailored to the active locale (`pt_BR` vs. `en_US`, e.g., `amortizacao.pdf` vs. `amortization.pdf`).
 - **Font & Scale Customization**: dedicated dialog for customizing typeface families (monospace vs. proportional) and font point sizes with real-time preview and `QSettings` persistence.
-- **Dynamic Localization (i18n)**: complete bilingual support in **Brazilian Portuguese (`pt_BR`)** and **US English (`en_US`)**, switching immediately across all screens without application restarts.
+- **Dynamic Localization (i18n)**: complete bilingual support in **Brazilian Portuguese (`pt_BR`)** and **US English (`en_US`)**, switching immediately across all screens without application restarts, including standard Qt message and confirmation dialog buttons ("Yes" / "No" and "Sim" / "Não").
 - **Total Privacy and Offline Execution**: zero telemetry, tracking, or cloud connectivity; all financial calculations remain strictly on the user's local computer.
 
 ## Available modules
@@ -309,6 +332,23 @@ This official release **2026.9.30.0** delivers a complete financial ecosystem: a
 | **History & PDF Export** | `ui_23_history_container`, `ui_25_export_pdf` | Lower dock widget for inline notes and high-resolution PDF reporting. |
 | **Typography & Notation** | `FontManager`, `MathRenderer`, `ui_24_font_config_dialog` | Typography settings and educational mathematical formula rendering. |
 | **Internationalization (i18n)** | `tr_01_gerenciadorTraducao`, `tr_02_compileTranslations` | Catalog management and runtime switching between `pt_BR` and `en_US`. |
+
+## Technical highlights in version 2026.10.7.0
+
+- **Vertical Scroll Navigation & Independent Calculation Cards**:
+  - Each calculation completed across all 12 analytical modules creates an independent card retaining its original dimensions without competing for display area;
+  - Integrated vertical scrollbar navigation (`QScrollArea`) providing clean, spacious inspection of multiple sequential financial scenarios.
+- **Dynamic In-Card Amortization Schedule Tables**:
+  - Full loan schedules (SAC, Price, SAM, American, and Hamburg) are dynamically generated and linked directly inside each calculation result in the history container, matching the CAUE module pattern;
+  - Obsolete squished table widgets removed from the main tab layout, ensuring a polished and uncluttered workspace;
+  - Full support for inspecting and keeping multiple amortization loan comparisons simultaneously.
+- **Full Session Purge and Dialog Confirmation**:
+  - Streamlined "File > Clear Saved Session" command with localized confirmation dialog;
+  - Safely clears in-memory calculation cards, analytical answers, and schedule tables across all 12 tabs for both live and restored sessions, simultaneously removing the persisted session file from disk with a success confirmation.
+- **Intelligent Bilingual PDF Export**:
+  - Both "Export Current" and "Export All" automatically adjust default filenames, document headers, and table labels to match the currently selected system language (`pt_BR` or `en_US`).
+- **Dynamic Localization for Dialog Buttons**:
+  - Standard Qt confirmation and alert buttons ("Yes"/"No" and "Sim"/"Não") translated on the fly across session restoration and clear dialogs without requiring application restarts.
 
 ## Technical highlights in version 2026.9.30.0
 

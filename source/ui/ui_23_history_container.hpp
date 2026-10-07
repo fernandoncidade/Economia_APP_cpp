@@ -9,8 +9,32 @@
 #include <QTextEdit>
 #include <QFont>
 #include <QList>
+#include <QSpacerItem>
+#include <QResizeEvent>
+#include <QShowEvent>
+#include <QWheelEvent>
 #include <optional>
 #include <functional>
+#include <QJsonArray>
+#include <QJsonObject>
+
+class HistoryTextEdit : public QTextEdit {
+    Q_OBJECT
+
+public:
+    explicit HistoryTextEdit(QWidget* parent = nullptr);
+    ~HistoryTextEdit() override = default;
+
+    void adjust_content_height();
+
+protected:
+    void resizeEvent(QResizeEvent* event) override;
+    void showEvent(QShowEvent* event) override;
+    void wheelEvent(QWheelEvent* event) override;
+
+private:
+    bool m_adjusting = false;
+};
 
 struct HistoryEntry {
     QWidget* container = nullptr;
@@ -49,6 +73,17 @@ public:
 
     int count() const;
     QString get_entry_text(int index) const;
+    bool isEmpty() const;
+
+    QJsonArray toJsonArray() const;
+    void loadFromJsonArray(const QJsonArray& arr);
+    QString toExportHtml() const;
+
+signals:
+    void historyChanged();
+
+protected:
+    void resizeEvent(QResizeEvent* event) override;
 
 private:
     QString convert_to_html(const QString& text) const;
@@ -57,6 +92,7 @@ private:
     QScrollArea* m_scrollArea = nullptr;
     QWidget* m_innerWidget = nullptr;
     QVBoxLayout* m_innerLayout = nullptr;
+    QSpacerItem* m_bottomSpacer = nullptr;
     QList<HistoryEntry> m_entries;
     std::optional<int> m_editingIndex;
 };

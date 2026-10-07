@@ -9,6 +9,8 @@
 #include "../utils/FontManager.hpp"
 #include "../utils/TextFormat.hpp"
 #include "../utils/MathRenderer.hpp"
+#include "../utils/SessionManager.hpp"
+#include "../utils/DialogHelper.hpp"
 #include "../language/tr_01_gerenciadorTraducao.hpp"
 
 #include <QMenuBar>
@@ -20,6 +22,7 @@
 #include <QTextEdit>
 #include <QRegularExpression>
 #include <QStringList>
+#include <QMessageBox>
 
 void setup_menu_bar(FinancialCalculatorApp* app) {
     if (app) {
@@ -37,6 +40,49 @@ void FinancialCalculatorApp::create_menu_bar() {
         QAction* export_all_action = new QAction(QCoreApplication::translate("App", "Exportar Todos"), this);
         file_menu->addAction(export_current_action);
         file_menu->addAction(export_all_action);
+
+        file_menu->addSeparator();
+        QAction* restore_session_action = new QAction(QCoreApplication::translate("App", "Restaurar Sessão Anterior"), this);
+        QAction* clear_session_action = new QAction(QCoreApplication::translate("App", "Limpar Sessão Salva"), this);
+        file_menu->addAction(restore_session_action);
+        file_menu->addAction(clear_session_action);
+
+        connect(restore_session_action, &QAction::triggered, this, [this]() {
+            if (!SessionManager::has_saved_session()) {
+                DialogHelper::information(this,
+                    QCoreApplication::translate("App", "Restaurar Sessão"),
+                    QCoreApplication::translate("App", "Nenhuma sessão anterior encontrada para restaurar."));
+                return;
+            }
+            m_isLoadingSession = true;
+            bool ok = SessionManager::load_session(this);
+            m_isLoadingSession = false;
+            if (ok) {
+                DialogHelper::information(this,
+                    QCoreApplication::translate("App", "Restaurar Sessão"),
+                    QCoreApplication::translate("App", "Sessão anterior restaurada com sucesso."));
+            }
+        });
+
+        connect(clear_session_action, &QAction::triggered, this, [this]() {
+            QMessageBox::StandardButton reply = DialogHelper::question(
+                this,
+                QCoreApplication::translate("App", "Limpar Sessão"),
+                QCoreApplication::translate("App", "Deseja realmente limpar a sessão salva e todos os resultados?"),
+                QMessageBox::Yes | QMessageBox::No,
+                QMessageBox::No
+            );
+
+            if (reply == QMessageBox::Yes) {
+                clear_all_history();
+                SessionManager::clear_session();
+                DialogHelper::information(
+                    this,
+                    QCoreApplication::translate("App", "Limpar Sessão"),
+                    QCoreApplication::translate("App", "Sessão salva limpa com sucesso.")
+                );
+            }
+        });
 
         // Menu Configuração
         QMenu* config_menu = menubar->addMenu(QCoreApplication::translate("App", "Configuração"));
@@ -112,19 +158,20 @@ void FinancialCalculatorApp::create_menu_bar() {
         options_menu->addAction(manual_action);
 
         // Export All
-        auto export_all = [this](const QString& suggested_name = "todos_calculos.pdf") {
+        auto export_all = [this](const QString& custom_name = QString()) {
+            bool is_en = (GerenciadorTraducao::idioma_atual_global() == "en_US");
+            QString suggested_name = custom_name.isEmpty() ? (is_en ? "all_calculations.pdf" : "todos_os_calculos.pdf") : custom_name;
+            suggested_name = PdfExport::localize_filename(suggested_name);
+
             struct Section {
                 QString title;
-                QString text;
+                HistoryContainer* widget;
             };
             QList<Section> sections;
 
             auto add_section = [&sections](const QString& title, HistoryContainer* widget) {
-                if (!widget) return;
-                QString text = widget->toRawText().trimmed();
-                if (!text.isEmpty()) {
-                    sections.append({title, text});
-                }
+                if (!widget || widget->isEmpty()) return;
+                sections.append({title, widget});
             };
 
             add_section(QCoreApplication::translate("App", "Juros (Simples/Compostos)"), interest_result);
@@ -144,21 +191,14 @@ void FinancialCalculatorApp::create_menu_bar() {
             QString font_css = FontManager::get_html_style();
             QStringList html_parts;
             html_parts << "<html><head><meta charset='utf-8'>" << font_css;
-            html_parts << "<style>body { margin: 12px; } pre.calc, pre { white-space: pre-wrap; overflow-wrap: break-word; word-break: break-word; } sub { font-size: 75%; vertical-align: sub; } sup { font-size: 75%; vertical-align: super; }</style></head><body>";
+            html_parts << "<style>body { margin: 12px; } h1 { margin: 12px 0 10px 0; } h2 { margin: 12px 0 6px 0; } pre.calc, pre { white-space: pre-wrap; overflow-wrap: break-word; word-break: break-word; } sub { font-size: 75%; vertical-align: sub; } sup { font-size: 75%; vertical-align: super; } table { border-collapse: collapse; width: 100%; font-size: 10pt; margin: 10px 0; table-layout: fixed; } th, td { border: 1px solid #444; padding: 4px 6px; text-align: left; vertical-align: top; word-break: break-word; overflow-wrap: break-word; } thead tr { background: #f0f0f0; }</style></head><body>";
             html_parts << QString("<h1>%1</h1>").arg(QCoreApplication::translate("App", "Todos os Cálculos").toHtmlEscaped());
 
             for (const auto& sec : sections) {
-                QString rich_sec = TextFormat::to_rich_html(sec.text);
-                if (rich_sec.contains("<table", Qt::CaseInsensitive)) {
-                    rich_sec.replace("<table", "</pre><table", Qt::CaseInsensitive);
-                    rich_sec.replace("</table>", "</table><pre class=\"calc\">", Qt::CaseInsensitive);
+                QString content = sec.widget->toExportHtml();
+                if (!content.trimmed().isEmpty()) {
+                    html_parts << QString("<h2>%1</h2>\n%2").arg(sec.title.toHtmlEscaped(), content);
                 }
-                html_parts << QString("<h2>%1</h2><pre class=\"calc\">%2</pre>").arg(sec.title.toHtmlEscaped(), rich_sec);
-            }
-
-            QString table_html = this->amort_table_to_html();
-            if (!table_html.isEmpty()) {
-                html_parts << table_html;
             }
 
             html_parts << "</body></html>";
@@ -175,6 +215,7 @@ void FinancialCalculatorApp::create_menu_bar() {
         auto export_current = [this, export_all]() {
             int idx = tabs->currentIndex();
             QString tab_name = tabs->tabText(idx);
+            bool is_en = (GerenciadorTraducao::idioma_atual_global() == "en_US");
 
             auto normalize = [](const QString& s) -> QString {
                 QString res = s.toLower();
@@ -184,67 +225,67 @@ void FinancialCalculatorApp::create_menu_bar() {
 
             QString tab_norm = normalize(tab_name);
 
-            if (tab_norm == normalize(QCoreApplication::translate("App", "Amortização"))) {
-                this->export_amortization_pdf("amortizacao.pdf");
+            if (idx == 4 || tab_norm == normalize(QCoreApplication::translate("App", "Amortização"))) {
+                QString pdf_name = is_en ? "amortization.pdf" : "amortizacao.pdf";
+                this->export_amortization_pdf(pdf_name);
                 return;
             }
 
-            if (tab_norm == normalize(QCoreApplication::translate("App", "Conversão de Taxas"))) {
-                if (rate_real_result && !rate_real_result->toPlainText().trimmed().isEmpty()) {
-                    this->export_to_pdf(rate_real_result, "taxa_real_aparente.pdf");
+            if (idx == 3 || tab_norm == normalize(QCoreApplication::translate("App", "Conversão de Taxas"))) {
+                if (rate_real_result && !rate_real_result->isEmpty()) {
+                    QString pdf_name = is_en ? "real_nominal_rate.pdf" : "taxa_real_aparente.pdf";
+                    this->export_to_pdf(rate_real_result, pdf_name, QCoreApplication::translate("App", "Taxa Real / Aparente"));
                     return;
                 }
-                if (rate_equiv_result && !rate_equiv_result->toPlainText().trimmed().isEmpty()) {
-                    this->export_to_pdf(rate_equiv_result, "equivalencia_taxa.pdf");
+                if (rate_equiv_result && !rate_equiv_result->isEmpty()) {
+                    QString pdf_name = is_en ? "rate_equivalence.pdf" : "equivalencia_taxas.pdf";
+                    this->export_to_pdf(rate_equiv_result, pdf_name, QCoreApplication::translate("App", "Equivalência de Taxas"));
                     return;
                 }
                 if (rate_equiv_result) {
-                    this->export_to_pdf(rate_equiv_result, "equivalencia_taxa.pdf");
+                    QString pdf_name = is_en ? "rate_equivalence.pdf" : "equivalencia_taxas.pdf";
+                    this->export_to_pdf(rate_equiv_result, pdf_name, QCoreApplication::translate("App", "Equivalência de Taxas"));
                     return;
                 }
             }
 
             struct TabMap {
+                int index;
                 QString title;
                 HistoryContainer* widget;
-                QString pdf_name;
+                QString pdf_pt;
+                QString pdf_en;
             };
 
             QList<TabMap> mapping = {
-                {QCoreApplication::translate("App", "Juros Simples e Compostos"), interest_result, "juros.pdf"},
-                {QCoreApplication::translate("App", "Anuidades"), annuity_result, "anuidades.pdf"},
-                {QCoreApplication::translate("App", "Gradientes"), grad_result, "gradiente.pdf"},
-                {QCoreApplication::translate("App", "Análise de Investimentos"), invest_result, "investimento.pdf"},
-                {QCoreApplication::translate("App", "Depreciação"), deprec_result, "depreciacao.pdf"},
-                {QCoreApplication::translate("App", "Taxa Efetiva / TIR / Taxa Global"), eff_rate_result, "taxa_efetiva_tir.pdf"},
-                {QCoreApplication::translate("App", "Retorno Mínimo (TMA)"), min_return_result, "tma_minima.pdf"},
-                {QCoreApplication::translate("App", "Equação de Fisher"), fisher_result, "fisher.pdf"},
-                {QCoreApplication::translate("App", "TMA Real e Nominal"), fisher_result, "fisher.pdf"},
-                {QCoreApplication::translate("App", "VPL com Tributos"), vpl_tax_result, "vpl_tributos.pdf"},
-                {QCoreApplication::translate("App", "VPL com Impostos"), vpl_tax_result, "vpl_tributos.pdf"},
-                {QCoreApplication::translate("App", "CAUE - Vida Econômica"), caue_result, "caue.pdf"}
+                {0, QCoreApplication::translate("App", "Juros Simples e Compostos"), interest_result, "juros.pdf", "interest.pdf"},
+                {1, QCoreApplication::translate("App", "Anuidades"), annuity_result, "anuidades.pdf", "annuities.pdf"},
+                {2, QCoreApplication::translate("App", "Gradientes"), grad_result, "gradientes.pdf", "gradients.pdf"},
+                {5, QCoreApplication::translate("App", "Análise de Investimentos"), invest_result, "analise_investimentos.pdf", "investment_analysis.pdf"},
+                {6, QCoreApplication::translate("App", "Depreciação"), deprec_result, "depreciacao.pdf", "depreciation.pdf"},
+                {7, QCoreApplication::translate("App", "Taxa Efetiva / TIR / Taxa Global"), eff_rate_result, "taxa_efetiva_tir.pdf", "effective_rate_irr.pdf"},
+                {8, QCoreApplication::translate("App", "Retorno Mínimo (TMA)"), min_return_result, "retorno_minimo_tma.pdf", "minimum_attractive_rate.pdf"},
+                {9, QCoreApplication::translate("App", "Equação de Fisher"), fisher_result, "equacao_fisher.pdf", "fisher_equation.pdf"},
+                {10, QCoreApplication::translate("App", "VPL com Tributos"), vpl_tax_result, "vpl_tributos.pdf", "npv_with_taxes.pdf"},
+                {11, QCoreApplication::translate("App", "CAUE - Vida Econômica"), caue_result, "caue_vida_economica.pdf", "euac_economic_life.pdf"}
             };
 
             for (const auto& item : mapping) {
-                if (normalize(item.title) == tab_norm) {
+                if (idx == item.index || normalize(item.title) == tab_norm) {
                     if (item.widget) {
-                        this->export_to_pdf(item.widget, item.pdf_name);
+                        QString pdf_file = is_en ? item.pdf_en : item.pdf_pt;
+                        this->export_to_pdf(item.widget, pdf_file, item.title);
                         return;
                     }
                 }
             }
 
-            QString safe_name = tab_name.toLower();
-            safe_name.replace(QRegularExpression("[^0-9a-z]+"), "_");
-            safe_name = safe_name.trimmed();
-            if (safe_name.isEmpty()) {
-                safe_name = "todos_calculos";
-            }
-            export_all(safe_name + ".pdf");
+            QString safe_name = is_en ? "all_calculations.pdf" : "todos_os_calculos.pdf";
+            export_all(safe_name);
         };
 
         connect(export_current_action, &QAction::triggered, this, export_current);
-        connect(export_all_action, &QAction::triggered, this, [export_all]() { export_all("todos_calculos.pdf"); });
+        connect(export_all_action, &QAction::triggered, this, [export_all]() { export_all(); });
 
         this->setMenuBar(menubar);
 

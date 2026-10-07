@@ -115,6 +115,8 @@ if(ECONOMIA_BUILD_HOST_APP)
         source/utils/TextFormat.cpp
         source/utils/MathRenderer.cpp
         source/utils/TrialManager.cpp
+        source/utils/SessionManager.cpp
+        source/utils/DialogHelper.cpp
     )
 
     set(SOURCES_LANGUAGE

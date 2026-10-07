@@ -59,14 +59,28 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("Todos os comandos podem ser acionados via mouse ou por atalhos rápidos de teclado padronizados.")
             },
             {
-                QStringLiteral("Menu Arquivos → Exportar Atual: gera o relatório em PDF dos cálculos presentes na aba ativa."),
-                QStringLiteral("Menu Arquivos → Exportar Todos: compila automaticamente um dossiê PDF multipágina com o conteúdo de todas as abas e a tabela de amortização ativa."),
-                QStringLiteral("Menu Configuração → Idiomas: submenu com opções 'Português (Brasil)' e 'English (United States)'. A seleção reconfigura instantaneamente todos os rótulos, botões, menus e janelas auxiliares abertas."),
+                QStringLiteral("Menu Arquivos → Exportar Atual: gera o relatório em PDF dos cálculos presentes na aba ativa com nomenclatura e cabeçalhos automáticos no idioma configurado (ex.: amortizacao.pdf ou amortization.pdf)."),
+                QStringLiteral("Menu Arquivos → Exportar Todos: compila automaticamente um dossiê PDF executivo multipágina unificando todas as abas calculadas (todos_os_calculos.pdf ou all_calculations.pdf)."),
+                QStringLiteral("Menu Arquivos → Restaurar Sessão Anterior: recarrega a memória de cálculo e todos os formulários da sessão anterior salvos no disco."),
+                QStringLiteral("Menu Arquivos → Limpar Sessão Salva: abre uma janela de diálogo 'Limpar Sessão' solicitando confirmação ('Sim' ou 'Não'). Ao confirmar 'Sim', limpa imediatamente todos os quadros, respostas e tabelas de todas as 12 abas e métodos na tela (tanto cálculos recém-executados quanto dados restaurados), apaga o arquivo de sessão do disco e emite uma janela informativa de sucesso ('Limpar Sessão: Sessão salva limpa com sucesso.'). Se cancelado 'Não', mantém todos os dados intactos."),
+                QStringLiteral("Menu Configuração → Idiomas: submenu com opções 'Português (Brasil)' e 'English (United States)'. A seleção reconfigura instantaneamente todos os rótulos, botões de diálogo ('Sim'/'Não' vs. 'Yes'/'No'), menus e janelas auxiliares abertas."),
                 QStringLiteral("Menu Configuração → Configurar Fontes: abre o diálogo FontConfigDialog para personalizar a família da fonte (ex: Segoe UI, Roboto, Consolas) e o tamanho em pontos da interface."),
                 QStringLiteral("Menu Opções → Sobre (Ctrl+Shift+A): abre a janela institucional detalhada contendo botões de maximizar e minimizar, mecanismo de busca em tempo real com destaque de ocorrências e contador, Histórico do Projeto, Detalhes Técnicos, Licenças de Terceiros, Avisos Legais, Política de Privacidade e Notas de Lançamento."),
                 QStringLiteral("Menu Opções → Manual (Ctrl+Shift+M): abre esta janela interativa com visualização bilíngue, índice estruturado e mecanismo de busca em tempo real.")
             },
             {
+                {
+                    QStringLiteral("Passo a Passo: Gerenciamento e Limpeza de Sessão"),
+                    {
+                        QStringLiteral("Para reiniciar a área de trabalho ou descartar dados acumulados:")
+                    },
+                    {
+                        QStringLiteral("1. Acesse o menu Arquivos → Limpar Sessão Salva."),
+                        QStringLiteral("2. Na janela de diálogo de confirmação 'Limpar Sessão', clique em 'Sim' (ou 'Não' para cancelar)."),
+                        QStringLiteral("3. Ao clicar em 'Sim', todas as respostas e tabelas de todas as 12 abas são apagadas e o arquivo no disco é removido."),
+                        QStringLiteral("4. A janela 'Limpar Sessão: Sessão salva limpa com sucesso.' confirma a conclusão da limpeza.")
+                    }
+                },
                 {
                     QStringLiteral("Passo a Passo: Personalização de Fontes"),
                     {
@@ -89,7 +103,7 @@ QList<ManualSection> get_manual_document()
                     {
                         QStringLiteral("1. Acesse o menu Configuração → Idiomas."),
                         QStringLiteral("2. Clique em 'Português (Brasil)' ou 'English (United States)'."),
-                        QStringLiteral("3. Toda a interface gráfica, inclusive tabelas e diálogos auxiliares abertos, é retraduzida no mesmo milissegundo, preservando integralmente os valores já digitados nos formulários.")
+                        QStringLiteral("3. Toda a interface gráfica, inclusive botões de diálogos ('Sim'/'Não' ou 'Yes'/'No'), tabelas e janelas auxiliares abertas, é retraduzida no mesmo milissegundo, preservando integralmente os valores digitados.")
                     }
                 }
             }
@@ -234,7 +248,8 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("Sistema Hamburguês: juros antecipados cobrados no início de cada período sobre o saldo residual com amortização periódica constante."),
                 QStringLiteral("Carência e Juros Capitalizados: suporte a períodos de carência sem amortização, com opção de capitalizar juros ao saldo devedor ou pagá-los periodicamente."),
                 QStringLiteral("Consulta do Período k: obtenção direta da prestação, juros, amortização e saldo devedor de uma parcela intermediária sem necessidade de buscar na tabela."),
-                QStringLiteral("Exportação da Planilha: botão dedicado para gerar o cronograma completo em documento PDF profissional com tabelas zebradas e cabeçalho formal.")
+                QStringLiteral("Tabelas Dinâmicas em Cartões no Histórico: cada cálculo gera sua própria tabela completa anexada diretamente ao cartão de resultado, permitindo comparar múltiplos financiamentos simultâneos sem sobreposição ou widgets compactados residuais."),
+                QStringLiteral("Exportação da Planilha: botão dedicado e atalho no menu Arquivos para gerar o cronograma completo em documento PDF profissional bilíngue (amortizacao.pdf ou amortization.pdf).")
             },
             {
                 {
@@ -249,8 +264,9 @@ QList<ManualSection> get_manual_document()
                         QStringLiteral("4. Se houver carência, informe a quantidade de períodos no campo 'Carência' e marque 'Capitalizar juros na carência?' caso os juros acumulados devam ser incorporados à dívida."),
                         QStringLiteral("5. Caso deseje inspecionar uma parcela específica, informe o índice no campo 'Período k'."),
                         QStringLiteral("6. Clique em 'Calcular Amortização'."),
-                        QStringLiteral("7. Examine a tabela gerada com colunas: Período, Prestação, Juros, Amortização e Saldo Devedor, além da linha de totalizadores no rodapé."),
-                        QStringLiteral("8. Para salvar o cronograma em PDF diagramado, clique no botão 'Exportar PDF'.")
+                        QStringLiteral("7. O sistema gera um novo cartão no histórico com o resumo da simulação e a tabela completa embutida (Período, Prestação, Juros, Amortização e Saldo Devedor, mais totais)."),
+                        QStringLiteral("8. Para navegar entre cálculos de diferentes sistemas ou prazos, use a barra de rolagem vertical à direita."),
+                        QStringLiteral("9. Para exportar o cronograma em PDF com layout profissional, clique em 'Exportar PDF' ou use Arquivos → Exportar Atual.")
                     }
                 }
             }
@@ -475,12 +491,16 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("Cada aba de cálculo do Economia_APP conta com um contêiner de histórico inteligente (HistoryContainer), projetado para assegurar máxima rastreabilidade, edição e preservação da memória de cálculo durante toda a sessão de trabalho.")
             },
             {
+                QStringLiteral("Quadros de Resultados Independentes: cada cálculo adiciona um novo cartão completo com suas dimensões originais preservadas, eliminando esmagamento ou compressão entre saídas sucessivas."),
+                QStringLiteral("Barra de Rolagem Vertical: navegação fluida por barra de rolagem vertical para percorrer confortavelmente todo o histórico acumulado na aba."),
+                QStringLiteral("Seleção por Checkbox: cada cartão possui sua própria caixa de seleção para focar operações de edição, exclusão ou exportação pontual."),
                 QStringLiteral("Barra de Busca Integrada: campo de pesquisa com realce visual em cores contrastantes e navegação por ocorrências nos registros de cálculo."),
                 QStringLiteral("Edição Inline: clicando em 'Editar Cálculo', o bloco selecionado é liberado para edição direta de texto e anotações, confirmando as alterações pelo mesmo botão."),
                 QStringLiteral("Exclusão Pontual: remoção limpa do bloco de cálculo selecionado através do botão 'Excluir Seleção'."),
-                QStringLiteral("Limpeza Estruturada: botões 'Limpar Entrada' (reseta formulário), 'Limpar Saída' (limpa histórico da aba) e 'Limpar Tudo' (reseta tudo simultaneamente)."),
+                QStringLiteral("Limpeza Estruturada: botões 'Limpar Entrada' (reseta formulário), 'Limpar Saída' (limpa histórico da aba) e 'Limpar Tudo' (reseta ambos simultaneamente)."),
+                QStringLiteral("Limpeza Global de Sessão: através de Arquivos → Limpar Sessão Salva, confirmação com 'Sim'/'Não' para purgar simultaneamente todas as 12 abas e o arquivo do disco."),
                 QStringLiteral("Exportação Rápida: comandos diretos para exportação em arquivo de texto formatado (.txt) ou documento PDF diagramado (.pdf)."),
-                QStringLiteral("Persistência em Sessão: o histórico não é perdido ao navegar entre as diferentes abas da aplicação.")
+                QStringLiteral("Persistência em Sessão: o histórico não é perdido ao navegar entre as diferentes abas da aplicação e pode ser restaurado na inicialização.")
             },
             {
                 {
@@ -489,9 +509,9 @@ QList<ManualSection> get_manual_document()
                         QStringLiteral("Aproveite ao máximo os recursos do painel retrátil:")
                     },
                     {
-                        QStringLiteral("Ajuste a proporção do formulário e da área de histórico arrastando a barra do splitter divisório com o mouse."),
-                        QStringLiteral("Dê um duplo clique ou selecione uma linha do cálculo anterior para focar a edição ou remoção."),
-                        QStringLiteral("Utilize a ferramenta de busca para localizar parâmetros ou resultados específicos em sessões com dezenas de cálculos sucessivos.")
+                        QStringLiteral("Navegue confortavelmente pela barra de rolagem vertical ou pela roda do mouse para comparar cálculos anteriores e recentes."),
+                        QStringLiteral("Marque a caixa de seleção do cartão desejado para realizar edição pontual de texto ou exclusão específica."),
+                        QStringLiteral("Ao mudar de idioma no menu Configuração, todos os cartões já existentes no histórico são retraduzidos dinamicamente mantendo valores e fórmulas intactos.")
                     }
                 }
             }
@@ -504,9 +524,9 @@ QList<ManualSection> get_manual_document()
                 QStringLiteral("O motor de exportação em PDF utiliza os subsistemas nativos do Qt6 (QPrinter e QPainter) para garantir diagramação limpa, alinhamento rigoroso e vetorização nítida de elementos tipográficos e matemáticos.")
             },
             {
-                QStringLiteral("Exportação da Aba Ativa: acionada pelo menu Arquivos → Exportar Atual ou pelo botão 'Exportar PDF' da própria aba."),
-                QStringLiteral("Exportação Consolidada: acionada pelo menu Arquivos → Exportar Todos, gerando um documento unificado com todas as seções e tabelas calculadas."),
-                QStringLiteral("Paginação Automática: cabeçalhos institucionais, numeração de páginas (Página X de Y), data e hora de emissão e controle inteligente de quebra de linhas e tabelas."),
+                QStringLiteral("Exportação da Aba Ativa: acionada pelo menu Arquivos → Exportar Atual ou pelo botão 'Exportar PDF' da própria aba, gerando automaticamente nomes e cabeçalhos em português (ex.: amortizacao.pdf) ou inglês (ex.: amortization.pdf) conforme o idioma ativo."),
+                QStringLiteral("Exportação Consolidada: acionada pelo menu Arquivos → Exportar Todos, gerando um documento unificado com todas as seções e tabelas calculadas (todos_os_calculos.pdf ou all_calculations.pdf)."),
+                QStringLiteral("Paginação Automática: cabeçalhos institucionais, numeração de páginas (Página X de Y), data e hora de emissão e controle inteligente de quebra de linhas e tabelas extensas."),
                 QStringLiteral("Renderizador MathRenderer: renderização estética avançada de fórmulas com radiciação, expoentes sobrescritos, índices subscritos e frações."),
                 QStringLiteral("Personalização Tipográfica: diálogo de fontes que propaga em tempo real o estilo e tamanho selecionados tanto para a tela quanto para o motor de impressão.")
             },
@@ -519,9 +539,8 @@ QList<ManualSection> get_manual_document()
                     {
                         QStringLiteral("1. Realize os cálculos desejados na aba correspondente (ou em várias abas caso pretenda exportar o relatório geral)."),
                         QStringLiteral("2. Clique no botão 'Exportar PDF' da aba ou acesse o menu Arquivos → Exportar Atual / Exportar Todos."),
-                        QStringLiteral("3. Na janela de diálogo do sistema operacional, escolha a pasta de destino e digite o nome do arquivo .pdf."),
-                        QStringLiteral("4. Clique em 'Salvar'."),
-                        QStringLiteral("5. O aplicativo gerará o documento PDF diagramado com formatação de alta fidelidade visual.")
+                        QStringLiteral("3. Na janela de diálogo do sistema operacional, o nome sugerido já virá no idioma ativo (ex.: amortizacao.pdf ou amortization.pdf). Escolha a pasta e clique em 'Salvar'."),
+                        QStringLiteral("4. O aplicativo gerará o documento PDF diagramado com alta fidelidade visual e tabelas perfeitamente alinhadas.")
                     }
                 }
             }

@@ -89,10 +89,21 @@ public slots:
     void calculate_caue();
 
     // Export & Menu
-    void export_to_pdf(QWidget* text_widget, const QString& suggested_name = "export.pdf");
+    void export_to_pdf(QWidget* text_widget, const QString& suggested_name = "export.pdf", const QString& title = QString());
     void export_amortization_pdf(const QString& suggested_name = "amortizacao.pdf");
     QString amort_table_to_html();
     void create_menu_bar();
+
+    // Session Management
+    void auto_save_session();
+    void check_and_prompt_restore_session();
+    void clear_all_history();
+
+protected:
+    void closeEvent(QCloseEvent* event) override;
+
+public:
+    bool m_isLoadingSession = false;
 
 public:
     // Attributes mirroring the Python application members

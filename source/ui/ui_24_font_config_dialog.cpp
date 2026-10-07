@@ -1,6 +1,7 @@
 #include "ui_24_font_config_dialog.hpp"
 #include "../utils/FontManager.hpp"
 #include "../utils/LogManager.hpp"
+#include "../utils/DialogHelper.hpp"
 #include "ui_23_history_container.hpp"
 
 #include <QVBoxLayout>
@@ -125,7 +126,7 @@ void FontConfigDialog::on_save() {
         }
         accept();
     } else {
-        QMessageBox::warning(this, QCoreApplication::translate("App", "Erro"),
+        DialogHelper::warning(this, QCoreApplication::translate("App", "Erro"),
                              QCoreApplication::translate("App", "Erro ao salvar configuração de fontes."));
     }
 }

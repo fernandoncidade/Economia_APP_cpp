@@ -18,7 +18,7 @@
   },
   {
     "name": "Qt-6.11.1-win32-msvc-x86_64_Ferramentas_de Build_do_VS2026_Release_amd64",
-    "visualStudio": "5b8e1f46",
+    "visualStudio": "e9fb61ff",
     "visualStudioArchitecture": "x64",
     "isTrusted": true,
     "preferredGenerator": {
@@ -37,7 +37,7 @@
   },
   {
     "name": "Qt-6.11.1-win32-msvc-x86_64_VSCommunity_2026_Release_amd64",
-    "visualStudio": "6ce37123",
+    "visualStudio": "82aca139",
     "visualStudioArchitecture": "x64",
     "isTrusted": true,
     "preferredGenerator": {

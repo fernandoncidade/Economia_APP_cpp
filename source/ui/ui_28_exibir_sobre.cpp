@@ -3,9 +3,9 @@
 #include "ui_29_opcoes_sobre.hpp"
 #include "../language/tr_01_gerenciadorTraducao.hpp"
 #include "../utils/LogManager.hpp"
+#include "../utils/DialogHelper.hpp"
 
 #include <QCoreApplication>
-#include <QMessageBox>
 #include <QPointer>
 
 namespace {
@@ -45,7 +45,7 @@ void exibir_sobre(QWidget* app) {
 
         QString cabecalho_fixo = QString(
             "<h3>ECONOMIA APP</h3>"
-            "<p><b>%1:</b> 2026.9.30.0</p>"
+            "<p><b>%1:</b> 2026.10.7.0</p>"
             "<p><b>%2:</b> Fernando Nillsson Cidade</p>"
             "<p><b>%3:</b> %4</p>"
         ).arg(tr_str("version", "Version"),
@@ -84,6 +84,6 @@ void exibir_sobre(QWidget* app) {
         dialog->show();
     } catch (const std::exception& e) {
         LogManager::error(QString("Erro ao exibir diálogo Sobre: %1").arg(e.what()));
-        QMessageBox::critical(app, "Erro", QString("Erro ao exibir diálogo Sobre: %1").arg(e.what()));
+        DialogHelper::critical(app, "Erro", QString("Erro ao exibir diálogo Sobre: %1").arg(e.what()));
     }
 }

@@ -1,7 +1,7 @@
 # OBSERVAÇÃO TÉCNICA - Estado atual do projeto
 
-Versão documentada: `2026.9.30.0`
-Data do snapshot técnico: `30 de setembro de 2026`
+Versão documentada: `2026.10.7.0`
+Data do snapshot técnico: `7 de outubro de 2026`
 Repositório: `Economia_APP_cpp`  
 
 ---
@@ -92,10 +92,12 @@ A base em C++ espelha com fidelidade absoluta a estrutura original do projeto:
 ### 4.3. Utilitários do Sistema (`source/utils/`)
 - `ApplicationPathUtils`: Resolução de caminhos locais e diretórios de execução.
 - `CaminhoPersistenteUtils`: Localização de armazenamento no AppData (`%LOCALAPPDATA%/Economia_APP`).
+- `DialogHelper`: Tradução e localização dinâmica em tempo de execução dos botões padrão de caixas de diálogo (`QMessageBox`), garantindo "Sim"/"Não" e "Yes"/"No" de acordo com o idioma ativo.
 - `FontManager`: Gerenciamento e aplicação uniforme de fontes na interface.
 - `IconUtils`: Carregamento desacoplado de ícones vetoriais e rasterizados.
 - `LogManager`: Registro unificado de diagnóstico em disco.
 - `MathRenderer`: Renderização tipográfica e visual de fórmulas, frações, expoentes e expressões com radiciação.
+- `SessionManager`: Serialização, restauração e expurgo completo de cálculos e históricos em disco e memória com confirmação de usuário.
 - `TextFormat`: Utilitários de formatação de moedas e percentuais.
 - `TrialManager`: Controle do período de testes com criptografia leve/registro persistente.
 
@@ -108,6 +110,24 @@ A base em C++ espelha com fidelidade absoluta a estrutura original do projeto:
   - Disparado pelo menu **Opções → Manual** ou pelo atalho **`Ctrl+Shift+M`** gerenciado em `ui_26_menu_bar.cpp` e conectado a `FinancialCalculatorApp::abrir_manual()`.
   - Instância única inteligente (`s_manualDialog`): se já estiver aberta, restaura o foco sem duplicar janelas.
   - Conexão reativa com o sinal `idioma_alterado` de `GerenciadorTraducao`: atualiza dinamicamente textos, sumários e controles de busca em tempo real caso o usuário mude o idioma da aplicação.
+
+### 4.6. Melhorias Estruturais e Funcionalidades da Versão 2026.10.7.0
+- **Quadros de Resultados Independentes com Rolagem Vertical (`ui_23_history_container`)**:
+  - Cada cálculo gera um card desacoplado encapsulado em `QScrollArea`, mantendo seu tamanho nativo original e política de redimensionamento sem disputar área de exibição ou esmagar saídas analíticas vizinhas;
+  - Navegação suave por scrollbar vertical em todos os 12 módulos de cálculo financeiro.
+- **Tabelas de Amortização Dinâmicas no Histórico (`sv_05_calculate_amortization`, `ui_07`, `ui_15`-`ui_19`)**:
+  - Cronogramas completos (SAC, Price, SAM, Americano e Hamburguês) são instanciados e acoplados diretamente ao card de cálculo no container de histórico de resultados, seguindo o padrão já consolidado da aba CAUE;
+  - Eliminação definitiva de widgets de tabela esmagados e compactados no layout principal da aba de Amortização;
+  - Possibilidade de gerar, comparar e manter múltiplos cronogramas de financiamento na mesma sessão de trabalho.
+- **Gerenciamento e Limpeza Completa de Sessão (`SessionManager`, `DialogHelper`, `fca_01_FinancialCalculatorAPP`)**:
+  - Função `SessionManager::limpar_sessao()` acionada pelo menu **Arquivos → Limpar Sessão Salva**;
+  - Apresenta caixa de diálogo de confirmação ("Limpar Sessão") com botões localizados dinamicamente ("Sim" / "Não");
+  - Ao confirmar, expurga em cascata todos os quadros, respostas textuais e cronogramas de todas as 12 abas analíticas (tanto de cálculos ativos em memória quanto restaurados de arquivo prévio);
+  - Exclui com segurança o arquivo de persistência em disco (`%LOCALAPPDATA%/Economia_APP/sessao.json`) e exibe notificação informativa de conclusão com sucesso.
+- **Tradução Dinâmica de Diálogos em Tempo de Execução (`DialogHelper`)**:
+  - Implementação de utilitário dedicado para sobrescrever e traduzir os botões padrão das janelas de diálogo do Qt (`QMessageBox`), garantindo "Sim" / "Não" em português e "Yes" / "No" em inglês em todos os diálogos de restauração e limpeza de sessão.
+- **Exportação Bilíngue Inteligente de Relatórios em PDF (`ui_25_export_pdf`, `fca_01_FinancialCalculatorAPP`)**:
+  - Ajuste dinâmico automático dos nomes de arquivos sugeridos e títulos em **Arquivos → Exportar Atual** e **Arquivos → Exportar Todos** de acordo com a linguagem ativa da aplicação (`pt_BR` exporta nomes como `amortizacao.pdf`, enquanto `en_US` gera `amortization.pdf`).
 
 ---
 
@@ -286,6 +306,8 @@ Economia_APP_cpp\README.md
 │   ├── ⚡ ApplicationPathUtils.hpp
 │   ├── ⚡ CaminhoPersistenteUtils.cpp
 │   ├── ⚡ CaminhoPersistenteUtils.hpp
+│   ├── ⚡ DialogHelper.cpp
+│   ├── ⚡ DialogHelper.hpp
 │   ├── ⚡ FontManager.cpp
 │   ├── ⚡ FontManager.hpp
 │   ├── ⚡ IconUtils.cpp
@@ -294,6 +316,8 @@ Economia_APP_cpp\README.md
 │   ├── ⚡ LogManager.hpp
 │   ├── ⚡ MathRenderer.cpp
 │   ├── ⚡ MathRenderer.hpp
+│   ├── ⚡ SessionManager.cpp
+│   ├── ⚡ SessionManager.hpp
 │   ├── ⚡ TextFormat.cpp
 │   ├── ⚡ TextFormat.hpp
 │   ├── ⚡ TrialManager.cpp

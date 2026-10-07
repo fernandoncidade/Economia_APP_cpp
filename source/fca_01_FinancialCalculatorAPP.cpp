@@ -4,6 +4,8 @@
 #include "utils/IconUtils.hpp"
 #include "utils/LogManager.hpp"
 #include "utils/TextFormat.hpp"
+#include "utils/SessionManager.hpp"
+#include "utils/DialogHelper.hpp"
 
 #include <QCoreApplication>
 #include <QIcon>
@@ -11,6 +13,9 @@
 #include <QPushButton>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QMessageBox>
+#include <QCloseEvent>
+#include <QTimer>
 
 FinancialCalculatorApp::FinancialCalculatorApp(QWidget* parent)
     : QMainWindow(parent) {
@@ -32,6 +37,10 @@ FinancialCalculatorApp::FinancialCalculatorApp(QWidget* parent)
 
         setWindowTitle(QCoreApplication::translate("App", "Calculadora de Economia de Engenharia - TT007"));
         rebuild_ui();
+
+        QTimer::singleShot(100, this, [this]() {
+            check_and_prompt_restore_session();
+        });
     } catch (const std::exception& e) {
         LogManager::error(QString("Erro ao inicializar FinancialCalculatorApp: %1").arg(e.what()), true);
     }
@@ -291,7 +300,88 @@ void FinancialCalculatorApp::rebuild_ui() {
         create_vpl_tax_tab();
         create_caue_tab();
         create_menu_bar();
+
+        // Conectar sinal de alteração de histórico de todos os containers ao salvamento automático
+        QList<HistoryContainer*> all_containers = findChildren<HistoryContainer*>();
+        for (auto* hc : all_containers) {
+            connect(hc, &HistoryContainer::historyChanged, this, &FinancialCalculatorApp::auto_save_session);
+        }
     } catch (const std::exception& e) {
         LogManager::error(QString("Erro ao reconstruir UI: %1").arg(e.what()), true);
     }
 }
+
+void FinancialCalculatorApp::auto_save_session() {
+    if (m_isLoadingSession) return;
+    SessionManager::save_session(this);
+}
+
+void FinancialCalculatorApp::check_and_prompt_restore_session() {
+    if (!SessionManager::has_saved_session()) {
+        return;
+    }
+
+    m_isLoadingSession = true;
+    bool loaded = SessionManager::load_session(this);
+    m_isLoadingSession = false;
+
+    if (!loaded) return;
+
+    QMessageBox::StandardButton reply = DialogHelper::question(
+        this,
+        QCoreApplication::translate("App", "Restaurar Sessão"),
+        QCoreApplication::translate("App", "Os resultados da sessão anterior foram carregados. Deseja manter estes resultados?"),
+        QMessageBox::Yes | QMessageBox::No,
+        QMessageBox::Yes
+    );
+
+    if (reply == QMessageBox::Yes) {
+        LogManager::info("Sessão anterior confirmada e mantida pelo usuário.");
+    } else {
+        clear_all_history();
+        SessionManager::clear_session();
+        LogManager::info("Resultados da sessão anterior descartados a pedido do usuário.");
+    }
+}
+
+void FinancialCalculatorApp::clear_all_history() {
+    bool prevLoading = m_isLoadingSession;
+    m_isLoadingSession = true;
+
+    if (interest_result) interest_result->clear();
+    if (annuity_result) annuity_result->clear();
+    if (grad_result) grad_result->clear();
+    if (rate_equiv_result) rate_equiv_result->clear();
+    if (rate_real_result) rate_real_result->clear();
+    if (amort_result) amort_result->clear();
+    if (amort_table) {
+        amort_table->clearContents();
+        amort_table->setRowCount(0);
+    }
+    if (invest_result) invest_result->clear();
+    if (deprec_result) deprec_result->clear();
+    if (eff_rate_result) eff_rate_result->clear();
+    if (min_return_result) min_return_result->clear();
+    if (fisher_result) fisher_result->clear();
+    if (vpl_tax_result) vpl_tax_result->clear();
+    if (caue_result) caue_result->clear();
+    if (caue_output_table) {
+        caue_output_table->clearContents();
+        caue_output_table->setRowCount(0);
+    }
+
+    QList<HistoryContainer*> all_containers = findChildren<HistoryContainer*>();
+    for (auto* hc : all_containers) {
+        hc->clear();
+    }
+
+    m_isLoadingSession = prevLoading;
+}
+
+void FinancialCalculatorApp::closeEvent(QCloseEvent* event) {
+    if (!m_isLoadingSession) {
+        SessionManager::save_session(this);
+    }
+    QMainWindow::closeEvent(event);
+}
+

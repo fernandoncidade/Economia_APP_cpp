@@ -8,7 +8,8 @@ class QTableWidget;
 
 namespace PdfExport {
 
-void export_to_pdf(QWidget* parent, QWidget* text_widget, const QString& suggested_name = "export.pdf");
+QString localize_filename(const QString& name);
+void export_to_pdf(QWidget* parent, QWidget* text_widget, const QString& suggested_name = "export.pdf", const QString& title = QString());
 QString amort_table_to_html(QTableWidget* tw);
 void export_amortization_pdf(QWidget* parent, QWidget* calc_widget, QTableWidget* tw, const QString& suggested_name = "amortizacao.pdf");
 

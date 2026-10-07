@@ -1,5 +1,5 @@
 #define MyAppName "Economia_APP"
-#define MyAppVersion "2026.9.30.0"
+#define MyAppVersion "2026.10.7.0"
 #define MyAppPublisher "Fernando Nillsson Cidade"
 #define MyAppURL "https://github.com/fernandoncidade"
 #define MyAppExeName "Economia_APP.exe"
@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 InfoBeforeFile={#AppDistDir}\assets\ABOUT\ABOUT_en_US.txt
 LicenseFile={#AppDistDir}\assets\EULA\EULA_en_US - Economia.txt
 OutputDir={#InstallerOutputDir}
-OutputBaseFilename=Economia_APP_mingw_v2026.9.30.0
+OutputBaseFilename=Economia_APP_mingw_v2026.10.7.0
 SetupIconFile={#AppDistDir}\assets\icones\economia.ico
 SolidCompression=yes
 WizardStyle=modern

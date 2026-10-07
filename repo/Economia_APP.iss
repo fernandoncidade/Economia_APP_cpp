@@ -7,7 +7,7 @@
 ;   ISCC.exe /DBuildFlavor=msvc repo\Economia_APP.iss
 
 #define MyAppName "Economia_APP"
-#define MyAppVersion "2026.9.30.0"
+#define MyAppVersion "2026.10.7.0"
 #define MyAppPublisher "Fernando Nillsson Cidade"
 #define MyAppURL "https://github.com/fernandoncidade"
 #define MyAppExeName "Economia_APP.exe"

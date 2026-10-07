@@ -439,6 +439,7 @@ const QList<FileSpec> &file_specs()
         // Sobre
         append(group_about(), QStringLiteral("source/assets/ABOUT/ABOUT_pt_BR.txt"), QStringLiteral("about_pt"));
         append(group_about(), QStringLiteral("source/assets/ABOUT/ABOUT_en_US.txt"), QStringLiteral("about_en"));
+        append(group_about(), QStringLiteral("source/ui/ui_27_SobreDialog.cpp"), QStringLiteral("about_dialog"));
         append(group_about(), QStringLiteral("source/ui/ui_28_exibir_sobre.cpp"), QStringLiteral("about_dialog"));
 
         // CLC

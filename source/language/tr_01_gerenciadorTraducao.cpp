@@ -13,6 +13,7 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QMessageBox>
 #include <QXmlStreamReader>
 #include <algorithm>
 
@@ -343,6 +344,10 @@ void GerenciadorTraducao::remover_tradutor_instalado() {
             QCoreApplication::removeTranslator(m_tradutor.get());
             m_tradutor.reset();
         }
+        if (m_tradutor_qt) {
+            QCoreApplication::removeTranslator(m_tradutor_qt.get());
+            m_tradutor_qt.reset();
+        }
     } catch (const std::exception& e) {
         LogManager::error(QString("Erro ao remover tradutor instalado: %1").arg(e.what()));
     }
@@ -376,15 +381,36 @@ bool GerenciadorTraducao::aplicar_traducao() {
             if (m_tradutor->load(caminho_encontrado)) {
                 QCoreApplication::installTranslator(m_tradutor.get());
                 LogManager::info(QString("Tradução carregada com sucesso de: %1").arg(caminho_encontrado));
-                return true;
             } else {
                 LogManager::error(QString("Erro ao carregar arquivo de tradução: %1").arg(caminho_encontrado));
                 m_tradutor.reset();
-                return false;
             }
         }
 
-        if (m_idioma_atual == m_idioma_padrao) {
+        if (m_idioma_atual == "pt_BR") {
+            QString qt_file = "qtbase_pt_BR.qm";
+            QStringList qt_paths = {
+                QDir(m_dir_traducoes).filePath(qt_file),
+                QDir(get_app_base_path()).filePath("translations/" + qt_file),
+                QDir(get_app_base_path()).filePath(qt_file),
+                "C:/Qt/6.11.1/msvc2022_64/translations/" + qt_file,
+                "C:/Qt/6.11.1/mingw_64/translations/" + qt_file
+            };
+            for (const QString& qp : qt_paths) {
+                if (QFile::exists(qp)) {
+                    m_tradutor_qt = std::make_unique<QTranslator>();
+                    if (m_tradutor_qt->load(qp)) {
+                        QCoreApplication::installTranslator(m_tradutor_qt.get());
+                        LogManager::info(QString("Tradução base Qt carregada de: %1").arg(qp));
+                        break;
+                    } else {
+                        m_tradutor_qt.reset();
+                    }
+                }
+            }
+        }
+
+        if (m_tradutor || m_idioma_atual == m_idioma_padrao) {
             return true;
         }
 
@@ -420,30 +446,58 @@ QString GerenciadorTraducao::obter_idioma_atual() const {
 void GerenciadorTraducao::traduzir_botoes_padrao(QDialog* dialogo) {
     if (!dialogo) return;
     try {
+        bool is_en = (idioma_atual_global() == "en_US");
+
         QList<QDialogButtonBox*> boxes = dialogo->findChildren<QDialogButtonBox*>();
         for (QDialogButtonBox* box : boxes) {
-            static const QMap<QDialogButtonBox::StandardButton, QString> botoes = {
-                {QDialogButtonBox::Ok, "OK"},
-                {QDialogButtonBox::Cancel, "Cancelar"},
-                {QDialogButtonBox::Yes, "Sim"},
-                {QDialogButtonBox::No, "Não"},
-                {QDialogButtonBox::Abort, "Abortar"},
-                {QDialogButtonBox::Retry, "Tentar Novamente"},
-                {QDialogButtonBox::Ignore, "Ignorar"},
-                {QDialogButtonBox::Close, "Fechar"},
-                {QDialogButtonBox::Help, "Ajuda"},
-                {QDialogButtonBox::Apply, "Aplicar"},
-                {QDialogButtonBox::Reset, "Redefinir"},
-                {QDialogButtonBox::RestoreDefaults, "Restaurar Padrões"},
-                {QDialogButtonBox::Save, "Salvar"},
-                {QDialogButtonBox::SaveAll, "Salvar Tudo"},
-                {QDialogButtonBox::Open, "Abrir"}
+            static const QMap<QDialogButtonBox::StandardButton, QPair<QString, QString>> botoes = {
+                {QDialogButtonBox::Ok, {"OK", "OK"}},
+                {QDialogButtonBox::Cancel, {"Cancelar", "Cancel"}},
+                {QDialogButtonBox::Yes, {"Sim", "Yes"}},
+                {QDialogButtonBox::No, {"Não", "No"}},
+                {QDialogButtonBox::Abort, {"Abortar", "Abort"}},
+                {QDialogButtonBox::Retry, {"Tentar Novamente", "Retry"}},
+                {QDialogButtonBox::Ignore, {"Ignorar", "Ignore"}},
+                {QDialogButtonBox::Close, {"Fechar", "Close"}},
+                {QDialogButtonBox::Help, {"Ajuda", "Help"}},
+                {QDialogButtonBox::Apply, {"Aplicar", "Apply"}},
+                {QDialogButtonBox::Reset, {"Redefinir", "Reset"}},
+                {QDialogButtonBox::RestoreDefaults, {"Restaurar Padrões", "Restore Defaults"}},
+                {QDialogButtonBox::Save, {"Salvar", "Save"}},
+                {QDialogButtonBox::SaveAll, {"Salvar Tudo", "Save All"}},
+                {QDialogButtonBox::Open, {"Abrir", "Open"}}
             };
 
             for (auto it = botoes.constBegin(); it != botoes.constEnd(); ++it) {
                 QPushButton* btn = box->button(it.key());
                 if (btn) {
-                    btn->setText(QCoreApplication::translate("Dialog", it.value().toUtf8().constData()));
+                    btn->setText(is_en ? it.value().second : it.value().first);
+                }
+            }
+        }
+
+        if (auto* mb = qobject_cast<QMessageBox*>(dialogo)) {
+            static const QMap<QMessageBox::StandardButton, QPair<QString, QString>> mbBotoes = {
+                {QMessageBox::Ok, {"OK", "OK"}},
+                {QMessageBox::Cancel, {"Cancelar", "Cancel"}},
+                {QMessageBox::Yes, {"Sim", "Yes"}},
+                {QMessageBox::No, {"Não", "No"}},
+                {QMessageBox::Abort, {"Abortar", "Abort"}},
+                {QMessageBox::Retry, {"Tentar Novamente", "Retry"}},
+                {QMessageBox::Ignore, {"Ignorar", "Ignore"}},
+                {QMessageBox::Close, {"Fechar", "Close"}},
+                {QMessageBox::Help, {"Ajuda", "Help"}},
+                {QMessageBox::Apply, {"Aplicar", "Apply"}},
+                {QMessageBox::Reset, {"Redefinir", "Reset"}},
+                {QMessageBox::RestoreDefaults, {"Restaurar Padrões", "Restore Defaults"}},
+                {QMessageBox::Save, {"Salvar", "Save"}},
+                {QMessageBox::SaveAll, {"Salvar Tudo", "Save All"}},
+                {QMessageBox::Open, {"Abrir", "Open"}}
+            };
+            for (auto it = mbBotoes.constBegin(); it != mbBotoes.constEnd(); ++it) {
+                QAbstractButton* btn = mb->button(it.key());
+                if (btn) {
+                    btn->setText(is_en ? it.value().second : it.value().first);
                 }
             }
         }

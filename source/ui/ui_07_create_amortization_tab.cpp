@@ -61,17 +61,10 @@ void FinancialCalculatorApp::create_amortization_tab() {
         auto* calc_k_button = new QPushButton(tr_app("Calcular valor no período k"), widget);
         connect(calc_k_button, &QPushButton::clicked, this, &FinancialCalculatorApp::calculate_value_at_k);
 
-        amort_layout_mode = new QComboBox(widget);
-        const QStringList layout_keys = {
-            "Empilhadas (acima e abaixo)",
-            "Lado a lado"
-        };
-        for (const QString& key : layout_keys) {
-            amort_layout_mode->addItem(tr_app(key.toUtf8().constData()));
-            amort_layout_mode->setItemData(amort_layout_mode->count() - 1, key, Qt::UserRole);
-        }
+        amort_layout_mode = nullptr;
 
-        amort_table = new QTableWidget(widget);
+        amort_table = new QTableWidget();
+        amort_table->setVisible(false);
         amort_table->setColumnCount(5);
         QStringList headers = {
             tr_app("Período (k)"),
@@ -81,9 +74,6 @@ void FinancialCalculatorApp::create_amortization_tab() {
             tr_app("Saldo Devedor")
         };
         amort_table->setHorizontalHeaderLabels(headers);
-        amort_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-        amort_table->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        amort_table->setMinimumSize(0, 0);
 
         amort_result = new HistoryContainer(widget);
         amort_result->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -91,13 +81,7 @@ void FinancialCalculatorApp::create_amortization_tab() {
         amort_result->setFont(fixed_font);
         amort_result->setMinimumSize(0, 0);
 
-        amort_splitter = new QSplitter(Qt::Vertical, widget);
-        amort_splitter->setChildrenCollapsible(false);
-        amort_splitter->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        amort_splitter->addWidget(amort_result);
-        amort_splitter->addWidget(amort_table);
-        amort_splitter->setStretchFactor(0, 1);
-        amort_splitter->setStretchFactor(1, 1);
+        amort_splitter = nullptr;
 
         layout->addRow(tr_app("Sistema de Amortização:"), amort_system);
         layout->addRow(tr_app("Valor do Financiamento (P):"), amort_p);
@@ -109,7 +93,6 @@ void FinancialCalculatorApp::create_amortization_tab() {
         layout->addRow(tr_app("Período desejado (k):"), amort_k);
         layout->addRow(calc_button);
         layout->addRow(calc_k_button);
-        layout->addRow(tr_app("Disposição da visualização:"), amort_layout_mode);
 
         auto* btn_widget = new QWidget(widget);
         auto* btn_vlayout = new QVBoxLayout(btn_widget);
@@ -169,12 +152,13 @@ void FinancialCalculatorApp::create_amortization_tab() {
         };
 
         auto clear_output = [this]() {
-            amort_table->clearContents();
-            amort_table->setRowCount(1);
-            for (int c = 0; c < amort_table->columnCount(); ++c) {
-                amort_table->setItem(0, c, new QTableWidgetItem(""));
+            if (amort_table) {
+                amort_table->clearContents();
+                amort_table->setRowCount(0);
             }
-            amort_result->clear();
+            if (amort_result) {
+                amort_result->clear();
+            }
         };
 
         connect(btn_clear_inputs, &QPushButton::clicked, this, clear_inputs);
@@ -194,28 +178,7 @@ void FinancialCalculatorApp::create_amortization_tab() {
         connect(amort_system, QOverload<int>::of(&QComboBox::currentIndexChanged), this, toggle_carencia_fields);
         toggle_carencia_fields();
 
-        auto set_amort_orientation = [this](int index) {
-            Qt::Orientation orientation = (index == 0) ? Qt::Vertical : Qt::Horizontal;
-            amort_splitter->setOrientation(orientation);
-
-            QTimer::singleShot(0, this, [this, orientation]() {
-                QSize total_size = amort_splitter->size();
-                if (orientation == Qt::Horizontal) {
-                    int width = std::max(total_size.width(), 2);
-                    int half = width / 2;
-                    amort_splitter->setSizes({half, width - half});
-                } else {
-                    int height = std::max(total_size.height(), 2);
-                    int half = height / 2;
-                    amort_splitter->setSizes({half, height - half});
-                }
-            });
-        };
-
-        connect(amort_layout_mode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, set_amort_orientation);
-        set_amort_orientation(amort_layout_mode->currentIndex());
-
-        right_layout->addWidget(amort_splitter, 1);
+        right_layout->addWidget(amort_result, 1);
     } catch (const std::exception& e) {
         LogManager::error(QString("Erro ao criar aba de amortização: %1").arg(e.what()), true);
         throw;

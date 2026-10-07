@@ -1,6 +1,6 @@
 Política de Privacidade — Economia APP
-Última atualização: 30 de setembro de 2026
-Versão: 2026.9.30.0
+Última atualização: 7 de outubro de 2026
+Versão: 2026.10.7.0
 
 Sumário
 Esta Política descreve como o Economia APP ("Aplicativo") trata, armazena e protege dados do usuário. O Aplicativo foi projetado para operar localmente e, por padrão, não envia telemetria ou dados do usuário a servidores externos.

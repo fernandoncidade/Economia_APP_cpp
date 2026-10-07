@@ -217,7 +217,7 @@ void SobreDialog::retranslate_ui(const QString& codigo_idioma) {
 
         QString cabecalho_fixo = QString(
             "<h3>ECONOMIA APP</h3>"
-            "<p><b>%1:</b> 2026.9.30.0</p>"
+            "<p><b>%1:</b> 2026.10.7.0</p>"
             "<p><b>%2:</b> Fernando Nillsson Cidade</p>"
             "<p><b>%3:</b> %4</p>"
         ).arg(tr_str("version", QStringLiteral("Versão"), QStringLiteral("Version")),

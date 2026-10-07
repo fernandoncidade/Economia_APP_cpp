@@ -1,5 +1,5 @@
 Projeto: Economia APP - Calculadora Financeira
-Versão: 2026.9.30.0
+Versão: 2026.10.7.0
 Autores: Fernando Nillsson Cidade
 
 Descrição resumida:

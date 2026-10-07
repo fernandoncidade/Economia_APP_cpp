@@ -45,6 +45,7 @@ private:
     QString m_dir_traducoes;
     QMap<QString, QString> m_idiomas_disponiveis;
     std::unique_ptr<QTranslator> m_tradutor;
+    std::unique_ptr<QTranslator> m_tradutor_qt;
 
     static QList<QPair<QString, QString>> s_pt_to_en;
     static QList<QPair<QString, QString>> s_en_to_pt;

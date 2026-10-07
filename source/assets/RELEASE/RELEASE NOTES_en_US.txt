@@ -1,3 +1,37 @@
+RELEASE NOTES: Version 2026.10.7.0
+Date: October 7, 2026
+
+RELEASE SUMMARY
+Version 2026.10.7.0 delivers major enhancements to visualization, workspace management, and document reporting across Economia APP. Key improvements include independent result cards with vertical scrolling across all analytical modules, full amortization schedule tables generated and linked directly to each calculation in history, secure and complete session purging with an interactive confirmation dialog, intelligent bilingual PDF export in both English and Portuguese, and real-time translation for all system dialog buttons.
+
+HIGHLIGHTS OF NEW FEATURES AND IMPROVEMENTS
+
+1. Independent Result Cards with Original Dimensions and Vertical Scrolling
+- Spacious and Uncompressed Display: Every time a new calculation is performed, the outcome is presented in a dedicated card that preserves its full original dimensions, preventing new calculations from shrinking or squeezing previous results on the screen.
+- Smooth Vertical Scroll Navigation: A vertical scrollbar has been introduced in the results area across all analytical modules ("Simple and Compound Interest", "Annuities", "Gradients", "Rate Conversions", "Amortization", "Investment Appraisal", "Depreciation", "Effective Rate / IRR / Global Rate", "Minimum Return (MARR)", "Fisher Equation", "NPV with Taxes", and "EAC - Economic Life"). Users can now comfortably scroll up and down to inspect multiple sequential calculations and scenarios.
+
+2. Dynamic Loan Amortization Schedules Linked Directly to Each Calculation Card
+- Dedicated In-Card Schedule Tables: In the "Amortization" module, each new calculation now automatically generates a complete schedule table with installment payments, interest, amortization, and outstanding balances linked directly inside its respective card in the history panel.
+- Effortless Scenario Comparison: Matching the workflow established in "EAC - Economic Life", users can run multiple financing simulations with different interest rates or terms and inspect the schedule table for each loan side by side within the same session.
+- Cleaner Interface Layout: The squished table element previously located in the upper-left corner of the amortization tab has been removed, providing a clean, spacious, and modern interface.
+
+3. Full Session Purge and Workspace Management with Confirmation Dialog
+- Safe Reset via "File > Clear Saved Session": A dedicated option is available in the top menu to clear the workspace whenever users wish to begin a new analysis from scratch.
+- Interactive Confirmation Dialog: When selecting this action, a confirmation prompt asks whether the user wants to proceed, presenting localized "Yes" and "No" buttons.
+- Comprehensive Purge Across All Tabs: Upon confirmation, all calculation cards, analytical answers, and schedule tables across all modules are wiped simultaneously, covering both live session calculations and those restored from a previous run.
+- Disk Cleanup and Success Notification: The saved session file on the computer is securely removed and a notification confirms that the saved session was cleared successfully.
+
+4. Real-Time Dynamic Translation for Dialog Buttons
+- Complete Locale Consistency: System dialogs and prompt boxes (such as the "Restore Session" and "Clear Session" prompts) now display their action buttons in the user's active language.
+- Dynamic Switching: When the application language is set to English (United States), buttons display "Yes" and "No"; when set to Portuguese (Brazil), they show "Sim" and "Não", updating immediately without requiring an application restart.
+
+5. Intelligent Bilingual PDF Export in Active Language
+- Localized Default Filenames and Document Headers: Using "File > Export Current" or "File > Export All" automatically adjusts default filename suggestions and report titles according to the active language (for instance, suggesting "amortization.pdf" in English or "amortizacao.pdf" in Portuguese).
+- Polished, Publication-Ready Documents: Exported PDF documents feature clean page layouts, aligned tables, and standardized headings, ideal for presentations, audits, and professional financial documentation.
+
+______________________________
+
+
 RELEASE NOTES: Version 2026.9.30.0
 Date: September 30, 2026
 

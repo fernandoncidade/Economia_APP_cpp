@@ -1013,5 +1013,21 @@
     <message><source>VP(Custos)</source><translation>PV(Costs)</translation></message>
     <message><source>VP(Revenda)</source><translation>PV(Salvage)</translation></message>
     <message><source>VRₙ (R$)</source><translation>SVₙ ($)</translation></message>
-</context>
+    <!-- Gerenciamento de Sessão e Exportação -->
+    <message><source>Restaurar Sessão</source><translation>Restore Session</translation></message>
+    <message><source>Limpar Sessão</source><translation>Clear Session</translation></message>
+    <message><source>Restaurar Sessão Anterior</source><translation>Restore Previous Session</translation></message>
+    <message><source>Limpar Sessão Salva</source><translation>Clear Saved Session</translation></message>
+    <message><source>Os resultados da sessão anterior foram carregados. Deseja manter estes resultados?</source><translation>The results from the previous session were loaded. Would you like to keep these results?</translation></message>
+    <message><source>Nenhuma sessão anterior encontrada para restaurar.</source><translation>No previous session found to restore.</translation></message>
+    <message><source>Sessão anterior restaurada com sucesso.</source><translation>Previous session restored successfully.</translation></message>
+    <message><source>Sessão salva limpa com sucesso.</source><translation>Saved session cleared successfully.</translation></message>
+    <message><source>Arquivos PDF (*.pdf)</source><translation>PDF Files (*.pdf)</translation></message>
+    <message><source>Conversão de Taxas (Equivalência)</source><translation>Rate Conversion (Equivalence)</translation></message>
+    <message><source>Conversão de Taxas (Taxa Real / Aparente)</source><translation>Rate Conversion (Real / Nominal Rate)</translation></message>
+    <message><source>Deseja realmente limpar a sessão salva e todos os resultados?</source><translation>Are you sure you want to clear the saved session and all results?</translation></message>
+    <message><source>Sim</source><translation>Yes</translation></message>
+    <message><source>Não</source><translation>No</translation></message>
+    <message><source>Fechar</source><translation>Close</translation></message>
+  </context>
 </TS>

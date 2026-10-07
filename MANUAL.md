@@ -1,7 +1,7 @@
 # MANUAL - Economia_APP
 
-Versão documentada: `2026.9.30.0`
-Data: `30 de setembro de 2026`
+Versão documentada: `2026.10.7.0`
+Data: `7 de outubro de 2026`
 
 <p align="center">
   <b>Selecione o idioma / Select language:</b><br>
@@ -96,6 +96,38 @@ A janela **Sobre** do Economia_APP oferece documentação institucional completa
   - Navega sequencialmente entre ocorrências usando os botões de seta anterior/próximo, ou via tecla **`Enter`** (próximo) e **`Shift+Enter`** (anterior).
   - Transita de forma inteligente entre abas caso o termo pesquisado conste em outra seção.
 - **Tradução Dinâmica em Tempo Real**: Altera instantaneamente todos os cabeçalhos, textos dos documentos, abas e controles de busca ao alternar o idioma do sistema em tempo de execução sem fechar a janela.
+
+### 2.7. Navegação por Rolagem Vertical e Quadros de Resultados Independentes
+O sistema de saída de resultados em todas as 12 modalidades e 13 abas de cálculo opera com cartões independentes e dimensionalmente estáveis:
+- **Preservação de Dimensões Originais**: Cada novo cálculo executado gera um quadro (cartão) exclusivo contendo os parâmetros, desenvolvimento analítico, deduções matemáticas e respostas. Ao contrário de interfaces que empilham e espremem saídas sucessivas, cada cartão retém integralmente sua altura e largura originais.
+- **Barra de Rolagem Vertical Dinâmica**: Uma barra de rolagem vertical suave permite navegar com fluidez entre múltiplos cálculos acumulados, sem perda de visibilidade e sem sobreposição de informações.
+- **Seleção Individual por Checkbox**: Cada cartão dispõe de uma caixa de seleção individual para operações em lote ou pontuais (edição inline, exclusão individual ou limpeza direcionada).
+- **Tradução Instantânea Preservada**: Ao alternar o idioma do programa, todos os cartões já existentes na tela são retraduzidos dinamicamente no mesmo milissegundo, preservando integralmente o histórico de simulações.
+
+### 2.8. Módulo de Amortização com Tabelas Dinâmicas Integradas no Histórico
+A aba "Amortização" foi aprimorada para seguir o mesmo modelo robusto e escalável da aba "CAUE - Vida Econômica":
+- **Tabelas Anexadas ao Cartão**: Cada cálculo de amortização (PRICE, SAC, SAM, Pagamento Único Americano ou Sistema Hamburguês) gera seu próprio cronograma completo em uma tabela dedicada embutida diretamente no seu cartão de resultado.
+- **Histórico Comparativo Completo**: É possível realizar múltiplas simulações sucessivas (por exemplo, comparar SAC vs. PRICE com diferentes taxas) mantendo todas as tabelas completas visíveis e navegáveis pela barra de rolagem vertical.
+- **Layout Limpo e Sem Elementos Órfãos**: Foram eliminados quaisquer widgets comprimidos ou divisores estáticos residuais no canto superior da aba, garantindo uma área de trabalho limpa, focada e esteticamente agradável.
+
+### 2.9. Gerenciamento e Limpeza Completa de Sessão ("Arquivos → Limpar Sessão Salva")
+O gerenciamento de sessões permite controle total sobre a memória de trabalho do software:
+- **Janela de Confirmação Interativa**: Ao clicar no menu superior **Arquivos → Limpar Sessão Salva**, o sistema abre uma janela de diálogo intitulada **"Limpar Sessão"** solicitando a confirmação do usuário com botões **"Sim"** e **"Não"** (ou **"Yes"** e **"No"** se o idioma estiver em inglês).
+- **Limpeza Abrangente de Todas as Abas**: Ao selecionar **"Sim"**, o aplicativo limpa instantaneamente todos os resultados, quadros analíticos e tabelas geradas em todas as 12 abas e métodos (*Juros Simples e Compostos, Anuidades, Gradientes, Conversão de Taxas - Equivalência e Taxa Real, Amortização, Análise de Investimentos, Depreciação, Taxa Efetiva / TIR / Taxa Global, Retorno Mínimo TMA, Equação de Fisher, VPL com Tributos e CAUE - Vida Econômica*), tanto para cálculos realizados ao vivo quanto para dados previamente restaurados de sessões anteriores.
+- **Exclusão Segura no Disco e Confirmação de Sucesso**: O arquivo de persistência em disco (`session_calculations.json`) é removido de forma segura, e o aplicativo emite uma nova janela informativa confirmando: **"Limpar Sessão: Sessão salva limpa com sucesso."**.
+- **Cancelamento Seguro**: Caso o usuário selecione **"Não"**, nenhuma informação ou registro é excluído, e nenhuma janela subsequente é emitida.
+
+### 2.10. Exportação em PDF Bilíngue Dinâmica ("Exportar Atual" e "Exportar Todos")
+A exportação de documentos executivos para PDF adapta-se de forma inteligente ao contexto do usuário:
+- **Arquivos → Exportar Atual**: Gera o documento em PDF da aba ou cálculo ativo no momento. Quando o sistema está configurado em Português (Brasil), gera rótulos e arquivos nativos em português (ex.: `amortizacao.pdf`, `juros.pdf`, `anuidades.pdf`, `caue_vida_economica.pdf`). Quando configurado em English (United States), gera automaticamente com nomenclatura e títulos em inglês (ex.: `amortization.pdf`, `interest.pdf`, `annuities.pdf`, `euac_economic_life.pdf`).
+- **Arquivos → Exportar Todos**: Compila um dossiê executivo unificado contendo todas as abas calculadas, gerando `todos_os_calculos.pdf` em português ou `all_calculations.pdf` em inglês.
+- **Diagramação e Quebra de Página Inteligente**: Todas as tabelas (inclusive cronogramas extensos de amortização e tabelas de vida econômica do CAUE) são renderizadas com suporte a quebra de página contínua, cabeçalhos repetidos e formatação matemática impecável.
+
+### 2.11. Tradução Dinâmica de Janelas de Diálogo em Tempo Real
+Todas as caixas de diálogo do sistema (*Restaurar Sessão*, *Limpar Sessão*, avisos, erros e confirmações operacionais) adaptam dinamicamente seus botões de comando:
+- **Português (Brasil)**: Apresenta botões com textos claros em português: **"Sim"**, **"Não"**, **"OK"**, **"Cancelar"** e **"Fechar"**.
+- **English (United States)**: Apresenta automaticamente os botões correspondentes em inglês: **"Yes"**, **"No"**, **"OK"**, **"Cancel"** e **"Close"**.
+- **Tempo Real**: As alterações ocorrem instantaneamente assim que o idioma é modificado no menu de configurações, sem depender de reinicialização do executável.
 
 ---
 
@@ -301,6 +333,38 @@ The **About** dialog provides complete institutional documentation with ergonomi
   - Traversal with previous/next buttons, **`Enter`** (next), and **`Shift+Enter`** (previous).
   - Automatically transitions across tabs when matches exist in other sections.
 - **Dynamic Bilingual Retranslation**: Retranslates all headers, document texts, tabs, and search controls in real time upon language switch without closing the dialog.
+
+### 2.7. Independent Calculation Cards & Vertical Scroll Navigation
+The calculation output system across all 12 modules and 13 tabs operates with standalone, dimensionally stable cards:
+- **Preservation of Original Dimensions**: Each executed calculation produces a dedicated card containing user inputs, detailed mathematical steps, derivations, and final results. Rather than compressing successive outputs into a cramped layout, each card preserves its full original width and height.
+- **Smooth Vertical Scroll Navigation**: A responsive vertical scrollbar enables users to scroll smoothly through extensive calculation histories without visual distortion or overlapping.
+- **Individual Checkbox Selection**: Each card includes an individual checkbox for targeted actions (inline editing, selective removal, or bulk clearing).
+- **Instant Bilingual Re-translation**: Switching languages re-translates all historical cards instantaneously on the active screen, keeping simulation data intact.
+
+### 2.8. Loan Amortization with Dynamic In-Card Schedule Tables
+The "Amortization" tab has been upgraded to match the architecture of the "CAUE - Economic Life" module:
+- **Embedded Schedule Tables**: Every amortization calculation (PRICE, SAC, SAM, American Lump-Sum, or Hamburg System) generates its complete schedule table directly inside its own card in the history view.
+- **Side-by-Side Simulation Comparison**: Users can execute multiple successive scenarios (e.g., comparing SAC vs. PRICE under varied interest rates), retaining every full table simultaneously in the scrollable view.
+- **Clean Layout without Residual Artifacts**: All squished or orphan preview widgets in the upper-left corner of the tab have been eliminated, providing a clean, professional workspace.
+
+### 2.9. Full Session Management & "File → Clear Saved Session"
+Session management provides complete control over application memory and persistent disk state:
+- **Interactive Confirmation Dialog**: Selecting **File → Clear Saved Session** opens a confirmation dialog titled **"Clear Session"** prompting the user with **"Yes"** and **"No"** buttons (or **"Sim"** and **"Não"** in Portuguese).
+- **Comprehensive Purge Across All Tabs**: Selecting **"Yes"** immediately purges all calculation cards, results, and generated tables across all 12 modules and tabs (*Simple & Compound Interest, Annuities, Gradients, Rate Conversions - Equivalence & Real Rates, Amortization, Investment Analysis, Depreciation, Effective Rate / IRR / Global Rate, Minimum Attractive Rate MARR, Fisher Equation, NPV with Taxes, and CAUE - Economic Life*), whether from live computations or loaded sessions.
+- **Safe Disk Removal & Success Confirmation**: The persistent file (`session_calculations.json`) is safely removed from disk, and the software issues a confirmation message: **"Clear Session: Saved session cleared successfully."**.
+- **Safe Cancellation**: Clicking **"No"** leaves all data untouched and closes the prompt without performing changes.
+
+### 2.10. Dynamic Bilingual PDF Report Export ("Export Current" & "Export All")
+Executive PDF reporting dynamically reflects the user's active localization settings:
+- **File → Export Current**: Produces a PDF report for the active tab. When configured in US English, filenames, titles, and headers are generated in English (e.g., `amortization.pdf`, `interest.pdf`, `annuities.pdf`, `euac_economic_life.pdf`). When in Brazilian Portuguese, filenames and headers default to Portuguese (e.g., `amortizacao.pdf`, `juros.pdf`, `anuidades.pdf`, `caue_vida_economica.pdf`).
+- **File → Export All**: Combines all computed tabs and schedules into an executive multi-page dossier, saved as `all_calculations.pdf` in English or `todos_os_calculos.pdf` in Portuguese.
+- **Intelligent Page Breaks & Tabular Alignment**: Extensive schedules (such as long amortization plans and multi-year CAUE asset lifecycles) wrap seamlessly across pages with repeated table headers and crisp vector formatting.
+
+### 2.11. Real-Time Dialog Button Localization
+All dialog windows throughout the application (*Restore Session*, *Clear Session*, prompts, error messages, and operational alerts) translate command buttons dynamically:
+- **US English**: Renders standard buttons as **"Yes"**, **"No"**, **"OK"**, **"Cancel"**, and **"Close"**.
+- **Brazilian Portuguese**: Renders standard buttons as **"Sim"**, **"Não"**, **"OK"**, **"Cancelar"**, and **"Fechar"**.
+- **Real Time**: Button labels update instantly upon changing language options in the settings menu without restarting the app.
 
 ---
 

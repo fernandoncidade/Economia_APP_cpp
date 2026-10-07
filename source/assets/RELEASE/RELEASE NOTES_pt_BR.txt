@@ -1,3 +1,37 @@
+NOTAS DE LANÇAMENTO: Versão 2026.10.7.0
+Data: 7 de outubro de 2026
+
+RESUMO DO LANÇAMENTO
+A versão 2026.10.7.0 aprimora significativamente a experiência de visualização, organização e exportação do Economia APP. Foram introduzidos quadros independentes com barra de rolagem vertical para todos os cálculos, geração de tabelas completas de financiamento vinculadas a cada simulação no histórico, limpeza total e segura da sessão de trabalho com confirmação interativa, exportação inteligente de relatórios em PDF nos idiomas português e inglês, e tradução imediata dos botões de todas as caixas de diálogo do sistema.
+
+DESTAQUES DAS NOVAS FUNCIONALIDADES E MELHORIAS
+
+1. Quadros de Resultados com Tamanho Original e Barra de Rolagem Vertical
+- Visualização Confortável e sem Compressão: Cada vez que uma nova operação financeira é realizada, o resultado é apresentado em um quadro próprio que mantém integralmente suas dimensões originais, sem que novos cálculos disputem espaço ou esmaguem as informações anteriores na tela.
+- Navegação Fluida por Rolagem: Uma barra de rolagem vertical foi adicionada à área de resultados de todos os módulos analíticos do aplicativo ("Juros Simples e Composto", "Anuidades", "Gradientes", "Conversão de Taxas", "Amortização", "Análise de Investimentos", "Depreciação", "Taxa Efetiva / TIR / Taxa Global", "Retorno Mínimo (TMA)", "Equação de Fischer", "VPL com Tributos" e "CAUE - Vida Econômica"). Agora, o usuário pode navegar livremente entre diversos cenários e conferir todos os cálculos rolando a página com facilidade.
+
+2. Cronogramas de Amortização Integrados a Cada Cálculo no Histórico
+- Tabelas Individuais para Cada Financiamento: No módulo de "Amortização", cada novo cálculo agora gera automaticamente uma tabela analítica completa com o cronograma detalhado de prestações, juros, amortização e saldo devedor, associando-a diretamente ao seu respectivo quadro de resultado.
+- Comparação Dinâmica de Cenários: Da mesma forma como já funcionava no módulo "CAUE - Vida Econômica", o usuário pode realizar múltiplos cálculos consecutivos com diferentes prazos ou taxas e consultar a tabela de cada um deles individualmente dentro da mesma sessão de trabalho.
+- Interface Mais Limpa: O elemento de tabela que ficava comprimido no canto superior esquerdo da tela de amortização foi removido, tornando a visualização mais agradável, ampla e intuitiva.
+
+3. Gerenciamento e Limpeza Completa de Sessão com Confirmação
+- Limpeza Segura em "Arquivos > Limpar Sessão Salva": Foi disponibilizada uma opção dedicada no menu superior para reiniciar e zerar a área de trabalho quando o usuário desejar iniciar um novo projeto.
+- Janela de Confirmação com Escolha Dinâmica: Ao selecionar a limpeza da sessão, uma janela pergunta com clareza se o usuário deseja prosseguir, oferecendo os botões "Sim" e "Não".
+- Limpeza Total de Todos os Módulos: Ao confirmar, todos os quadros de resultados, respostas analíticas e tabelas de todos os módulos são apagados simultaneamente, tanto para cálculos realizados ao vivo durante a sessão quanto para cálculos restaurados de sessões anteriores.
+- Remoção do Registro Salvo com Aviso de Sucesso: O arquivo gravado da sessão anterior é excluído com segurança e uma mensagem informativa confirma que a sessão salva foi limpa com sucesso.
+
+4. Tradução em Tempo Real dos Botões das Janelas de Diálogo
+- Conformidade Completa de Idioma: As janelas de mensagem e caixas de pergunta (como a janela de "Restaurar Sessão" e a de "Limpar Sessão") agora apresentam seus botões de escolha no idioma selecionado pelo usuário.
+- Alternância Dinâmica: Quando o aplicativo estiver em Português (Brasil), os botões exibem "Sim" e "Não"; quando estiver em English (United States), exibem "Yes" e "No", atualizando-se instantaneamente sempre que o idioma do sistema for alterado.
+
+5. Exportação Inteligente de Relatórios em PDF nos Dois Idiomas
+- Nomes de Arquivo e Cabeçalhos Adequados ao Idioma: Ao utilizar as opções "Arquivos > Exportar Atual" ou "Arquivos > Exportar Todos", o documento em PDF é gerado com os nomes sugeridos de arquivo e os termos do relatório no idioma configurado no aplicativo (em português para o Português e em inglês para o Inglês, por exemplo sugerindo "amortizacao.pdf" ou "amortization.pdf").
+- Relatórios Claros e Padronizados: Os relatórios impressos e exportados mantêm organização rigorosa, permitindo documentar simulações financeiras com acabamento profissional para apresentações e relatórios técnicos.
+
+______________________________
+
+
 NOTAS DE LANÇAMENTO: Versão 2026.9.30.0
 Data: 30 de setembro de 2026
 

@@ -6,8 +6,45 @@
 #include <cmath>
 #include <QCoreApplication>
 #include <QTableWidgetItem>
+#include <QTableWidget>
+#include <QHeaderView>
 #include <QString>
 #include <QStringList>
+
+static QTableWidget* create_amortization_schedule_table(QTableWidget* src_table, int n) {
+    if (!src_table) return nullptr;
+    auto* tw = new QTableWidget();
+    tw->setColumnCount(5);
+    QStringList header_keys = {
+        "Período (k)",
+        "Prestação",
+        "Juros",
+        "Amortização",
+        "Saldo Devedor"
+    };
+    for (int c = 0; c < 5; ++c) {
+        auto* hi = new QTableWidgetItem(QCoreApplication::translate("App", header_keys[c].toUtf8().constData()));
+        hi->setData(Qt::UserRole, header_keys[c]);
+        tw->setHorizontalHeaderItem(c, hi);
+        if (tw->horizontalHeader()) {
+            tw->horizontalHeader()->setSectionResizeMode(c, QHeaderView::ResizeMode::Stretch);
+        }
+    }
+    int rows = n + 1;
+    tw->setRowCount(rows);
+    for (int r = 0; r < rows; ++r) {
+        for (int c = 0; c < 5; ++c) {
+            auto* src_item = src_table->item(r, c);
+            QString txt = src_item ? src_item->text() : "";
+            auto* item = new QTableWidgetItem(txt);
+            item->setFlags(item->flags() & ~Qt::ItemFlag::ItemIsEditable);
+            tw->setItem(r, c, item);
+        }
+    }
+    int table_h = std::min(350, std::max(120, (rows + 1) * 26 + 30));
+    tw->setFixedHeight(table_h);
+    return tw;
+}
 
 void calculate_amortization(FinancialCalculatorApp* app) {
     if (app) {
@@ -91,10 +128,11 @@ void FinancialCalculatorApp::calculate_amortization() {
             steps << QCoreApplication::translate("App", "Tabela completa gerada abaixo") + "\n";
             steps << QString(60, QChar(0x2500)) + "\n";
 
-            if (amort_result) {
-                amort_result->append(steps.join(""));
-            }
             generate_sac_table(p, i, n);
+            QTableWidget* tw = create_amortization_schedule_table(amort_table, n);
+            if (amort_result) {
+                amort_result->append(steps.join(""), tw);
+            }
 
         } else if (system_index == 0) { // Sistema Francês (Price)
             steps << QString(60, QChar(0x2550)) + "\n";
@@ -165,10 +203,11 @@ void FinancialCalculatorApp::calculate_amortization() {
             steps << QCoreApplication::translate("App", "Tabela completa gerada abaixo") + "\n";
             steps << QString(60, QChar(0x2500)) + "\n";
 
-            if (amort_result) {
-                amort_result->append(steps.join(""));
-            }
             generate_price_table(p, i, n);
+            QTableWidget* tw = create_amortization_schedule_table(amort_table, n);
+            if (amort_result) {
+                amort_result->append(steps.join(""), tw);
+            }
 
         } else if (system_index == 2) { // SAM
             steps << QString(60, QChar(0x2550)) + "\n";
@@ -253,10 +292,11 @@ void FinancialCalculatorApp::calculate_amortization() {
             steps << QCoreApplication::translate("App", "Tabela completa gerada abaixo") + "\n";
             steps << QString(60, QChar(0x2500)) + "\n";
 
-            if (amort_result) {
-                amort_result->append(steps.join(""));
-            }
             generate_sam_table(p, i, n);
+            QTableWidget* tw = create_amortization_schedule_table(amort_table, n);
+            if (amort_result) {
+                amort_result->append(steps.join(""), tw);
+            }
 
         } else if (system_index == 3) { // Sistema Americano
             steps << QString(60, QChar(0x2550)) + "\n";
@@ -314,10 +354,11 @@ void FinancialCalculatorApp::calculate_amortization() {
             steps << QCoreApplication::translate("App", "Tabela completa gerada abaixo") + "\n";
             steps << QString(60, QChar(0x2500)) + "\n";
 
-            if (amort_result) {
-                amort_result->append(steps.join(""));
-            }
             generate_american_table(p, i, n);
+            QTableWidget* tw = create_amortization_schedule_table(amort_table, n);
+            if (amort_result) {
+                amort_result->append(steps.join(""), tw);
+            }
 
         } else if (system_index == 4) { // Sistema Hamburguês
             QString carencia_text = amort_carencia ? amort_carencia->text().trimmed() : QString();
@@ -437,10 +478,11 @@ void FinancialCalculatorApp::calculate_amortization() {
             steps << QCoreApplication::translate("App", "Tabela completa gerada abaixo") + "\n";
             steps << QString(60, QChar(0x2500)) + "\n";
 
-            if (amort_result) {
-                amort_result->append(steps.join(""));
-            }
             generate_hamburgues_table(p, i, n, carencia, capitalizar);
+            QTableWidget* tw = create_amortization_schedule_table(amort_table, n);
+            if (amort_result) {
+                amort_result->append(steps.join(""), tw);
+            }
         }
 
     } catch (const std::exception& e) {
