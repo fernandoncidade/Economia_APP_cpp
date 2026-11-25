@@ -1,0 +1,14 @@
+/.vscode/
+/.vscode
+/build/
+/build
+/cmake/
+/cmake
+/library/
+/library
+
+/teste.cpp
+/CMakePresets.json
+/mocks/INSTRUCOES_find_VersionEditor.txt
+/mocks/launch_detached_gui.cmake
+/mocks/limpar_build_qt6_regeneravel.ps1

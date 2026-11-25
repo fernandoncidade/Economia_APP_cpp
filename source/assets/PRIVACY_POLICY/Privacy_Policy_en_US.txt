@@ -1,0 +1,23 @@
+Privacy Policy — Economia APP
+Last updated: November 22, 2026
+Version: 2026.11.22.0
+
+Summary
+This Policy describes how Economia APP ("the Application", natively implemented in C++23 with Qt 6.12.0) handles data on the user's device. The Application operates 100% offline and does not collect or transmit personal data, financial calculations, or telemetry to external servers.
+
+1. Scope and Principles
+- Local-only operation: all numeric inputs, result cards, saved sessions, and exported PDF reports remain solely on the user's machine.
+- Zero telemetry: the Application performs no background network requests or analytics tracking.
+
+2. Locally Stored Data (%LOCALAPPDATA%\Economia_APP)
+- session.json: optional tab/history state managed locally by SessionManager.
+- font_config.json and active language settings (pt_BR / en_US).
+- Local diagnostic log files written by LogManager.
+- Exported PDF files are written solely to the path explicitly selected by the user.
+
+3. User Control and Deletion (LGPD)
+- Users may edit, reset via "File > Clear Saved Session", or delete %LOCALAPPDATA%\Economia_APP directly at any time.
+
+4. Privacy Contact
+- Author / Controller: Fernando Nillsson Cidade
+- E-mail: fernando@nillsson.com.br / linceu_lighthouse@outlook.com

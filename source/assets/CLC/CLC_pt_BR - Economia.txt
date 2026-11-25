@@ -1,0 +1,32 @@
+CONTRATO DE LICENÇA COMERCIAL — ECONOMIA APP
+Versão: 2026.11.22.0
+Data: 22 de novembro de 2026
+
+Este Contrato de Licença Comercial ("Contrato" / CLC) é celebrado entre:
+
+LICENCIANTE: Fernando Nillsson Cidade, doravante denominado "LICENCIANTE".
+LICENCIADA: a pessoa física ou jurídica que adquire licença comercial ou distribuição oficial via Microsoft Store (ID 9PLR0KD6KSJJ) do software "Economia APP", doravante denominada "LICENCIADA".
+
+PREÂMBULO
+Este instrumento integra o modelo de duplo licenciamento do Economia APP:
+1) O código-fonte público aberto neste repositório é regido exclusivamente pela GNU Affero General Public License v3.0 (GNU AGPLv3, arquivo LICENSE);
+2) A versão oficial pré-compilada publicada na Microsoft Store (https://apps.microsoft.com/detail/9PLR0KD6KSJJ) e as eventuais licenças comerciais contratadas diretamente são regidas pelo EULA (source/assets/EULA/EULA_pt_BR - Economia.txt) e pelo presente Contrato de Licença Comercial (CLC).
+
+1. OBJETO
+1.1 Concessão de licença de uso do pacote binário oficial do software Economia APP (C++23 / Qt 6.12.0) conforme a modalidade adquirida.
+1.2 O uso é destinado exclusivamente como ferramenta auxiliar de cálculo e estudo em Engenharia Econômica e Matemática Financeira.
+
+2. MODALIDADES E CONDIÇÕES DA DISTRIBUIÇÃO OFICIAL
+2.1 Distribuição Oficial Microsoft Store (9PLR0KD6KSJJ): regida pelos Termos de Licença Padrão da Microsoft Store combinados ao EULA/CLC do LICENCIANTE.
+2.2 Licenciamento Comercial Direto / Corporativo (quando contratado por escrito): escopo de estações, atualizações e SLA definidos em proposta específica.
+
+3. DADOS E PRIVACIDADE
+3.1 O software opera de forma 100% offline, armazenando sessões e preferências localmente em %LOCALAPPDATA%\Economia_APP sem envio de telemetria.
+
+4. COMPONENTES DE TERCEIROS
+4.1 O aplicativo utiliza Qt 6.12.0 (LGPLv3 / documentação oficial em source/assets/NOTICES/NOTICE_pt_BR.txt) compilado nativamente em MSVC x64 ou MinGW x64.
+
+5. LIMITAÇÃO DE RESPONSABILIDADE ("NO ESTADO EM QUE SE ENCONTRA" / "AS IS")
+5.1 O software é fornecido "NO ESTADO EM QUE SE ENCONTRA" ("AS IS"), sem garantias expressas ou implícitas de adequação comercial ou substituição de parecer profissional contábil/econômico certificado.
+
+Contato: fernando@nillsson.com.br

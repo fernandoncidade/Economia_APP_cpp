@@ -1,0 +1,19 @@
+COPYRIGHT AND TRADEMARK NOTICE — Economia APP
+Version 2026.11.22.0, November 22, 2026
+======================================
+
+Copyright (C) 2025–2026 Fernando Nillsson Cidade. All rights reserved.
+
+The software "Economia APP" and its associated documentation — including C++23 source code, Qt 6.12.0 graphical interface, vector rendering engine, manuals, branding assets (icons and logos under source/assets/), and technical documentation — are the intellectual property of Fernando Nillsson Cidade, except where indicated for third-party components.
+
+Dual Licensing
+- The public source code in this repository is licensed under the GNU Affero General Public License v3.0 (GNU AGPLv3, LICENSE).
+- The official packaged release distributed via Microsoft Store (https://apps.microsoft.com/detail/9PLR0KD6KSJJ) is governed by the official EULA (source/assets/EULA/EULA_en_US - Economia.txt) and CLC (source/assets/CLC/CLC_en_US - Economia.txt).
+- Institutional notices and branding resources under source/assets/ remain aligned with official Store distribution and trademark integrity.
+
+Third-Party Components
+- Built with Qt 6.12.0 (Core, Gui, Widgets, PrintSupport) on native MSVC x64 and MinGW-w64 toolchains as detailed in source/assets/NOTICES/NOTICE_en_US.txt.
+
+Contact
+- Author: Fernando Nillsson Cidade
+- E-mail: fernando@nillsson.com.br

@@ -1,0 +1,27 @@
+Versão 2026.11.22.0, 22 de novembro de 2026
+
+Aviso de Softwares e Bibliotecas de Terceiros — Economia APP (C++23 / Qt 6.12.0)
+
+Este documento lista as bibliotecas, runtimes e ferramentas de terceiros utilizados na construção nativa em C++23 do Economia APP e suas respectivas referências de licenciamento.
+
+Principais dependências nativas:
+1. Qt 6.12.0 (Qt6Core, Qt6Gui, Qt6Widgets, Qt6PrintSupport; além de Qt6Test exclusivamente na suíte de testes interna)
+   - Licença: GNU Lesser General Public License (LGPL) v3 / Qt Open Source Licensing
+   - Documentação oficial: https://doc.qt.io/qt-6/
+   - Plugins distribuídos sob demanda: platforms/qwindows.dll, styles/qmodernwindowsstyle.dll, imageformats/qico.dll (e platforms/qoffscreen.dll apenas na suíte de testes local).
+
+2. Cadeias de Compilação e Runtime Windows x64 suportadas:
+   - MSVC puro: Visual Studio 18 2026 MSBuild (toolset v145, Windows SDK 10.0.28000.0) com app-local deployment das DLLs necessárias do Visual C++ Runtime (vcruntime140.dll, vcruntime140_1.dll, msvcp140.dll, msvcp140_1.dll, msvcp140_2.dll).
+   - MinGW-w64: GCC 15.1.0 C++23 com runtime nativo isolado (libgcc_s_seh-1.dll, libstdc++-6.dll, libwinpthread-1.dll).
+
+3. Empacotamento e Instaladores:
+   - Inno Setup 7 (https://jrsoftware.org/isinfo.php) utilizado na geração de instaladores limpos por toolchain (sem embutimento redundante de vc_redist.x64.exe).
+
+Licenciamento do Projeto:
+- Código-fonte público deste repositório sob GNU AGPLv3: https://www.gnu.org/licenses/agpl-3.0.html e arquivo LICENSE.
+- Distribuição oficial Microsoft Store (9PLR0KD6KSJJ): regida por EULA e CLC em source/assets/EULA/ e source/assets/CLC/.
+
+Privacidade e armazenamento local:
+- O aplicativo opera 100% offline, armazenando dados apenas em %LOCALAPPDATA%\Economia_APP.
+
+Contato: Fernando Nillsson Cidade — fernando@nillsson.com.br

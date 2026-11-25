@@ -1,0 +1,25 @@
+Projeto: Economia APP - Calculadora Financeira (C++23 / Qt 6.12.0)
+Versão: 2026.11.22.0
+Autores: Fernando Nillsson Cidade
+
+Descrição curta:
+Economia APP é uma aplicação desktop nativa em C++23 com Qt 6.12.0 de apoio ao estudo de Engenharia Econômica (disciplina TT007) e Matemática Financeira, reunindo 12 abas analíticas — juros simples e compostos, séries de pagamentos, gradientes, equivalência de taxas e taxa real, 5 sistemas de amortização (Price, SAC, SAM, Americano e Hamburguês), análise de investimentos (VPL, VAUE, Payback e Sensibilidade), depreciação (4 métodos), taxa efetiva / TIR / TIRm / taxa global, retorno mínimo, equação de Fisher, VPL com impostos e financiamento e CAUE (Vida Econômica) — com passo a passo detalhado, renderização vetorial nativa de fórmulas (MathRenderer) e exportação em PDF.
+
+Principais recursos:
+- 12 abas analíticas cobrindo toda a ementa de Engenharia Econômica com histórico independente em cartões editáveis.
+- Renderização vetorial nativa de frações, subíndices HTML/Unicode e radicais via QTextObjectInterface e QPainter (sem imagens raster estáticas).
+- Geração automática de tabelas de amortização vinculadas ao cartão do histórico, com exportação em PDF via Qt6 PrintSupport.
+- Persistência local de sessão, preferências tipográficas e logs em %LOCALAPPDATA%\Economia_APP (100% offline, sem telemetria).
+- Internacionalização dinâmica em tempo real (pt_BR e en_US).
+- Duplo licenciamento: código-fonte público sob GNU AGPLv3 (LICENSE) e distribuição oficial publicada na Microsoft Store (9PLR0KD6KSJJ) regida por EULA/CLC oficiais.
+- Aplicativo de caráter estritamente auxiliar/educacional, fornecido "NO ESTADO EM QUE SE ENCONTRA" ("AS IS").
+
+Requisitos e compilação (Windows x64):
+- Windows 10 ou Windows 11 (64 bits, x86_64) com Qt 6.12.0 (Widgets / Gui / Core / PrintSupport).
+- Cadeias suportadas: MSVC puro (Visual Studio 18 2026 MSBuild, toolset v145, SDK 10.0.28000.0) e MinGW-w64 (GCC 15.1.0, C++23).
+- Distribuição binária autocontida (app-local) sem dependência de instalação externa prévia.
+
+Contato e publicação oficial:
+- Autor: Fernando Nillsson Cidade
+- E-mail: fernando@nillsson.com.br
+- Microsoft Store: https://apps.microsoft.com/detail/9PLR0KD6KSJJ

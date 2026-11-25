@@ -1,0 +1,25 @@
+Project: Economia APP - Financial Calculator (C++23 / Qt 6.12.0)
+Version: 2026.11.22.0
+Authors: Fernando Nillsson Cidade
+
+Short description:
+Economia APP is a native C++23 desktop application built with Qt 6.12.0 designed to support studies in Engineering Economics (course TT007) and Financial Mathematics across 12 analytical tabs — simple and compound interest, annuities, gradients, rate equivalence and real rate, 5 amortization systems (Price, SAC, SAM, American, and Hamburgues), investment appraisal (NPV, EUAW, Discounted Payback, Sensitivity), depreciation (4 methods), effective rate / IRR / MIRR / global rate, minimum return, Fisher equation, after-tax NPV with financing, and EAC (Economic Life) — featuring step-by-step derivations, native vector math rendering (MathRenderer), and offline PDF export.
+
+Main features:
+- 12 analytical modules with independent editable calculation cards and full scrolling history.
+- Native vector math rendering for fractions, HTML/Unicode subscripts, and radicals via QTextObjectInterface and QPainter.
+- Dynamic amortization schedule tables linked inside each history card and publication-ready PDF export via Qt6 PrintSupport.
+- 100% offline local storage for sessions, typography config, and logs under %LOCALAPPDATA%\Economia_APP (zero telemetry).
+- Live bilingual translation switching (pt_BR / en_US).
+- Dual licensing: public source repository under GNU AGPLv3 (LICENSE) and official Microsoft Store release (9PLR0KD6KSJJ) under official EULA/CLC.
+- Provided for educational and analytical support strictly "AS IS".
+
+Requirements and build (Windows x64):
+- Windows 10 or Windows 11 (64-bit, x86_64) with Qt 6.12.0 (Widgets / Gui / Core / PrintSupport).
+- Supported toolchains: Pure MSVC (Visual Studio 18 2026 MSBuild, toolset v145, Windows SDK 10.0.28000.0) and MinGW-w64 (GCC 15.1.0, C++23).
+- Self-contained app-local Windows runtime deployment.
+
+Contact and official listing:
+- Author: Fernando Nillsson Cidade
+- E-mail: fernando@nillsson.com.br
+- Microsoft Store: https://apps.microsoft.com/detail/9PLR0KD6KSJJ

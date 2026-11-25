@@ -1,0 +1,19 @@
+AVISO DE COPYRIGHT E MARCA REGISTRADA — Economia APP
+Versão 2026.11.22.0, 22 de novembro de 2026
+======================================
+
+Copyright (C) 2025–2026 Fernando Nillsson Cidade. Todos os direitos reservados.
+
+O software "Economia APP" e toda a documentação associada — incluindo código-fonte C++23, interface gráfica Qt 6.12.0, renderização vetorial, manuais, ativos visuais (ícones e logotipos em source/assets/) e documentação técnica — são de propriedade intelectual de Fernando Nillsson Cidade, ressalvados os componentes de terceiros expressamente indicados.
+
+Duplo Licenciamento
+- O código-fonte público deste repositório é licenciado sob a GNU Affero General Public License v3.0 (GNU AGPLv3, arquivo LICENSE).
+- A distribuição oficial empacotada publicada na Microsoft Store (https://apps.microsoft.com/detail/9PLR0KD6KSJJ) é regida pelo EULA (source/assets/EULA/EULA_pt_BR - Economia.txt) e pelo CLC (source/assets/CLC/CLC_pt_BR - Economia.txt).
+- Os textos institucionais e ativos de marca em source/assets/ preservam plena autonomia editorial do autor quanto à marca "Economia APP" e à identificação do pacote oficial da loja.
+
+Componentes de Terceiros
+- O projeto utiliza o framework Qt 6.12.0 (Core, Gui, Widgets, PrintSupport) e compiladores nativos MSVC x64 / MinGW-w64 conforme detalhado em source/assets/NOTICES/NOTICE_pt_BR.txt.
+
+Contato
+- Autor: Fernando Nillsson Cidade
+- E-mail: fernando@nillsson.com.br

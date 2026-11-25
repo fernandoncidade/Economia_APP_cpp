@@ -1,0 +1,32 @@
+COMMERCIAL LICENSE AGREEMENT — ECONOMIA APP
+Version: 2026.11.22.0
+Date: November 22, 2026
+
+This Commercial License Agreement ("Agreement" / CLC) is entered into by:
+
+LICENSOR: Fernando Nillsson Cidade, hereinafter "LICENSOR".
+LICENSEE: the natural or legal person acquiring a commercial license or the official Microsoft Store release (ID 9PLR0KD6KSJJ) of "Economia APP", hereinafter "LICENSEE".
+
+PREAMBLE
+This Agreement forms part of the Economia APP dual-licensing model:
+1) The public source code in this repository is governed exclusively by the GNU Affero General Public License v3.0 (GNU AGPLv3, LICENSE);
+2) The official compiled package distributed via Microsoft Store (https://apps.microsoft.com/detail/9PLR0KD6KSJJ) and direct commercial licenses are governed by the official EULA (source/assets/EULA/EULA_en_US - Economia.txt) and this Commercial License Agreement (CLC).
+
+1. SUBJECT
+1.1 Grant of license to use the official compiled package of Economia APP (C++23 / Qt 6.12.0) in accordance with the acquired channel.
+1.2 Intended solely as an auxiliary computation and study aid for Engineering Economics and Financial Mathematics.
+
+2. LICENSING CHANNELS
+2.1 Official Microsoft Store Release (9PLR0KD6KSJJ): governed by Microsoft Store Standard Application License Terms alongside the LICENSOR's EULA/CLC.
+2.2 Direct Business / Enterprise Licensing (where expressly contracted in writing): workstation scope, updates, and SLA as stated in the executed addendum.
+
+3. DATA AND PRIVACY
+3.1 The software operates 100% offline, saving sessions and preferences locally under %LOCALAPPDATA%\Economia_APP without telemetry.
+
+4. THIRD-PARTY COMPONENTS
+4.1 Built using Qt 6.12.0 (see source/assets/NOTICES/NOTICE_en_US.txt) compiled natively on MSVC x64 or MinGW x64.
+
+5. DISCLAIMER AND LIMITATION OF LIABILITY ("AS IS")
+5.1 The software is provided "AS IS" without warranties of any kind and does not replace certified financial or engineering advice.
+
+Contact: fernando@nillsson.com.br

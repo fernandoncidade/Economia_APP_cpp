@@ -1,0 +1,29 @@
+END USER LICENSE AGREEMENT (EULA) — ECONOMIA APP
+Version 2026.11.22.0, November 22, 2026
+
+Copyright (c) 2025–2026 Fernando Nillsson Cidade. All rights reserved.
+
+By installing, copying, or using the official binary packages or distributed resources of Economia APP, you agree to be bound by the terms of this Agreement.
+
+1. DUAL LICENSING AND SCOPE
+   Economia APP operates under a formal dual-licensing model:
+   a) Public Source Repository (GNU AGPLv3): the C++23 / Qt 6.12.0 source code in this repository is licensed under the GNU Affero General Public License v3.0 (LICENSE and source/assets/LICENSES/GNU AFFERO GENERAL PUBLIC LICENSE Version3.txt).
+   b) Official Microsoft Store Release (9PLR0KD6KSJJ): official compiled binaries distributed through Microsoft Store (https://apps.microsoft.com/detail/9PLR0KD6KSJJ) are governed by this EULA, the Commercial License Agreement (CLC), and Microsoft Store Standard Application License Terms.
+
+2. SUBJECT AND AUXILIARY SCOPE
+   "Economia APP" is a native C++23 / Qt 6.12.0 desktop application designed strictly as an educational and analytical support aid for Engineering Economics and Financial Mathematics across 12 calculation tabs with vector math rendering, editable cards, and PDF export.
+
+3. LICENSE GRANT (OFFICIAL BINARY DISTRIBUTION)
+   The Licensor grants you a personal, non-exclusive, non-transferable license to install and run the official package obtained through Microsoft Store or authorized distribution channels on compatible Windows x64 systems.
+
+4. LOCAL STORAGE AND PRIVACY
+   - The application operates 100% offline with zero telemetry.
+   - Sessions (session.json), font preferences (font_config.json), language choice, and local diagnostic logs reside solely under %LOCALAPPDATA%\Economia_APP.
+
+5. THIRD-PARTY COMPONENTS
+   - Built with Qt 6.12.0 and native Windows x64 runtimes (MSVC or MinGW-w64) as documented in source/assets/NOTICES/NOTICE_en_US.txt.
+
+6. DISCLAIMER OF WARRANTIES ("AS IS")
+   - The software is provided "AS IS" without warranties of any kind. Outputs are provided for analytical and educational reference only and must not substitute certified professional financial or engineering judgment.
+
+Official contact: fernando@nillsson.com.br

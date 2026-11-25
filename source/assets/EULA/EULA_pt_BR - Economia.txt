@@ -1,0 +1,29 @@
+CONTRATO DE LICENÇA DE USUÁRIO FINAL (EULA) — ECONOMIA APP
+Versão 2026.11.22.0, 22 de novembro de 2026
+
+Copyright (c) 2025–2026 Fernando Nillsson Cidade. Todos os direitos reservados.
+
+Ao instalar, copiar ou utilizar os pacotes binários oficiais ou os recursos distribuídos do Economia APP, você concorda em ficar vinculado aos termos deste Contrato.
+
+1. DUPLO LICENCIAMENTO E ESCOPO
+   O Economia APP adota um modelo formal de duplo licenciamento:
+   a) Código-Fonte Público (GNU AGPLv3): o código-fonte deste repositório (C++23 / Qt 6.12.0) é licenciado sob a GNU Affero General Public License v3.0, conforme o arquivo LICENSE na raiz e source/assets/LICENSES/GNU AFFERO GENERAL PUBLIC LICENSE Version3.txt.
+   b) Distribuição Oficial da Microsoft Store (9PLR0KD6KSJJ): o pacote executável oficial publicado pelo autor na Microsoft Store (https://apps.microsoft.com/detail/9PLR0KD6KSJJ) é regido por este EULA, pelo Contrato de Licença Comercial (CLC) e pelos Termos de Licença Padrão da Microsoft Store.
+
+2. OBJETO E NATUREZA AUXILIAR
+   "Economia APP" é uma ferramenta desktop em C++23 / Qt 6.12.0 destinada exclusivamente ao apoio educacional e técnico em Engenharia Econômica e Matemática Financeira (12 módulos analíticos, renderização matemática vetorial, histórico em cartões e exportação PDF).
+
+3. CONCESSÃO DE LICENÇA DA DISTRIBUIÇÃO OFICIAL
+   O Licenciante concede ao Licenciado uma licença pessoal, não exclusiva e intransferível para instalar e executar a versão oficial obtida na Microsoft Store ou via distribuidor autorizado em ambiente Windows x64 compatível.
+
+4. ARMAZENAMENTO LOCAL E PRIVACIDADE
+   - O software opera de maneira 100% offline, sem coleta ou envio de telemetria.
+   - Sessões (session.json), configurações de fonte (font_config.json), idioma e logs locais são salvos exclusivamente em %LOCALAPPDATA%\Economia_APP.
+
+5. COMPONENTES DE TERCEIROS
+   - O aplicativo utiliza o framework Qt 6.12.0 e runtimes nativos (MSVC x64 ou MinGW-w64) detalhados em source/assets/NOTICES/NOTICE_pt_BR.txt.
+
+6. ISENÇÃO DE GARANTIAS ("NO ESTADO EM QUE SE ENCONTRA" / "AS IS")
+   - O software é fornecido "NO ESTADO EM QUE SE ENCONTRA" ("AS IS"), sem garantias expressas ou implícitas. Os resultados computacionais possuem caráter auxiliar e não substituem validação profissional contábil, financeira ou de engenharia certificada.
+
+Contato oficial: fernando@nillsson.com.br

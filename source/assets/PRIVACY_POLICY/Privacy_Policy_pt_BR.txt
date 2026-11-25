@@ -1,0 +1,23 @@
+Política de Privacidade — Economia APP
+Última atualização: 22 de novembro de 2026
+Versão: 2026.11.22.0
+
+Resumo
+Esta Política descreve como o Economia APP ("Aplicativo", implementado nativamente em C++23 com Qt 6.12.0) trata dados no dispositivo do usuário. O Aplicativo foi projetado para operação estritamente local (100% offline) e não envia telemetria, métricas de uso ou dados pessoais a servidores externos.
+
+1. Escopo e Princípios
+- Operação local: todos os parâmetros numéricos, históricos em cartões, sessões salvas e arquivos PDF exportados permanecem sob controle exclusivo do usuário no seu próprio dispositivo.
+- Zero rede / zero telemetria: não há conexões de rede automáticas, SDKs de rastreamento ou envio remoto em segundo plano.
+
+2. Dados Armazenados Localmente (%LOCALAPPDATA%\Economia_APP)
+- session.json: estado opcional das abas e cartões salvo pelo SessionManager mediante ação do usuário.
+- font_config.json e configurações de idioma (pt_BR / en_US): preferências visuais e linguísticas locais.
+- Arquivos de log locais (LogManager) gerados para diagnóstico técnico no computador do usuário.
+- Arquivos PDF gerados pela interface são gravados somente no caminho escolhido pelo usuário.
+
+3. Direitos do Titular (LGPD) e Exclusão
+- O usuário pode visualizar, editar, limpar pela opção "Arquivo > Limpar Sessão Salva" ou excluir manualmente quaisquer arquivos dentro de %LOCALAPPDATA%\Economia_APP a qualquer momento.
+
+4. Contato para Assuntos de Privacidade
+- Autor / Controlador: Fernando Nillsson Cidade
+- E-mail: fernando@nillsson.com.br / linceu_lighthouse@outlook.com

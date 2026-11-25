@@ -1,0 +1,27 @@
+Version 2026.11.22.0, November 22, 2026
+
+Third-Party Software Licenses and Attributions Notice — Economia APP (C++23 / Qt 6.12.0)
+
+This notice lists third-party frameworks, runtimes, and build tools used in the native C++23 build of Economia APP.
+
+Core native dependencies:
+1. Qt 6.12.0 (Qt6Core, Qt6Gui, Qt6Widgets, Qt6PrintSupport; plus Qt6Test exclusively within the internal test suite)
+   - License: GNU Lesser General Public License (LGPL) v3 / Qt Open Source Licensing
+   - Official docs: https://doc.qt.io/qt-6/
+   - Minimal deployed plugins: platforms/qwindows.dll, styles/qmodernwindowsstyle.dll, imageformats/qico.dll (plus platforms/qoffscreen.dll only inside local test-suite builds).
+
+2. Supported Windows x64 toolchains and isolated app-local runtimes:
+   - Pure MSVC: Visual Studio 18 2026 MSBuild x64 (toolset v145, Windows SDK 10.0.28000.0) with minimal app-local Visual C++ Runtime DLLs (vcruntime140.dll, vcruntime140_1.dll, msvcp140.dll, msvcp140_1.dll, msvcp140_2.dll).
+   - MinGW-w64: GCC 15.1.0 C++23 with isolated MinGW runtime DLLs (libgcc_s_seh-1.dll, libstdc++-6.dll, libwinpthread-1.dll).
+
+3. Installer Tooling:
+   - Inno Setup 7 (https://jrsoftware.org/isinfo.php) used to build clean toolchain-specific installers without redundant vc_redist.x64.exe payloads.
+
+Project Dual Licensing:
+- Public source repository under GNU AGPLv3: https://www.gnu.org/licenses/agpl-3.0.html and root LICENSE.
+- Official Microsoft Store release (9PLR0KD6KSJJ): governed by source/assets/EULA/ and source/assets/CLC/.
+
+Offline Privacy:
+- 100% offline execution; local data resides exclusively under %LOCALAPPDATA%\Economia_APP.
+
+Contact: Fernando Nillsson Cidade — fernando@nillsson.com.br
